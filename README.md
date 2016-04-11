@@ -13,6 +13,7 @@ If you are planning on using Sass, you will need to first install Ruby and Compa
 - Install the compass gem:
 ```
 gem install compass
+```
 
 To install the project run `bower install` and `npm install`
 
