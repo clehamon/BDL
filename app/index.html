@@ -13,8 +13,16 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
+
+    <!-- customized css -->
+    <noscript>
+      <link rel="stylesheet" href="css/skel.css">
+      <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="css/style-xlarge.css">
+    </noscript>
+    <!-- end of customized css -->
   </head>
-  <body ng-app="bdl6App">
+  <body class="landing" ng-app="bdl6App">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -52,9 +60,9 @@
       </div>
     </div>
 
-    <div class="container">
+    <!-- <div class="container"> -->
     <div ng-view=""></div>
-    </div>
+    <!-- </div> -->
 
     <div class="footer">
       <div class="container">
@@ -105,5 +113,15 @@
         <script src="scripts/directives/ngHideAuth.js"></script>
         <script src="scripts/routes.js"></script>
         <!-- endbuild -->
+
+    <!-- customized js files -->
+        <script src="scripts/controllers/homeCtrl.js"></script>
+        <script src="scripts/controllers/stuHomeCtrl.js"></script>
+        <script src="js/skel.min.js"></script>
+        <script src="js/skel-layers.min.js"></script>
+        <script src="js/init.js"></script>
+    <!-- end of customized js files -->
+
+
 </body>
 </html>

@@ -8,7 +8,7 @@
  *
  * Main module of the application.
  */
-angular.module('bdl6App', [
+var bdl6App = angular.module('bdl6App', [
     'ngAnimate',
     'ngCookies',
     'ngMessages',
@@ -20,3 +20,19 @@ angular.module('bdl6App', [
     'firebase.ref',
     'firebase.auth'
   ]);
+
+bdl6App.config(['$routeProvider', 
+    function($routeProvider){
+        $routeProvider.
+            when('/home', {
+                templateUrl: 'index.html',
+                controller: 'homeCtrl'
+            }).
+            when('/student', {
+                templateUrl: 'views/stuHome.html', 
+                controller: 'StuHomeCtrl'
+            }).
+            otherwise({
+                redirectTo: '/home'
+            });
+    }]);
