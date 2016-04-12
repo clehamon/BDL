@@ -18,7 +18,8 @@ gem install compass
 To install the project run `bower install` and `npm install`
 
 
-Look at the Yo Angular generator for commands to create new controllers, views, services
+Look at the Yo Angular generator for commands to create new controllers, views, services, etc..
+The only difference is that instead of calling yo angular:xxx we're using yo angularfire:xxx
 
 AngularFire page [here](https://www.firebase.com/docs/web/libraries/angular/) and docs [there](https://www.firebase.com/docs/web/libraries/angular/api.html#angularfire-firebaseobject-bindtoscope-varname)
 

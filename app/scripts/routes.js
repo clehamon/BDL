@@ -74,6 +74,14 @@ angular.module('bdl6App')
         templateUrl: 'views/account.html',
         controller: 'AccountCtrl'
       })
+      .when('/dashboard', {
+        templateUrl: 'views/dashboard.html',
+        controller: 'DashboardCtrl'
+      })
+      .when('/newQuiz', {
+        templateUrl: 'views/newquiz.html',
+        controller: 'NewquizCtrl'
+      })
       .otherwise({redirectTo: '/'});
   }])
 
