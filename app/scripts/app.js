@@ -18,7 +18,8 @@ var bdl6App = angular.module('bdl6App', [
     'ngTouch',
     'firebase',
     'firebase.ref',
-    'firebase.auth'
+    'firebase.auth',
+    'ui.bootstrap'
   ]);
 
 bdl6App.config(['$routeProvider', 
