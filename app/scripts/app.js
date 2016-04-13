@@ -32,6 +32,14 @@ bdl6App.config(['$routeProvider',
                 templateUrl: 'views/stuHome.html', 
                 controller: 'StuHomeCtrl'
             }).
+            when('/student/waiting', {
+                templateUrl: 'views/stuWait.html',
+                controller: 'StuHomeCtrl'
+            }).
+            when('/student/selecting', {
+                templateUrl: 'views/stuSelect.html',
+                controller: 'StuHomeCtrl'
+            }).
             otherwise({
                 redirectTo: '/home'
             });
