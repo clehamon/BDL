@@ -1,0 +1,53 @@
+.quizCard{
+	position: relative;
+	min-height:300px;
+	min-width:270px;
+	background-color: #FFF;
+	padding: 5px 10px;
+	border-radius: 8px;
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2);
+	border: solid 1px rgba(0,0,0,0.1);
+	text-align: center;
+}
+
+.quizCard-title{
+
+	h2{
+		margin-bottom: 0;	
+	}
+}
+
+.quizCard-date{
+	color: #4A4A4A;
+}
+
+.quizCard-tag{
+	display: inline-block;
+	background-color: #4A90E2;
+	color: #FFF;
+	padding: 5px 10px;
+	border-radius: 50px;
+}
+
+.quizCard-btn{
+	position: absolute;
+	width: 100%;
+    bottom: 0;
+    right: 0;
+	bottom: 0;
+	text-decoration: none;
+}
+
+.quizCard-btn-side{
+	margin-top: 30px;
+}
+
+.quizCard-play{
+	height: 80px;
+	width: 80px;
+	font-size: 4rem;
+	background-color: #1AD969;
+	color: #FFF;
+	padding: 20px 15px 15px 20px;
+	border-radius: 50%;
+}
