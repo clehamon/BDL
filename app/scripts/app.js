@@ -19,7 +19,8 @@ var bdl6App = angular.module('bdl6App', [
     'firebase',
     'firebase.ref',
     'firebase.auth',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'ngTagsInput'
   ]);
 
 bdl6App.config(['$routeProvider', 
