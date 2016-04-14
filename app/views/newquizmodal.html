@@ -4,24 +4,13 @@
 		<label class="newquiz-label" for="quizTitle">Title</label>
 		<input class="newquiz-input" id="quizTitle" type="text" ng-model="title">
 
-		<label class="newquiz-label" for="quizTags">Tags</label>
-		<input class="newquiz-input" id="quizTags" type="text" ng-model="tags">
-
-		
+		<label for="quizTags">Tags</label>
+		<tags-input id="quizTags" type="text" ng-model="tags"></tags-input>
 
 		<div class="newquiz-btn-group btn-group">
-			<button type="button" class="newquiz-btn-group-btn btn btn-success" ng-click="newQuiz(title,tags)"> New quiz </button>
+			<button type="button" class="newquiz-btn-group-btn btn btn-success" ng-click="newQuiz(title)"> New quiz </button>
 			<button type="button" class="newquiz-btn-group-btn btn btn-default" ng-click="close()"> Cancel </button>
 		</div>
 	</div>
 </section>
-		<label for="quizTags">Tags</label>
-		<tags-input id="quizTags" type="text" ng-model="tags"></tags-input>
-
-		<div class="btn-group">
-			<button type="button" class="btn btn-default" ng-click="close()"> Cancel </button>
-			<button type="button" class="btn btn-success" ng-click="newQuiz(title)"> New quiz </button>
-		</div>
-	</div>
-</div>
-</body>
+		
