@@ -82,6 +82,26 @@ angular.module('bdl6App')
         templateUrl: 'views/newquiz.html',
         controller: 'NewquizCtrl'
       })
+      .when('/quizWaiting', {
+        templateUrl: 'views/quizwaiting.html',
+        controller: 'QuizwaitingCtrl'
+      })
+      .when('/quizOptions', {
+        templateUrl: 'views/quizoptions.html',
+        controller: 'QuizoptionsCtrl'
+      })
+      .when('/quiz/question', {
+        templateUrl: 'views/quiz/question.html',
+        controller: 'QuizQuestionCtrl'
+      })
+      .when('/quiz/result', {
+        templateUrl: 'views/quiz/result.html',
+        controller: 'QuizResultCtrl'
+      })
+      .when('/quiz/waiting', {
+        templateUrl: 'views/quiz/waiting.html',
+        controller: 'QuizWaitingCtrl'
+      })
       .otherwise({redirectTo: '/'});
   }])
 
