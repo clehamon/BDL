@@ -7,7 +7,7 @@
  * Manages authentication to any active providers.
  */
 angular.module('bdl6App')
-  .controller('LoginCtrl', function ($scope, Auth, $location, $q, Ref, $timeout) {
+  .controller('LoginCtrl', function ($scope, Auth, $location, $q, Ref, $timeout, $firebaseObject) {
     $scope.oauthLogin = function(provider) {
       $scope.err = null;
       Auth.$authWithOAuthPopup(provider, {rememberMe: true}).then(redirect, showError);
@@ -25,6 +25,14 @@ angular.module('bdl6App')
       );
     };
 
+    $scope.test = function() {
+      console.log('hello');
+      var teacher = $firebaseObject(Ref.child('Teacher/-KFJT7Uwj94MWXvAubAh'));
+      teacher.$bindTo($scope, "testing").then(function() {;
+        console.log($scope.testing.Name);
+      });
+    };
+
     $scope.createAccount = function(email, pass, confirm) {
       $scope.err = null;
       if( !pass ) {
@@ -39,8 +47,17 @@ angular.module('bdl6App')
             // authenticate so we have permission to write to Firebase
             return Auth.$authWithPassword({email: email, password: pass}, {rememberMe: true});
           })
+          .then(updateTeacher)
           .then(createProfile)
           .then(redirect, showError);
+      }
+
+      function updateTeacher(user) {
+        var teacher = {
+          Name: 'Some name'
+        }
+        var ref = Ref.child('Teacher');
+        ref.child(user.uid).set(teacher);
       }
 
       function createProfile(user) {
