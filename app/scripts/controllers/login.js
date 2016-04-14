@@ -25,6 +25,12 @@ angular.module('bdl6App')
       );
     };
 
+    $scope.test = function() {
+      console.log('hello');
+      $scope.testing = $firebaseArray(Ref.child('Teacher/-KFJT7Uwj94MWXvAubAh/ID/68bb39c0-849e-4ea6-9bad-869f3ed83fca'));
+      console.log($scope.testing.Name);
+    };
+
     $scope.createAccount = function(email, pass, confirm) {
       $scope.err = null;
       if( !pass ) {
@@ -48,12 +54,6 @@ angular.module('bdl6App')
         $scope.teacher = $firebaseArray(Ref.child('Teacher'));
         $scope.teacher.$loaded().catch(alert);
         $scope.teacher.$add({ID: user.uid});
-      }
-
-      $scope.test = function() {
-        console.log('hello');
-        $scope.testing = $firebaseArray(Ref.child('Teacher/-KFJT7Uwj94MWXvAubAh/ID/68bb39c0-849e-4ea6-9bad-869f3ed83fca'));
-        console.log($scope.testing.Name);
       }
 
       function createProfile(user) {
