@@ -1,21 +1,19 @@
-<div class="container-fluid">
+<div class="container-fluid" ng-init="init()">
 	<div class="row">
 		<div class="col-md-3">
 			<ul>
-				<li>John Doe</li>
-				<li>John Doe</li>
-				<li>John Doe</li>
-				<li>John Doe</li>
-				<li>John Doe</li>
+				<li ng-repeat="(playerName, playerContent) in session.Players">
+					{{playerName}}
+				</li>
 			</ul>
 		</div>
 
 		<div class="col-md-6 quizWaiting-main">
-			<h1>Theatre: text and representation</h1>
-			<h3>5 questions</h3>
+			<h1>{{quiz.Name}}</h1>
+			<h3>{{quiz.Questions.length}} questions</h3>
 
 			<h1>Code</h1>
-			<h1>2034</h1>
+			<h1>{{session.$id}}</h1>
 
 			<a href="#/quiz/question"><button class="btn btn-success">Launch</button></a>
 		</div>

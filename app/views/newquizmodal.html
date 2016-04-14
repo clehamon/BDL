@@ -1,33 +1,15 @@
 <section class="newquiz">
-	<div class="col-xs-8 col-xs-offset-2">
+	<div class="col-md-8 col-md-offset-2">
 		<h1>New quiz</h1>
 		<label class="newquiz-label" for="quizTitle">Title</label>
 		<input class="newquiz-input" id="quizTitle" type="text" ng-model="title">
 
-		<label class="newquiz-label" for="quizTags">Tags</label>
-		<input class="newquiz-input" id="quizTags" type="text" ng-model="tags">
+		<label for="quizTags">Tags</label>
+		<tags-input id="quizTags" type="text" ng-model="tags"></tags-input>
 
-		<div>
-			<label class="newquiz-options-label" style="" for="quizGrade">Grade:</label>
-			<select class="newquiz-options" name="category" id="category">
-				<option value="">- Select a grade -</option>
-				<option value="1">Grade1</option>
-				<option value="1">Grade2</option>
-				<option value="1">Grade3</option>
-				<option value="1">Grade4</option>
-			</select>
-			<label class="newquiz-options-label" style="" for="quizGrade">Unit:</label>
-			<select class="newquiz-options" name="category" id="category">
-				<option value="">- Select an unit -</option>
-				<option value="1">Unit1</option>
-				<option value="1">Unit2</option>
-				<option value="1">Unit3</option>
-				<option value="1">Unit4</option>
-			</select>
-		</div>
 
 		<div class="newquiz-btn-group btn-group">
-			<button type="button" class="newquiz-btn-group-btn btn btn-success" ng-click="newQuiz(title,tags)"> New quiz </button>
+			<button type="button" class="newquiz-btn-group-btn btn btn-success" ng-click="newQuiz(title)"> New quiz </button>
 			<button type="button" class="newquiz-btn-group-btn btn btn-default" ng-click="close()"> Cancel </button>
 		</div>
 	</div>

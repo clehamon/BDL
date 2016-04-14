@@ -15,7 +15,7 @@ If you are planning on using Sass, you will need to first install Ruby and Compa
 gem install compass
 ```
 
-To install the project run `bower install` and `npm install`
+To install the project run `bower install` (may be `sudo bower install --allow-root`) and `npm install`
 
 
 Look at the Yo Angular generator for commands to create new controllers, views, services, etc..
