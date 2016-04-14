@@ -17,6 +17,7 @@ angular.module('bdl6App')
       var modalInstance = $uibModal.open({
         animation: $scope.animationsEnabled,
         templateUrl: '../views/newquizmodal.html',
+        // windowClass: '../styles/newquizmodal.css',
         controller: 'NewquizmodalCtrl',
         size: size,
         resolve: {
