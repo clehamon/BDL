@@ -1,15 +1,46 @@
-<ng-include src="'views/header.html'"></ng-include>
+<!-- <ng-include src="'views/header.html'"></ng-include> -->
 
-<h2>Login Page</h2>
 
-<fieldset>
+
+
+<!-- <h2>Login Page</h2> -->
+
+<!-- <fieldset>
   <legend>Oauth</legend>
   <p>
     <button  class="btn btn-primary" ng-click="oauthLogin('google')">Google</button>
   </p>
-</fieldset>
+</fieldset> -->
 
-<form role="form">
+<section id="banner" class="banner">
+  <h2>Login Page</h2>
+  <form role="form" class="banner-form">
+    <p class="banner-form-group">
+      <label for="loginEmail" class="banner-form-group-label">email</label>
+      <input id="loginEmail" required name="email" type="email" ng-model="email" class="form-control" placeholder="Email"/>
+    </p>
+    <p class="banner-form-group">
+    <label for="loginPass" class="banner-form-group-label">password</label>
+    <input id="loginPass" required name="pass" type="password" ng-model="pass" class="form-control" placeholder="Password"/>
+    </p>
+    <p class="banner-form-group" ng-cloak ng-show="createMode">
+    <label for="loginConfirm" class="banner-form-group-label">confirm pass</label>
+    <input id="loginConfirm" required name="confirm" type="password" ng-model="confirm" class="form-control" placeholder="Please confirm your password again" />
+    </p>
+
+    <p ng-show="err" class="banner-form-message bg-danger">{{err}}</p>
+
+    <p>
+      <button class="banner-form-btn btn btn-primary" ng-click="passwordLogin(email, pass)" ng-hide="createMode">Log In</button>
+      <button class="banner-form-btn btn btn-default" ng-click="createMode = true" ng-hide="createMode">Register</button>
+      <button class="banner-form-btn btn btn-primary" ng-cloak ng-show="createMode"
+              ng-click="createAccount(email, pass, confirm)">Create</button>
+      <button class="banner-form-btn btn btn-default" ng-cloak ng-show="createMode" ng-click="createMode = false">Cancel</button>
+    </p>
+  </form>
+</section>
+
+<!-- <form role="form">
   <p class="form-group">
     <label for="loginEmail">email</label>
     <input id="loginEmail" required name="email" type="email" ng-model="email" class="form-control" />

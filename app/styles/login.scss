@@ -1,0 +1,44 @@
+.banner {
+	position: relative;
+	min-height: 300px;
+	width: 100%;
+	margin: 0 auto;
+	padding: 5px 10px;
+	text-align: center;
+}
+
+.banner-form {
+	/*background: inherit;*/
+	color: black;
+	width: 30%;
+	/*padding: 5px 10px;*/
+	border-radius: 8px;
+	margin: 0 auto;
+}
+
+.banner-form-group {
+	width: 100%;
+	margin-bottom: 5px;
+	background-color: white;
+	border-radius: 8px;
+}
+
+.banner-form-message {
+	position: relative;
+	width: 100%;
+	margin: 4px auto;
+	background-color: white;
+	border-radius: 4px;
+	color: red;
+}
+
+.banner-form-btn {
+	position: relative;
+	width: 35%;
+	margin: 0 5px;
+	text-align: center;
+}
+
+.banner-form-group-label{
+	display: none;
+}
