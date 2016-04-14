@@ -8,24 +8,56 @@
  * Controller of the bdl6App
  */
 angular.module('bdl6App')
-  .controller('DashboardCtrl', function ($scope, $uibModal) {
+  .controller('DashboardCtrl', function ($scope, $uibModal, $location, Ref, $firebaseArray) {
    
    $scope.animationsEnabled = true;
 
-   $scope.open = function (size) {
+    $scope.open = function (size) {
 
-    var modalInstance = $uibModal.open({
-      animation: $scope.animationsEnabled,
-      templateUrl: '../views/newquizmodal.html',
-      controller: 'NewquizmodalCtrl',
-      size: size,
-      resolve: {
-        items: function () {
-          return $scope.items;
+      var modalInstance = $uibModal.open({
+        animation: $scope.animationsEnabled,
+        templateUrl: '../views/newquizmodal.html',
+        controller: 'NewquizmodalCtrl',
+        size: size,
+        resolve: {
+          items: function () {
+            return $scope.items;
+          }
         }
+      });
+    }
+
+    $scope.launchSession = function(quizID){
+      var user = Ref.getAuth();
+      var id = user.uid;
+
+      var codeExist = true;
+
+      var min = 1000;
+      var max = 9999;
+      var code = Math.floor(Math.random() * (max - min + 1)) + min;
+
+      var sessions = Ref.child('Session');
+
+      var sessionsList = $firebaseArray(sessions);
+
+      // Check that a session does not exist with the same id, if it does we generate a new code
+      while(sessionsList.$indexFor(code) > 0){
+        code = Math.floor(Math.random() * (max - min + 1)) + min;
       }
-    });
 
+      var newSession = {
+        Teacher : id,
+        Quiz: quizID,
+        Launched : false,
+        QuestionPhase : false,
+        CurrentQuestion: null,
+      }
 
-  };
+      var addedSession = sessions.child(code).set(newSession);
+
+      $location.path('quiz/' +code+ '/waiting');
+
+    };
+
 });

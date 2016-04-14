@@ -90,15 +90,15 @@ angular.module('bdl6App')
         templateUrl: 'views/quizoptions.html',
         controller: 'QuizoptionsCtrl'
       })
-      .when('/quiz/question', {
+      .when('/quiz/:sessionCode/question', {
         templateUrl: 'views/quiz/question.html',
         controller: 'QuizQuestionCtrl'
       })
-      .when('/quiz/result', {
+      .when('/quiz/:sessionCode/result', {
         templateUrl: 'views/quiz/result.html',
         controller: 'QuizResultCtrl'
       })
-      .when('/quiz/waiting', {
+      .when('/quiz/:sessionCode/waiting', {
         templateUrl: 'views/quiz/waiting.html',
         controller: 'QuizWaitingCtrl'
       })
