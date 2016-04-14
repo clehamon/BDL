@@ -1,13 +1,18 @@
 .quizCard{
 	position: relative;
 	min-height:300px;
-	min-width:270px;
+	width:100%;
 	background-color: #FFF;
 	padding: 5px 10px;
+	margin-bottom: 25px;
 	border-radius: 8px;
-	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2);
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.3);
 	border: solid 1px rgba(0,0,0,0.1);
 	text-align: center;
+}
+
+.quizCard-content{
+	margin-bottom: 110px;
 }
 
 .quizCard-title{

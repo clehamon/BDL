@@ -29,15 +29,11 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <ng-include src="'views/header.html'"></ng-include>
     
 
     <!-- <div class="container"> -->
     <div ng-view=""></div>
-    <!-- </div> -->
-
-    <ng-include src="'views/footer.html'"></ng-include>
-    
+    <!-- </div> -->    
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -65,6 +61,7 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -85,6 +82,7 @@
         <script src="scripts/controllers/newquiz.js"></script>
         <script src="scripts/controllers/header.js"></script>
         <script src="scripts/controllers/footer.js"></script>
+        <script src="scripts/controllers/newquizmodal.js"></script>
         <!-- endbuild -->
 
     <!-- customized js files -->
