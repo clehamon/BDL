@@ -2,14 +2,14 @@
 	<div class="col-md-8 col-md-offset-2">
 		<h1>New quiz</h1>
 		<label for="quizTitle">Title</label>
-		<input id="quizTitle" type="text">
+		<input id="quizTitle" type="text" ng-model="title">
 
 		<label for="quizTags">Tags</label>
-		<input id="quizTags" type="text">
+		<input id="quizTags" type="text" ng-model="tags">
 
 		<div class="btn-group">
-			<button type="button" class="btn btn-default"> Cancel </button>
-			<button type="button" class="btn btn-success"> New quiz </button>
+			<button type="button" class="btn btn-default" ng-click="close()"> Cancel </button>
+			<button type="button" class="btn btn-success" ng-click="newQuiz(title,tags)"> New quiz </button>
 		</div>
 	</div>
 </div>
