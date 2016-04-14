@@ -11,13 +11,13 @@ angular.module('bdl6App')
   .controller('QuizWaitingCtrl', function ($scope, $routeParams, $location, Ref, $firebaseObject) {
     
     $scope.init = function(){
-    	console.log($routeParams.sessionCode);
     	var sessionRef = Ref.child('Session/'+$routeParams.sessionCode);
   		$scope.session = $firebaseObject(sessionRef);
 
   		$scope.session.$loaded().then( function(){
 
-  			console.log('Quiz/'+$scope.session.Teacher+'/'+$scope.session.Quiz);
+  			console.log($scope.session);
+
   			var quizRef = Ref.child('Quiz/'+$scope.session.Teacher+'/'+$scope.session.Quiz);
   			$scope.quiz = $firebaseObject(quizRef);
 
