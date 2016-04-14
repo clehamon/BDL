@@ -26,6 +26,12 @@ angular.module('bdl6App')
       }
     });
 
+    $scope.launchSession = function(quizID){
+      var min = 1000;
+      var max = 9999;
+      var num = Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
 
   };
 });
