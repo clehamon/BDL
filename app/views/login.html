@@ -30,7 +30,9 @@
               ng-click="createAccount(email, pass, confirm)">Create</button>
       <button class="banner-form-btn btn btn-default" ng-cloak ng-show="createMode" ng-click="createMode = false">Cancel</button>
     </p>
-    <img ng-src="images/sign-in-with-google.png" ng-click="oauthLogin('google')" class="google-form-btn btn"/>
+    <div>
+      <img ng-src="images/sign-in-with-google.png" ng-click="oauthLogin('google')" class="google-form-btn btn"/>  
+    </div>
   </form>
 </section>
 
