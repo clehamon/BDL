@@ -90,7 +90,7 @@ angular.module('bdl6App')
   
 
     function redirect() {
-      $location.path('/account');
+      $location.path('/dashboard');
     }
 
     function showError(err) {
