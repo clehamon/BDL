@@ -53,9 +53,11 @@ angular.module('bdl6App')
       }
 
       function updateTeacher(user) {
-        $scope.teacher = $firebaseArray(Ref.child('Teacher'));
-        $scope.teacher.$loaded().catch(alert);
-        $scope.teacher.$add({ID: user.uid});
+        var teacher = {
+          Name: 'Some name'
+        }
+        var ref = Ref.child('Teacher');
+        ref.child(user.uid).set(teacher);
       }
 
       function createProfile(user) {
