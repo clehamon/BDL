@@ -78,7 +78,7 @@ angular.module('bdl6App')
         templateUrl: 'views/dashboard.html',
         controller: 'DashboardCtrl'
       })
-      .when('/newQuiz', {
+      .when('/newQuiz/:quizID', {
         templateUrl: 'views/newquiz.html',
         controller: 'NewquizCtrl'
       })
