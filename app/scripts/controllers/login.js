@@ -28,8 +28,9 @@ angular.module('bdl6App')
     $scope.test = function() {
       console.log('hello');
       var teacher = $firebaseObject(Ref.child('Teacher/-KFJT7Uwj94MWXvAubAh'));
-      teacher.$bindTo($scope, "testing");
-      console.log($scope.testing);
+      teacher.$bindTo($scope, "testing").then(function() {;
+        console.log($scope.testing.Name);
+      });
     };
 
     $scope.createAccount = function(email, pass, confirm) {
