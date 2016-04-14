@@ -5,13 +5,6 @@
 
 <!-- <h2>Login Page</h2> -->
 
-<!-- <fieldset>
-  <legend>Oauth</legend>
-  <p>
-    <button  class="btn btn-primary" ng-click="oauthLogin('google')">Google</button>
-  </p>
-</fieldset> -->
-
 <section id="banner" class="banner">
   <h2>Login Page</h2>
   <form role="form" class="banner-form">
@@ -28,7 +21,7 @@
     <input id="loginConfirm" required name="confirm" type="password" ng-model="confirm" class="form-control" placeholder="Please confirm your password again" />
     </p>
 
-    <p ng-show="err" class="banner-form-message bg-danger">{{err}}</p>
+    <!--<p ng-show="err" class="banner-form-message bg-danger">{{err}}</p>-->
 
     <p>
       <button class="banner-form-btn btn btn-primary" ng-click="passwordLogin(email, pass)" ng-hide="createMode">Log In</button>
@@ -36,6 +29,9 @@
       <button class="banner-form-btn btn btn-primary" ng-cloak ng-show="createMode"
               ng-click="createAccount(email, pass, confirm)">Create</button>
       <button class="banner-form-btn btn btn-default" ng-cloak ng-show="createMode" ng-click="createMode = false">Cancel</button>
+    </p>
+    <p>
+      <img ng-src="images/sign-in-with-google.png" ng-click="oauthLogin('google')" class="banner-form-btn btn"/>
     </p>
   </form>
 </section>
