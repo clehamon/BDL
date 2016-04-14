@@ -8,7 +8,11 @@
  * Controller of the bdl6App
  */
 angular.module('bdl6App')
-  .controller('DashboardCtrl', function ($scope, $uibModal, $location, Ref, $firebaseArray) {
+  .controller('DashboardCtrl', function ($scope, $uibModal, $location, Ref, $firebaseArray, Auth) {
+
+    $scope.quizArray = $firebaseArray(Ref.child('Quiz/' + Ref.getAuth().uid));
+    // display any errors
+    $scope.quizArray.$loaded().catch(alert);
    
    $scope.animationsEnabled = true;
 
