@@ -30,8 +30,8 @@ angular.module('bdl6App')
         var quizObj = $firebaseObject(quizRef);
 
         quizObj.$loaded().then(function(){
-          quizObj.$bindTo($rootScope, 'quiz');
-        })
+          $rootScope.quiz = quizObj;
+        });
 
         if (redirect) {
           $location.path('quiz/' +code+ '/waiting');
@@ -75,7 +75,10 @@ angular.module('bdl6App')
           Quiz: quizID,
           Launched : false,
           QuestionPhase : false,
-          CurrentQuestion: null,
+          QuestionIndex : -1,
+          CurrentQuestion: {
+            active : false
+          },
           Timestamp : Date.now()
         };
 
@@ -84,6 +87,45 @@ angular.module('bdl6App')
         $cookies.put('currentSessionID', code);
 
         return code;
+      },
+      nextQuestion : function(callback){
+
+          $rootScope.session.QuestionIndex = ($rootScope.session.QuestionIndex++)%$rootScope.quiz.Questions.length;
+
+         //As long as we haven't reach the last question
+         if ($rootScope.session.QuestionIndex < $rootScope.quiz.Questions.length) {
+
+          var questionRef = Ref.child('Question/'+$rootScope.quiz.Questions[$rootScope.session.QuestionIndex]);
+          var questionObj = $firebaseObject(questionRef);
+
+          questionObj.$loaded().then(function(){
+
+            console.log(questionObj);
+
+            currentSession.CurrentQuestion = questionObj;
+
+            currentSession.$save().then(function(){
+              //If the question is a multiple choice we load the answers
+              if (questionObj.Type === 'multiple') {
+                var answerRef = Ref.child('Answer/'+$rootScope.quiz.Questions[$rootScope.session.QuestionIndex]);
+                var answerArray = $firebaseArray(answerRef);
+
+                console.log($rootScope.session.CurrentQuestion);
+
+                answerArray.$loaded().then(function(){
+                  $rootScope.session.CurrentQuestion.Answers = answerArray;
+                  $rootScope.session.QuestionPhase = true;
+                  callback();
+                });
+
+              }
+            });
+            
+          });
+          
+         } else {
+            console.log('Bouhouhou end of the quiz');
+         }
       }
     };
   });

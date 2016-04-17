@@ -74,31 +74,23 @@ angular.module('bdl6App')
         templateUrl: 'views/account.html',
         controller: 'AccountCtrl'
       })
-      .when('/dashboard', {
+      .whenAuthenticated('/dashboard', {
         templateUrl: 'views/dashboard.html',
         controller: 'DashboardCtrl'
       })
-      .when('/newQuiz/:quizID', {
+      .whenAuthenticated('/newQuiz/:quizID', {
         templateUrl: 'views/newquiz.html',
         controller: 'NewquizCtrl'
       })
-      .when('/quizWaiting', {
-        templateUrl: 'views/quizwaiting.html',
-        controller: 'QuizwaitingCtrl'
-      })
-      .when('/quizOptions', {
-        templateUrl: 'views/quizoptions.html',
-        controller: 'QuizoptionsCtrl'
-      })
-      .when('/quiz/:sessionCode/question', {
+      .whenAuthenticated('/quiz/:sessionCode/question', {
         templateUrl: 'views/quiz/question.html',
         controller: 'QuizQuestionCtrl'
       })
-      .when('/quiz/:sessionCode/result', {
+      .whenAuthenticated('/quiz/:sessionCode/result', {
         templateUrl: 'views/quiz/result.html',
         controller: 'QuizResultCtrl'
       })
-      .when('/quiz/:sessionCode/waiting', {
+      .whenAuthenticated('/quiz/:sessionCode/waiting', {
         templateUrl: 'views/quiz/waiting.html',
         controller: 'QuizWaitingCtrl'
       })

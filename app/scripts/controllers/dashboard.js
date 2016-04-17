@@ -33,36 +33,8 @@ angular.module('bdl6App')
     };
 
     $scope.launchSession = function(quizID){
-      // var user = Ref.getAuth();
-      // var id = user.uid;
-
-      // var min = 1000;
-      // var max = 9999;
-      // var code = Math.floor(Math.random() * (max - min + 1)) + min;
-
-      // var sessions = Ref.child('Session');
-
-      // var sessionsList = $firebaseArray(sessions);
-
-      // // Check that a session does not exist with the same id, if it does we generate a new code
-      // while(sessionsList.$indexFor(code) > 0){
-      //   code = Math.floor(Math.random() * (max - min + 1)) + min;
-      // }
-
-      // var newSession = {
-      //   Teacher : id,
-      //   Quiz: quizID,
-      //   Launched : false,
-      //   QuestionPhase : false,
-      //   CurrentQuestion: null,
-      //   Timestamp : Ref.ServerValue.TIMESTAMP
-      // }
-
-      // var addedSession = sessions.child(code).set(newSession);
 
       var code = Session.launchSession(quizID);
-
-      // $location.path('quiz/' +code+ '/waiting');
 
     };
 
