@@ -1,1 +1,22 @@
-<p>This is the quiz/result view.</p>
+<div class="questionPage" ng-class="{active : (session.Launched && session.QuestionPhase)}">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">{{quiz.Name}}</div>
+			<div class="col-md-4">question {{session.QuestionIndex+1}}/{{quiz.Questions.length}}</div>
+			<div class="col-md-4">Code : {{session.$id}}</div>
+		</div>
+
+		<div class="container-fluid">
+			<h1 ng-click="showAnswers()">{{session.CurrentQuestion.Name}}</h1>
+			<h3 style="text-align: center;">{{countdown}}</h3>
+			<div class="row answers">
+				<div class="col-xs-6" ng-repeat="answer in session.CurrentQuestion.Answers">
+					<div class="answer">
+						<p>{{answer.Name}}</p>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</div>

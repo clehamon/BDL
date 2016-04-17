@@ -4,7 +4,8 @@
 	width: 100%;
 	top: 0;
 	left: 100%;
-	transition: 0.7s ease-in-out;
+	transition: 0.5s ease-in-out;
+	text-align: center;
 
 	&.active{
 		left: 0%;

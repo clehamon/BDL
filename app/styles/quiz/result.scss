@@ -1,0 +1,17 @@
+.answer{
+	display: table;
+
+	&:p{
+		text-align:center; 
+		vertical-align: middle;
+		display: table-cell; 
+	}
+}
+
+.correctAnswer{
+	border: 12px solid #7ED321;
+}
+
+.incorrectAnswer{
+
+}

@@ -11,6 +11,7 @@ angular.module('bdl6App')
   .controller('QuizWaitingCtrl', function ($scope, $rootScope, $routeParams, $location, Ref, $firebaseArray, Session, $interval) {
 
     var currentCountdown;
+    $scope.countdown = 999999;
     
     $scope.init = function(){
 
@@ -63,11 +64,15 @@ angular.module('bdl6App')
       console.log($scope.countdown);
       currentCountdown = $interval(function(){
         $scope.countdown--;
+        if ($scope.countdown === 0) {
+         Session.showResults();
+        }
       }, 1000, $rootScope.session.CurrentQuestion.Time);
     }
 
     $scope.launchQuiz = function(){
- 
+      
+      Session.nextQuestion(startCountdown);
       $rootScope.session.Launched = true;
 
     }
