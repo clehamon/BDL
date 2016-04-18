@@ -3,10 +3,98 @@
 <div class="mainContent" id= "mainWrapper">
 	<header>
     	<!-- This is the header content. It contains Logo and links -->
-    	<div id="head">
-      	<h2 id="title">Here comes the Quiz title</h2>
-      	<h3>Question type</h3>
-      	<input type="text" ng-model="quiz.NewField" />
-      	&nbsp;</div>
+
+    <div id="head" style="margin-left:13%">
+      	<h1 id="title">Here comes the Quiz title:<input type="text" ng-model="quiz.NewField"/> Industrial revolution</h2>
+      	<h2 id="Question_type">Question type</h3>
+      	&nbsp;
+    </div>
+    
 	</header>
+
+   
+
+	<div id="newQ-container" style="margin-left:13%">
+        <div id="newQ-navigator" >
+            <ol class="breadcrumb" style="background-color:white">
+              <li><a href="#">Question 1 </a></li>
+              <li><a href="#">Question2 </a></li>
+              <li class="active">Question 3</li>
+              <li>You have 3/6</li>
+            </ol>
+        </div>
+    	<div id="question-option">
+    		<ul class="nav nav-pills">
+		      <li role="presentation" class="active"><a href="#">Multiple choice</a></li>
+		      <li role="presentation"><a href="#">Open answer</a></li>
+              <li style=" margin-left: 48%"> <form > Time: <input type="number" id="numOfGuests" class="form-control" min="1" style="width:60px"></form></li>
+		    </ul>
+
+
+    	</div>
+    	<div id="newQ-img">
+            <div class="answers-option">
+                <span class="glyphicon glyphicon-picture answers-addImg" aria-hidden="true"></span>
+            </div>
+            <h2>Which invention started the industrial revolution?</h2>
+    		<!--<img src="../images/question-img.jpg" alt="..." class="img-rounded" style="height: 38%; width: 60%;">-->
+    	</div>
+    	<div class="answers-containers">
+    		<div class="answers-panel col-sm-6 col-md-4 col-lg-3 ">
+    			<div class="answers-option">
+    				<span class="glyphicon glyphicon-picture answers-addImg" aria-hidden="true"></span>
+    				<span class="glyphicon glyphicon-minus answers-delete" aria-hidden="true"></span>
+    			</div>
+    			<h1 class="answers-content">Internet</h1>
+    		</div>
+    		<div class="answers-panel col-sm-6 col-md-4 col-lg-3 ">
+    			<div class="answers-option">
+    				<span class="glyphicon glyphicon-picture answers-addImg" aria-hidden="true"></span>
+    				<span class="glyphicon glyphicon-minus answers-delete" aria-hidden="true"></span>
+    			</div>
+    			<h1 class="answers-content">Gun powder</h1>
+    		</div>
+    		<div class="answers-panel col-sm-6 col-md-4 col-lg-3 ">
+    			<div class="answers-option">
+    				<span class="glyphicon glyphicon-picture answers-addImg" aria-hidden="true"></span>
+    				<span class="glyphicon glyphicon-minus answers-delete" aria-hidden="true"></span>
+    			</div>
+    			<h1 class="answers-content">Steam engine</h1>
+    		</div>
+    		<div class="answers-panel answers-addNew col-sm-6 col-md-4 col-lg-3 ">
+    			<button type="button" class="btn btn-default btn-lg answers-add"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </button>
+    			<h1 class="answers-content">Add new</h1>
+    		</div>
+    	</div>
+        <div id="quiz-button">
+            <button class="big save-button"><strong>New Question</strong></button>
+            <button class="big save-button"><strong>Save Quiz</strong></button>
+        </div>
+
+    </div> 
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
