@@ -63,41 +63,20 @@
     		<!--<img src="../images/question-img.jpg" alt="..." class="img-rounded" style="height: 38%; width: 60%;">-->
     	</div>
     	<div class="answers-containers">
-    		<div class="answers-panel col-sm-6 col-md-4 col-lg-3 ">
+    		<div class="answers-panel col-sm-6 col-md-4 col-lg-3 " ng-repeat="answer in answerArray">
     			<div class="answers-option">
     				<span class="glyphicon glyphicon-picture answers-addImg" aria-hidden="true"></span>
     				<span class="glyphicon glyphicon-minus answers-delete" aria-hidden="true"></span>
     			</div>
-    			<h1 class="answers-content">Internet</h1>
+    			<input type="text" class="answers-content" placeholder="Type your answer" ng-model="answer.Name"/>
+    			<input type="checkbox" name="your-group" value="unit-in-group" />Correct Answer
     		</div>
-    		<div class="answers-panel col-sm-6 col-md-4 col-lg-3 ">
-    			<div class="answers-option">
-    				<span class="glyphicon glyphicon-picture answers-addImg" aria-hidden="true"></span>
-    				<span class="glyphicon glyphicon-minus answers-delete" aria-hidden="true"></span>
-    			</div>
-    			<h1 class="answers-content">Gun powder</h1>
-    		</div>
-    		<div class="answers-panel col-sm-6 col-md-4 col-lg-3 ">
-    			<div class="answers-option">
-    				<span class="glyphicon glyphicon-picture answers-addImg" aria-hidden="true"></span>
-    				<span class="glyphicon glyphicon-minus answers-delete" aria-hidden="true"></span>
-    			</div>
-    			<h1 class="answers-content">Steam engine</h1>
-    		</div>
-
-            <div class="answers-panel col-sm-6 col-md-4 col-lg-3 ">
-                <div class="answers-option">
-                    <span class="glyphicon glyphicon-picture answers-addImg" aria-hidden="true"></span>
-                    <span class="glyphicon glyphicon-minus answers-delete" aria-hidden="true"></span>
-                </div>
-                <h1 class="answers-content">Steam engine</h1>
-            </div>
     		<div class="answers-panel answers-addNew col-sm-6 col-md-4 col-lg-3 ">
-    			<button type="button" class="btn btn-default btn-lg answers-add"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </button>
+    			<button type="button" class="btn btn-default btn-lg answers-add" ng-click="addAnswerToArray({IsCorrect: '', Name: ''})"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </button>
     			<h1 class="answers-content">Add new</h1>
     		</div>
+
     	</div>
-        
 
     </div> 
     <div id="quiz-button">
