@@ -13,10 +13,12 @@
 				<div class="col-xs-3" ng-repeat="quiz in quizArray">
 					<div class="quizCard">
 						<div class="quizCard-content">
-							<div class="quizCard-title">
+							<div class="col-xs-2"></div>
+							<div class="col-xs-8 quizCard-title">
 								<h2> {{quiz.Name}} </h2>
 								<p class="quizCard-date">{{quiz.Date}}</p>
 							</div>
+							<div class="col-xs-2 quizCard-trash"><span class="glyphicon glyphicon-trash"></span></div>
 
 							<div>
 								<div ng-repeat="tag in quiz.TAG" class="quizCard-tag">{{tag}}</div>

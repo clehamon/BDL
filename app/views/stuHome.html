@@ -1,7 +1,7 @@
 <!-- banner -->
-<section id="banner">
+<section id="banner" class="banner stuHome">
 	<h2>Are you ready for answering kids?</h2>
-	<form method="post" >
+	<form method="post" class="stuHome-login-form">
 		<div class="form-group" style="margin: 0 auto; width: 30%;">
 			<label style="color: white; margin: 1em auto 0 auto;" for="inputQuizCode">Quiz Code</label>
 			<input type="text" style="color: black; background-color: white;" class="form-control" id="inputQuizCode" ng-model="quizCode" placeholder="Quiz code here">
@@ -13,7 +13,7 @@
 	</form>
 	<ul class="actions">
 		<li>
-			<a href="" class="button big" ng-click="connectToQuiz()">Enter</a>
+			<button class="button big" ng-click="connectToQuiz()">Enter</button>
 		</li>
 	</ul>
 	<a href=".teacher"><h4>Click here if you are a Teacher</h4></a>

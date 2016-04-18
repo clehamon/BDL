@@ -1,10 +1,32 @@
 .banner {
+	background-image: url(../images/dark_tint.png), url(../images/bokeh_car_lights_bg.jpg);
+	background-position: center center;
+	background-size: cover;
+	color: #ffffff;
 	position: relative;
 	min-height: 300px;
 	width: 100%;
 	margin: 0 auto;
-	padding: 5px 10px;
+	/*padding: 5px 10px;*/
+	padding: 14em 0em 14em;
 	text-align: center;
+
+	h2 {
+		color: #ffffff;
+		font-size: 4em;
+		line-height: 1.25em;
+		margin: 0 0 0.5em 0;
+		padding: 0;
+	}
+
+	p {
+		font-size: 1.5em;
+		margin-bottom: 1.75em;
+	}
+}
+
+.banner :last-child {
+	margin-bottom: 0;
 }
 
 .banner-form {
