@@ -8,7 +8,7 @@
  * Factory in the bdl6App.
  */
 angular.module('bdl6App')
-  .factory('student', function (Ref, $firebaseObject, $location) {
+  .factory('student', function (Ref, $firebaseObject, $location, $cookies) {
 
     var currentSession = {};
 
@@ -19,18 +19,24 @@ angular.module('bdl6App')
       },
       setSession: function(sessionCode, name){
       	var sessionRef = Ref.child('Session/'+sessionCode);
-  		currentSession = $firebaseObject(sessionRef);
+    		currentSession = $firebaseObject(sessionRef);
 
-  		currentSession.$loaded().then( function(){
-  			var player = {
-  				Active : true
-  			}
+    		currentSession.$loaded().then( function(){
+    			var player = {
+    				Active : true
+    			};
       		var playerRef = Ref.child('Session/'+sessionCode+'/Players/'+name);
 
-  			playerRef.set(player);
+    			playerRef.set(player);
 
-  			$location.path('quiz/stuWait');
-  		});
+          $cookies.put('currentSessionID', currentSession.$id );
+
+    			$location.path('quiz/stuWait');
+  		  });
+      },
+      removeSession: function (){
+        currentSession = {};
+        $cookies.remove('currentSessionID');
       }
     };
   });

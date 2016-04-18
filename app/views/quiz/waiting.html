@@ -1,24 +1,46 @@
-<div class="container-fluid" ng-init="init()">
-	<div class="row">
-		<div class="col-md-3">
-			<ul>
-				<li ng-repeat="(playerName, playerContent) in session.Players">
-					{{playerName}}
-				</li>
-			</ul>
-		</div>
+<div class="quizPage waitingPage" ng-class="{active : !session.Launched}">
+	<div class="container-fluid" ng-init="init()">
+		<div class="row">
+			<div class="col-md-3">
+				<ul>
+					<li ng-repeat="(playerName, playerContent) in session.Players">
+						{{playerName}}
+					</li>
+				</ul>
+			</div>
 
-		<div class="col-md-6 quizWaiting-main">
-			<h1>{{quiz.Name}}</h1>
-			<h3>{{quiz.Questions.length}} questions</h3>
+			<div class="col-md-6 quizWaiting-main">
+				<h1>{{quiz.Name}}</h1>
+				<h3>{{quiz.Questions.length}} questions</h3>
 
-			<h1>Code</h1>
-			<h1>{{session.$id}}</h1>
+				<h1>Code</h1>
+				<h1>{{session.$id}}</h1>
 
-			<a href="#/quiz/question"><button class="btn btn-success">Launch</button></a>
+				<a href="" ng-click="launchQuiz()"><button class="btn btn-success">Launch</button></a>
+			</div>
 		</div>
 	</div>
-	
+</div>
 
+<div class="quizPage questionPage" ng-class="{active : (session.Launched && session.QuestionPhase)}">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">{{quiz.Name}}</div>
+			<div class="col-md-4">question {{session.QuestionIndex+1}}/{{quiz.Questions.length}}</div>
+			<div class="col-md-4">Code : {{session.$id}}</div>
+		</div>
 
+		<div class="container-fluid">
+			<h1 ng-click="showAnswers()">{{session.CurrentQuestion.Name}}</h1>
+			<h3 style="text-align: center;">{{countdown}}</h3>
+			<div class="row answers">
+				<div class="col-xs-6" ng-repeat="answer in session.CurrentQuestion.Answers">
+					<div class="answer">
+						<p>{{answer.Name}}</p>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
 </div>

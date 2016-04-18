@@ -82,14 +82,6 @@ angular.module('bdl6App')
         templateUrl: 'views/newquiz.html',
         controller: 'NewquizCtrl'
       })
-      .whenAuthenticated('/quizWaiting', {
-        templateUrl: 'views/quizwaiting.html',
-        controller: 'QuizwaitingCtrl'
-      })
-      .whenAuthenticated('/quizOptions', {
-        templateUrl: 'views/quizoptions.html',
-        controller: 'QuizoptionsCtrl'
-      })
       .whenAuthenticated('/quiz/:sessionCode/question', {
         templateUrl: 'views/quiz/question.html',
         controller: 'QuizQuestionCtrl'
