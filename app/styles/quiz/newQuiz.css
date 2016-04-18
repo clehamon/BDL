@@ -47,6 +47,7 @@
 	letter-spacing: 0.02em;
 	line-height: 20px;
 	font-smooth: always;
+	padding-top: 10px;
 }
 
 #newQ-img{
@@ -72,4 +73,9 @@
 	letter-spacing: 0.02em;
 	line-height: 20px;
 	font-smooth: always;
+}
+
+#quiz-button{
+	width: 300px;
+    margin-left: 75%;
 }

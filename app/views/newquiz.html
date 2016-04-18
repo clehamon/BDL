@@ -5,7 +5,7 @@
     	<!-- This is the header content. It contains Logo and links -->
 
     <div id="head" style="margin-left:13%">
-      	<h1 id="title">Here comes the Quiz title:<input type="text" ng-model="quiz.NewField"/> Industrial revolution</h2>
+      	<h1 id="title" ng-model="quiz.NewField">Here comes the Quiz title:{{quiz.newField}}</h2>
       	<h2 id="Question_type">Question type</h3>
       	&nbsp;
     </div>
@@ -61,17 +61,26 @@
     			</div>
     			<h1 class="answers-content">Steam engine</h1>
     		</div>
+
+            <div class="answers-panel col-sm-6 col-md-4 col-lg-3 ">
+                <div class="answers-option">
+                    <span class="glyphicon glyphicon-picture answers-addImg" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-minus answers-delete" aria-hidden="true"></span>
+                </div>
+                <h1 class="answers-content">Steam engine</h1>
+            </div>
     		<div class="answers-panel answers-addNew col-sm-6 col-md-4 col-lg-3 ">
     			<button type="button" class="btn btn-default btn-lg answers-add"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </button>
     			<h1 class="answers-content">Add new</h1>
     		</div>
     	</div>
-        <div id="quiz-button">
-            <button class="big save-button"><strong>New Question</strong></button>
-            <button class="big save-button"><strong>Save Quiz</strong></button>
-        </div>
+        
 
     </div> 
+    <div id="quiz-button">
+            <button class="big save-button"><strong>New Question</strong></button>
+            <button class="big save-button" style="margin-top: 10px;"><strong>Save Quiz</strong></button>
+    </div>
 </div>
 
 
