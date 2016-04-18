@@ -9,9 +9,18 @@
  */
 angular.module('bdl6App')
   .controller('QuizQuestionCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+
+    $scope.nextQuestion = function(){
+      Session.nextQuestion(startCountdown);
+    }
+
+    $scope.showSession = function(){
+        console.log('ok');
+        console.log($rootScope.session);
+    }
+
+    $scope.showAnswers = function(){
+      console.log($rootScope.session.CurrentQuestion);
+    }
+
   });

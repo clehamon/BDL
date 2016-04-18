@@ -1,7 +1,7 @@
 <div class="quizPage waitingPage" ng-class="{active : !session.Launched}">
 	<div class="container-fluid" ng-init="init()">
 		<div class="row">
-			<div class="col-md-3">
+			<div class="col-sm-3 hidden-xs">
 				<ul>
 					<li ng-repeat="(playerName, playerContent) in session.Players">
 						{{playerName}}
@@ -9,14 +9,22 @@
 				</ul>
 			</div>
 
-			<div class="col-md-6 quizWaiting-main">
-				<h1>{{quiz.Name}}</h1>
+			<div class="col-sm-6 quizWaiting-main">
+				<h1 ng-click="showSession()">{{quiz.Name}}</h1>
 				<h3>{{quiz.Questions.length}} questions</h3>
 
 				<h1>Code</h1>
 				<h1>{{session.$id}}</h1>
 
+				<h3>{{Object.keys(session.Players).length}} players</h3>
+
 				<a href="" ng-click="launchQuiz()"><button class="btn btn-success">Launch</button></a>
+			</div>
+
+			<div class="row visible-xs">
+				<div class="col-xs-4" ng-repeat="(playerName, playerContent) in session.Players">
+					{{playerName}}
+				</div>
 			</div>
 		</div>
 	</div>
@@ -26,9 +34,9 @@
 
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-md-4">{{quiz.Name}}</div>
-				<div class="col-md-4">question {{session.QuestionIndex+1}}/{{quiz.Questions.length}}</div>
-				<div class="col-md-4">Code : {{session.$id}}</div>
+				<div class="col-xs-4">{{quiz.Name}}</div>
+				<div class="col-xs-4">question {{session.QuestionIndex+1}}/{{quiz.Questions.length}}</div>
+				<div class="col-xs-4">Code : {{session.$id}}</div>
 			</div>
 			<h1 ng-click="showAnswers()" class="questionText">{{session.CurrentQuestion.Name}}</h1>
 
@@ -50,7 +58,7 @@
 				<div class="row answers">
 					<div class="col-xs-12">
 						<div class="row" >
-							<div ng-if="answer.IsCorrect" class="col-md-8 col-md-offset-2" ng-repeat="(key, answer) in session.CurrentQuestion.Answers">
+							<div ng-if="answer.IsCorrect" class="col-md-8 col-md-offset-2 col-xs-12" ng-repeat="(key, answer) in session.CurrentQuestion.Answers">
 								<div class="answer correctAnswer {{'block'+key}}">
 									<p>{{answer.Name}}</p>
 								</div>
@@ -60,12 +68,18 @@
 					
 					<div class="col-xs-12">
 						<div class="row" >
-							<div ng-if="!answer.IsCorrect" class="col-md-4" ng-repeat="(key, answer) in session.CurrentQuestion.Answers">
+							<div ng-if="!answer.IsCorrect" class="col-xs-4" ng-repeat="(key, answer) in session.CurrentQuestion.Answers">
 								<div  class="answer incorrectAnswer {{'block'+key}}">
 									<p>{{answer.Name}}</p>
 								</div>
 							</div>
 						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-4 col-sm-offset-8" >
+						<a href="" ng-click="nextQuestion()"><button class="btn btn-primary" style="font-size: 3rem">Next</button></a>
 					</div>
 				</div>
 			</div>
