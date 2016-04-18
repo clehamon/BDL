@@ -4,16 +4,16 @@
 	<form method="post" >
 		<div class="form-group" style="margin: 0 auto; width: 30%;">
 			<label style="color: white; margin: 1em auto 0 auto;" for="inputQuizCode">Quiz Code</label>
-			<input type="text" style="color: black; background-color: white;" class="form-control" id="inputQuizCode" placeholder="Quiz code here">
+			<input type="text" style="color: black; background-color: white;" class="form-control" id="inputQuizCode" ng-model="quizCode" placeholder="Quiz code here">
 		</div>
 		<div class="form-group" style="color: black; margin: 0 auto; width: 30%;">
 			<label style="color: white; margin: 1em auto 0 auto;" for="inputStudentName">Student Name</label>
-			<input type="text" style="background-color: white;" class="form-control" id="inputStudentName" placeholder="Your name here">
+			<input type="text" style="background-color: white;" class="form-control" id="inputStudentName" ng-model="playerName" placeholder="Your name here">
 		</div>
 	</form>
 	<ul class="actions">
 		<li>
-			<a href="#" class="button big">Enter</a>
+			<a href="" class="button big" ng-click="connectToQuiz()">Enter</a>
 		</li>
 	</ul>
 	<a href=".teacher"><h4>Click here if you are a Teacher</h4></a>

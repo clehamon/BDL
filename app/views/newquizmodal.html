@@ -1,15 +1,19 @@
-<div class="row">
-	<div class="col-md-8 col-md-offset-2">
+
+<section class="newquiz">
+	<div class="col-xs-8 col-xs-offset-2">
 		<h1>New quiz</h1>
-		<label for="quizTitle">Title</label>
-		<input id="quizTitle" type="text">
+		<label class="newquiz-label" for="quizTitle">Title</label>
+		<input class="newquiz-input" id="quizTitle" type="text" ng-model="title">
 
 		<label for="quizTags">Tags</label>
-		<input id="quizTags" type="text">
+		<tags-input id="quizTags" type="text" ng-model="tags"></tags-input>
 
-		<div class="btn-group">
-			<button type="button" class="btn btn-default"> Cancel </button>
-			<button type="button" class="btn btn-success"> New quiz </button>
+
+		
+
+		<div class="newquiz-btn-group btn-group">
+			<button type="button" class="newquiz-btn-group-btn btn btn-success" ng-click="newQuiz(title,tags)"> New quiz </button>
+			<button type="button" class="newquiz-btn-group-btn btn btn-default" ng-click="close()"> Cancel </button>
 		</div>
 	</div>
-</div>
+</section>
