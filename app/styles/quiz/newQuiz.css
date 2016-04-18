@@ -91,3 +91,12 @@
 
 .question-nav >li + li:before {
 	content: "->";
+}
+
+#optionsRadios1{
+	width:300px;
+}
+
+}
+
+
