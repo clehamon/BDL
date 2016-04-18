@@ -91,7 +91,7 @@ angular.module('bdl6App')
       nextQuestion : function(callback){
 
           $rootScope.session.QuestionIndex = ($rootScope.session.QuestionIndex++)%$rootScope.quiz.Questions.length;
-
+          console.log('NextQuestion');
          //As long as we haven't reach the last question
          if ($rootScope.session.QuestionIndex < $rootScope.quiz.Questions.length) {
 
@@ -126,6 +126,11 @@ angular.module('bdl6App')
          } else {
             console.log('Bouhouhou end of the quiz');
          }
+      },
+      showResults: function(){
+        console.log('showResults');
+        $rootScope.session.QuestionPhase = false;
+
       }
     };
   });

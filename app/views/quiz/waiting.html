@@ -22,25 +22,57 @@
 	</div>
 </div>
 
-<div class="quizPage questionPage" ng-class="{active : (session.Launched && session.QuestionPhase)}">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-4">{{quiz.Name}}</div>
-			<div class="col-md-4">question {{session.QuestionIndex+1}}/{{quiz.Questions.length}}</div>
-			<div class="col-md-4">Code : {{session.$id}}</div>
-		</div>
+<div class="quizPage questionPage" ng-class="{active : (session.Launched)}">
 
 		<div class="container-fluid">
-			<h1 ng-click="showAnswers()">{{session.CurrentQuestion.Name}}</h1>
-			<h3 style="text-align: center;">{{countdown}}</h3>
-			<div class="row answers">
-				<div class="col-xs-6" ng-repeat="answer in session.CurrentQuestion.Answers">
-					<div class="answer">
-						<p>{{answer.Name}}</p>
+			<div class="row">
+				<div class="col-md-4">{{quiz.Name}}</div>
+				<div class="col-md-4">question {{session.QuestionIndex+1}}/{{quiz.Questions.length}}</div>
+				<div class="col-md-4">Code : {{session.$id}}</div>
+			</div>
+			<h1 ng-click="showAnswers()" class="questionText">{{session.CurrentQuestion.Name}}</h1>
+
+			<div class="questionPhase" ng-show="session.QuestionPhase">
+				<h3 style="text-align: center;">{{countdown}}</h3>
+				<div class="row answers">
+					<div class="col-xs-6" ng-repeat="(key, answer) in session.CurrentQuestion.Answers">
+						<div class="answer {{'block'+key}}">
+							<span class="answerText">
+								<p>{{answer.Name}}</p>	
+							</span>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+
+			<div class="resultPhase" ng-show="!session.QuestionPhase">
+				<div class="row answers">
+					<div class="col-xs-12">
+						<div class="row" >
+							<div ng-if="answer.IsCorrect" class="col-md-8 col-md-offset-2" ng-repeat="(key, answer) in session.CurrentQuestion.Answers">
+								<div class="answer correctAnswer {{'block'+key}}">
+									<p>{{answer.Name}}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-xs-12">
+						<div class="row" >
+							<div ng-if="!answer.IsCorrect" class="col-md-4" ng-repeat="(key, answer) in session.CurrentQuestion.Answers">
+								<div  class="answer incorrectAnswer {{'block'+key}}">
+									<p>{{answer.Name}}</p>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
-				
 			</div>
+
 		</div>
+
 	</div>
+
+	
 </div>

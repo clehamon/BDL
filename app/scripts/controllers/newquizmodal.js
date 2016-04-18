@@ -16,6 +16,7 @@ angular.module('bdl6App')
         var tagArray = [];
         var d = new Date();
         var date = d.getFullYear() + '/' + d.getMonth() + '/' + d.getDate();
+        $scope.tags = [];
         for (var i = 0; i <= $scope.tags.length - 1; i++) {
             tagArray.push($scope.tags[i].text);
         };
