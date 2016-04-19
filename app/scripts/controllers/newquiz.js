@@ -8,7 +8,7 @@
  * Controller of the bdl6App
  */
 angular.module('bdl6App')
-  .controller('NewquizCtrl', function ($scope, $firebaseObject, $firebaseArray, $routeParams, Ref, Auth) {
+  .controller('NewquizCtrl', function ($scope, $firebaseObject, $firebaseArray, $routeParams, Ref, Auth, $location) {
 
   	$scope.quizID = $routeParams.quizID;
   	var aID;
@@ -55,7 +55,7 @@ angular.module('bdl6App')
 				newQuestion();
 				$scope.questionArray.push(aID.key());
 				$scope.currentQuestion = $scope.questionArray.length;
-				//location.reload();
+				location.reload();
 			}
 			else{
 				for (var i = 0; i < temp.length ; i++)
@@ -92,4 +92,20 @@ angular.module('bdl6App')
 			$scope.currentQuestion = $scope.questionArray.length;
 		}
 	}
+
+	$scope.removeAns = function (id){
+		var ref = Ref.child('Answer/' + questionArrayKey + '/' + aID.key() + '/' + id);
+		var deleteAns = $firebaseObject(ref);
+		deleteAns.$remove().then(function (ref) {
+			//data has been deleted locally and in the database
+			loadAnswers();
+		}, function(error) {
+			console.log("Error:", error);
+		});
+	}
+
+	$scope.done = function(){
+		$location.path('dashboard');
+	}
+
   });

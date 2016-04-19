@@ -4,11 +4,11 @@
 		<label class="newquiz-label" for="quizTitle">Title</label>
 		<input class="newquiz-input" id="quizTitle" type="text" ng-model="title">
 
-		<label for="quizTags">Tags</label>
+		<label for="quizTags">Tags (separated by comma)</label>
 		<tags-input id="quizTags" type="text" ng-model="tags"></tags-input>
 
 		<div class="newquiz-btn-group btn-group">
-			<button type="button" class="newquiz-btn-group-btn btn btn-success" ng-click="newQuiz(title)"> New quiz </button>
+			<button type="button" class="newquiz-btn-group-btn btn btn-success" ng-click="newQuiz(title)"> Create </button>
 			<button type="button" class="newquiz-btn-group-btn btn btn-default" ng-click="close()"> Cancel </button>
 		</div>
 	</div>
