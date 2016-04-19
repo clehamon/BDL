@@ -17,7 +17,7 @@
 								<h2> {{quiz.Name}} </h2>
 								<p class="quizCard-date">{{quiz.Date}}</p>
 							</div>
-							<div class="col-xs-2 quizCard-trash" ng-click="deleteQuiz(quiz.$id)"><span class="glyphicon glyphicon-trash"></span></div>
+							<div class="col-xs-2 quizCard-trash" ng-click="deleteQuiz(quiz.$id, quiz.Name)"><span class="glyphicon glyphicon-trash"></span></div>
 
 							<div>
 								<div ng-repeat="tag in quiz.TAG" class="quizCard-tag">{{tag}}</div>
@@ -28,7 +28,7 @@
 							
 						<div class="quizCard-btn">
 							<div class="col-xs-3 quizCard-btn-side">
-								<a href="">
+								<a href="" uib-tooltip="Coming soon!">
 									<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
 									<p>Results</p>	
 								</a>

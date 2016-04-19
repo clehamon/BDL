@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('bdl6App')
-  .controller('DeletequizmodalCtrl', function ($scope, $uibModal, $uibModalInstance, $location, Ref, $firebaseObject, $firebaseArray, Auth, quizID) {
+  .controller('DeletequizmodalCtrl', function ($scope, $uibModal, $uibModalInstance, $location, Ref, $firebaseObject, $firebaseArray, Auth, quizID, quizName) {
 
-  	console.log(quizID);
+  	$scope.qName = quizName;
 
     $scope.close = function() {
     	$uibModalInstance.close();

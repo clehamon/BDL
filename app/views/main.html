@@ -2,15 +2,44 @@
 
 
 <div class="jumbotron">
-	<img id="splashimage" src="../images/splash_image.jpg">
 	<div>
+		<img id="splashimage" src="images/splash_image.jpg">
+	</div>
+	<div class="container" id="main-dashboard" style="height:350px; width:100%; background:white;">
+		<div>
 		<img id="phoneimage" src="../images/phone.png">
 		<p id="description">Qwizard is a fun way to take class quizzes, without the hassle of distributing quizzes on paper. It's the best way to keep students engaged in your lesson, without interrupting your teaching flow.</p>
 		<p id="description">How it Works:<br>Teachers can create any kind of quiz in seconds, or choose from an open library of quizzes. The quiz is then shown on a screen or projector. Students connect to your quiz by entering a 4-digit quiz code on their device. Then you perform the quiz at your own pace, and see instant answers from your students. It's a lot of fun and very easy. We promise!</p>
 	</div>
+	
+	</div>
+	<div id="main-email" style="height:200px;background: linear-gradient( rgba(102, 255, 248, 0.73),rgba(250, 31, 255, 0.25))">
+		<h2 style="color: rgb(90, 0, 90); padding-top: 8%; padding-right:48%; font-family: helvetica "> 
+			Its exquisite, its Qwizard!</br> 
+			Want to try it?</br>
+			<small style="color: purple;"> its currently in Beta.</small>  
+		</h2>
+		
+		<div class="row" id="main-email-input">
+		  <div class="" style="width:400px; margin-left:60%;margin-top: -4%">
+		    <div class="input-group">
+		      <input type="text" class="form-control" placeholder="Enter your Email to access" style="height:60px">
+		      <span class="input-group-btn">
+		      	<button class="btn btn-default" href="#" role="button">Get access</button>
+		      </span>
+		    </div><!-- /input-group -->
+		  </div><!-- /.col-lg-6 -->
+		</div><!-- /.row -->
+	</div>  
 
-	  <!-- <p><a class="btn btn-lg btn-success" ng-href="#/dashboard">Go to dashboard<span class="glyphicon glyphicon-ok"></span></a></p> -->
+	<div id="f" style="background: rgba(250, 31, 255, 0.25);padding-top: 30px;padding-bottom: 30px;">
+			<div class="row centered" style="text-align: center;">
+				<a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-dribbble"></i></a>
+			</div><!-- row --</div><!-- container -->
+	</div>
 </div>
+
+
 
 <ng-include src="'views/footer.html'"></ng-include>
 
