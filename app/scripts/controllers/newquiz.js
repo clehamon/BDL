@@ -78,19 +78,19 @@ angular.module('bdl6App')
 	}
 
 	$scope.addAnswerToArray = function(a){
-		var b = Ref.child('Answer/' + questionArrayKey + '/' + aID.key());
-		b.push(a);
-		$scope.answerArray = $firebaseArray(b);
+		if ($scope.answerArray.length !== 4){
+			var b = Ref.child('Answer/' + questionArrayKey + '/' + aID.key());
+			b.push(a);
+			$scope.answerArray = $firebaseArray(b);
+		}
 	}
 
 	//Add question to array
 	$scope.addQuestion = function(){
-		if ($scope.quest.Type === "multiple"){
-			obj.$destroy();
-			newQuestion();
-			$scope.questionArray.push(aID.key());
-			$scope.currentQuestion = $scope.questionArray.length;
-		}
+		obj.$destroy();
+		newQuestion();
+		$scope.questionArray.push(aID.key());
+		$scope.currentQuestion = $scope.questionArray.length;
 	}
 
 	$scope.removeAns = function (id){
