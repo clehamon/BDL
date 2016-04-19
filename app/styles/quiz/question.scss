@@ -1,6 +1,7 @@
 
 .answer{
 	width:100%;
+	height:100%;
 	height: 120px;
 	background-color: #9C979C;
 	color: white;
@@ -27,6 +28,19 @@
 
 .questionText{
 	margin: 80px 0;
+}
+
+.studentSelectBlock{
+	height:50%;
+}
+
+.half-height{
+	height:50%;
+	padding:12px;
+}
+
+.full-height{
+	height:100%
 }
 
 .block0{

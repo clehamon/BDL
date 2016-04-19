@@ -29,7 +29,7 @@
 			</div>
 
 			<div class="col-xs-4">
-				<h3>Current session: <span>{{session.QuestionIndex+1}}/{{quiz.Questions.length}}</span></h3>
+				<h3>Current session: <span>{{session.QuestionIndex+1}}/{{quiz.QuestionsArray.length}}</span></h3>
 				<!-- <p>Code: {{session.$id}}</p> -->
 				<h3>{{Object.keys(session.Players).length}} players</h3>
 			</div>
@@ -37,7 +37,7 @@
 	</div>
 </div>
 				
-<div class="quizPage questionPage" ng-class="{active: (session.Launched)}">
+<div class="quizPage questionPage" ng-class="{active: (session.Launched && (session.QuestionIndex < quiz.QuestionsArray.length)) }">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-xs-4">{{quiz.Name}}</div>
@@ -83,13 +83,23 @@
 						</div>
 					</div>
 				</div>
-			</div>
-
-			<div class="row">
-				<div class="col-sm-4 col-sm-offset-8" >
-					<a href="" ng-click="nextQuestion()"><button class="btn btn-primary" style="font-size: 3rem">Next</button></a>
+				<div class="col-xs-12">	
+					<div class="row">
+						<div class="col-sm-4 col-sm-offset-8" >
+							<a href="" ng-click="nextQuestion()">
+								<button class="btn btn-primary" style="font-size: 3rem">Next</button>
+							</a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
+
+<div class="quizPage" ng-class="{active: (session.QuestionIndex >= quiz.QuestionsArray.length)}">
+	<h1>Congratulations !</h1>
+	<h2>{{quiz.Name}} completed</h2>
+
+	<a ng-click="endSession()"><button class="btn-btn-success">Back to Dashboard</button></a>
 </div>

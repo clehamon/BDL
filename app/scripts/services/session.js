@@ -109,7 +109,7 @@ angular.module('bdl6App')
       nextQuestion : function(callback){
 
           $rootScope.session.QuestionIndex++;
-          console.log($rootScope.session.QuestionIndex, $rootScope.quiz.QuestionsArray.length);
+          // console.log($rootScope.session.QuestionIndex, $rootScope.quiz.QuestionsArray.length);
          //As long as we haven't reach the last question
          if ($rootScope.session.QuestionIndex < $rootScope.quiz.QuestionsArray.length) {
 
@@ -159,6 +159,24 @@ angular.module('bdl6App')
         console.log('showResults');
         $rootScope.session.QuestionPhase = false;
 
+      },
+      endSession: function () {
+        var results = Ref.child('Result/'+$rootScope.session.Teacher+'/'+$rootScope.session.Quiz);
+
+        var resultsList = $firebaseArray(results);
+
+        resultsList.$loaded().then(function() {
+          var newResult = {
+            Date : Date.now(),
+            Players : $rootScope.session.Players
+          }
+
+          resultsList.$add(newResult).then(function () {
+            currentSession.$destroy();
+
+            $location.path('dashboard');
+          });
+        });
       }
     };
   });
