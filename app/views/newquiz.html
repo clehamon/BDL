@@ -47,9 +47,9 @@
     			<input type="text" class="answers-content" placeholder="Type your answer" ng-model="answer.Name" ng-change="answerArray.$save(answer)"/>
     			<input type="checkbox" ng-model="answer.IsCorrect" ng-true-value="true" ng-false-value="false" ng-change="answerArray.$save(answer)"/>Correct Answer
     		</div>
-    		<div class="answers-panel answers-addNew">
+    		<div class="answers-panel answers-addNew" ng-hide="answerArray.length === 4">
     			<h1 class="answers-content">Add Answer</h1>
-    			<button type="button" class="btn btn-default btn-lg answers-add" ng-click="addAnswerToArray({IsCorrect: 'false', Name: ''})"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </button>
+    			<button type="button" class="btn btn-default btn-lg answers-add" ng-click="addAnswerToArray({IsCorrect: false, Name: ''})"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </button>
     		</div>
 
     	</div>
