@@ -37,6 +37,20 @@ angular.module('bdl6App')
       });
     };
 
+    $scope.deleteQuiz = function (quizid) {
+      var modalInstance = $uibModal.open({
+        animation: $scope.animationsEnabled,
+        templateUrl: '../views/deletequizmodal.html',
+        controller: 'DeletequizmodalCtrl',
+        size: 'sm',
+        resolve: {
+          quizID: function () {
+            return quizid;
+          }
+        }
+      });
+    }; 
+
     $scope.launchSession = function(quizID){
 
       var code = Session.launchSession(quizID);

@@ -42,13 +42,13 @@
     		<div class="answers-panel" ng-repeat="answer in answerArray">
     			<div class="answers-option">
     				<span class="glyphicon glyphicon-picture answers-addImg" aria-hidden="true"></span>
-    				<span class="glyphicon glyphicon-minus answers-delete" aria-hidden="true"></span>
+    				<span class="glyphicon glyphicon-minus answers-delete" aria-hidden="true" ng-click="removeAns(answer.$id)"></span>
     			</div>
     			<input type="text" class="answers-content" placeholder="Type your answer" ng-model="answer.Name" ng-change="answerArray.$save(answer)"/>
     			<input type="checkbox" ng-model="answer.IsCorrect" ng-true-value="true" ng-false-value="false" ng-change="answerArray.$save(answer)"/>Correct Answer
     		</div>
     		<div class="answers-panel answers-addNew">
-    			<h1 class="answers-content">Add new</h1>
+    			<h1 class="answers-content">Add Answer</h1>
     			<button type="button" class="btn btn-default btn-lg answers-add" ng-click="addAnswerToArray({IsCorrect: 'false', Name: ''})"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </button>
     		</div>
 
@@ -57,7 +57,7 @@
     </div> 
     <div id="quiz-button">
             <button class="big save-button" ng-click="addQuestion()"><strong>New Question</strong></button>
-            <button class="big save-button" style="margin-top: 10px;"><strong>Save Quiz</strong></button>
+            <button class="big save-button" style="margin-top: 10px;" ng-click="done()"><strong>Done</strong></button>
     </div>
 </div>
 
