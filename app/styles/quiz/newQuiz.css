@@ -1,25 +1,27 @@
 .answers-containers{
 	width: 80%;
-	height: 600px;
+	height: auto;
 	border-color: black;
 	border-style: double;
+	display: inline-block;
 	
 }
-
 .answers-panel{
+	float: left; 
 	width:38%;
 	height:200px;
 	border-color: black;
 	border-style: double;
 	border-width: 3px;
-	margin-left: 3%;
 	margin-top:3%;
+	margin-right: 3%;
+	padding: 1%;
 }
 .answers-content{
-	padding-top: 15%;
-	padding-left: 13%;
+	margin: auto;
 }
 .answers-addNew{
+	display: block;
 	border-style:dotted;
 	border-width:3px;
 }
@@ -28,8 +30,7 @@
 
 }
 .answers-add{
-	margin-top:10%;
-	margin-left:35%
+	margin: auto;
 }
 
 #save-button {
@@ -57,14 +58,22 @@
 	width:80%
 }
 
+#head{
+	display: inline-block;
+}
 #title{
 	border: none;
 	background-color: transparent;
 	font-size: 36px;
 	font-weight: bold;
-	margin: 0;
+	margin-right: 5px;
 	padding: 0;
 	width: auto;
+	display: inline-block;
+}
+.icon:after{
+	content: url(../../images/pencil1.png);
+	clear: left;
 }
 
 .save-button {

@@ -77,6 +77,15 @@ angular.module('bdl6App')
 
     }
 
+    $scope.nextQuestion = function(){
+      Session.nextQuestion(startCountdown);
+    }
+
+    $scope.showSession = function(){
+        console.log('ok');
+        console.log($rootScope.session);
+    }
+
     $scope.showAnswers = function(){
       console.log($rootScope.session.CurrentQuestion);
     }
