@@ -37,6 +37,17 @@ angular.module('bdl6App')
 
         quizObj.$loaded().then(function(){
           $rootScope.quiz = quizObj;
+
+          console.log($rootScope.quiz.Questions)
+          var questionRef = Ref.child('Question/'+$rootScope.quiz.Questions);
+          var questionObj = $firebaseArray(questionRef);
+
+          questionObj.$loaded().then(function(){
+            $rootScope.quiz.QuestionsArray = questionObj;
+            console.log($rootScope.quiz.Questions);
+
+          });
+
         });
 
         if (redirect) {
@@ -98,39 +109,47 @@ angular.module('bdl6App')
       nextQuestion : function(callback){
 
           $rootScope.session.QuestionIndex++;
-          console.log($rootScope.session.QuestionIndex);
+          console.log($rootScope.session.QuestionIndex, $rootScope.quiz.QuestionsArray.length);
          //As long as we haven't reach the last question
-         if ($rootScope.session.QuestionIndex < $rootScope.quiz.Questions.length) {
+         if ($rootScope.session.QuestionIndex < $rootScope.quiz.QuestionsArray.length) {
 
-          var questionRef = Ref.child('Question/'+$rootScope.quiz.Questions[$rootScope.session.QuestionIndex]);
-          var questionObj = $firebaseObject(questionRef);
+          // var questionRef = Ref.child('Question/'+$rootScope.quiz.Questions[$rootScope.session.QuestionIndex]);
+          // var questionObj = $firebaseObject(questionRef);
 
-          questionObj.$loaded().then(function(){
+          // var questionRef = Ref.child('Question/'+$rootScope.session.quiz);
+          // var questionObj = $firebaseArray(questionRef);
 
-            console.log(questionObj);
 
-            currentSession.CurrentQuestion = questionObj;
-            console.log(currentSession.CurrentQuestion);
+          // questionObj.$loaded().then(function(){
+            var questionKey = $rootScope.quiz.QuestionsArray.$keyAt($rootScope.session.QuestionIndex);
+            var question = $rootScope.quiz.QuestionsArray.$getRecord(questionKey);
 
-            currentSession.$save().then(function(ref){
-              console.log();
+            // console.log(question);
+
+            // currentSession.CurrentQuestion = question;
+            $rootScope.session.CurrentQuestion = question;
+            console.log($rootScope.session);
+            console.log($rootScope.quiz);
+            console.log('Answer/'+$rootScope.quiz.Questions+'/'+questionKey)
+
+            // currentSession.$save().then(function(ref){
+              // console.log(currentSession);
               //If the question is a multiple choice we load the answers
-              if (questionObj.Type === 'multiple') {
-                var answerRef = Ref.child('Answer/'+$rootScope.quiz.Questions[$rootScope.session.QuestionIndex]);
+              if (question.Type === '') {
+                var answerRef = Ref.child('Answer/'+$rootScope.quiz.Questions+'/'+questionKey);
                 var answerArray = $firebaseArray(answerRef);
-
-                console.log($rootScope.session.CurrentQuestion);
 
                 answerArray.$loaded().then(function(){
                   $rootScope.session.CurrentQuestion.Answers = answerArray;
                   $rootScope.session.QuestionPhase = true;
+                  console.log($rootScope.session.CurrentQuestion);
                   callback();
                 });
 
               }
-            });
+            // });
             
-          });
+            // });
           
          } else {
             console.log('Bouhouhou end of the quiz');

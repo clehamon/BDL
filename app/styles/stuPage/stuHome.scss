@@ -1,0 +1,119 @@
+/*.banner {
+	color: #ffffff;
+	font-size: 4em;
+	line-height: 1.25em;
+	margin: 0 0 0.5em 0;
+	padding: 0;
+}*/
+
+.stuHome {
+	.button.big {
+		font-size: 1.35em;
+	}
+
+	label {
+		color: #474747;
+		display: block;
+		font-size: 0.9em;
+		font-weight: 700;
+		margin: 0 0 1em 0;
+	}
+
+	a {
+		color: #383b43;
+		text-decoration: none;
+	}
+
+	h4 {
+		font-size: 1.1em;
+		line-height: 1.5em;
+		color: white;
+		font-weight: 600;
+	}
+
+	input[type="text"] {
+		height: 2.75em;
+	}
+
+	input[type="text"],
+	input[type="password"],
+	input[type="email"],
+	select,
+	textarea {
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		-o-appearance: none;
+		-ms-appearance: none;
+		appearance: none;
+		background: rgba(144, 144, 144, 0.075);
+		border-radius: 4px;
+		border: none;
+		color: inherit;
+		display: block;
+		outline: 0;
+		padding: 0 1em;
+		text-decoration: none;
+		width: 100%;
+	}
+
+}
+
+.button {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	-o-appearance: none;
+	-ms-appearance: none;
+	appearance: none;
+	-moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+	-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+	-o-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+	-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+	transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+	background-color: #3cadd4;
+	border-radius: 30px;
+	border: 0;
+	color: #ffffff !important;
+	cursor: pointer;
+	display: inline-block;
+	font-weight: 400;
+	height: 2.85em;
+	line-height: 2.95em;
+	padding: 0 2em;
+	text-align: center;
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+.stuHome-login-form {
+	margin: 0 0 2em 0;
+}
+
+.stuHome-ul {
+	list-style: none;
+}
+
+ul.actions {
+	cursor: default;
+	list-style: none;
+	padding-left: 0;
+
+	ul.actions li {
+		display: inline-block;
+		padding: 0 1em 0 0;
+		vertical-align: middle;
+	}
+
+		ul.actions li:last-child {
+			padding-right: 0;
+		}
+}
+
+@media screen and (min-width: 768px) {
+	/*#banner {
+		padding: 6em 0 6em;
+	}*/
+
+	.banner h2 {
+		font-size: 2.25em;
+	}
+}
