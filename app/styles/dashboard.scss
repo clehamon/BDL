@@ -4,7 +4,7 @@
 
 .quizCard{
 	position: relative;
-	min-height:300px;
+	height:300px;
 	width:100%;
 	background-color: #FFF;
 	padding: 5px 10px;
@@ -32,6 +32,12 @@
 	position:absolute;
 	top:0px;
 	right:10px;
+	cursor:pointer;
+	transition: 0.2s ease-in-out;
+
+	&:hover{
+		color:#E85B5B;
+	}
 }
 
 .quizCard-date{

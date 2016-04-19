@@ -135,7 +135,7 @@ angular.module('bdl6App')
             // currentSession.$save().then(function(ref){
               // console.log(currentSession);
               //If the question is a multiple choice we load the answers
-              if (question.Type === '') {
+              if (question.Type === 'multiple') {
                 var answerRef = Ref.child('Answer/'+$rootScope.quiz.Questions+'/'+questionKey);
                 var answerArray = $firebaseArray(answerRef);
 

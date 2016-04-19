@@ -37,7 +37,7 @@ angular.module('bdl6App')
       });
     };
 
-    $scope.deleteQuiz = function (quizid) {
+    $scope.deleteQuiz = function (quizid, quizname) {
       var modalInstance = $uibModal.open({
         animation: $scope.animationsEnabled,
         templateUrl: '../views/deletequizmodal.html',
@@ -46,6 +46,9 @@ angular.module('bdl6App')
         resolve: {
           quizID: function () {
             return quizid;
+          },
+          quizName: function () {
+            return quizname;
           }
         }
       });
