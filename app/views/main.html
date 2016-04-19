@@ -7,37 +7,42 @@
 		<img id="splashimage" src="images/splash_image.jpg">
 	</div>
 
-	<div class="container" id="main-dashboard" style="height:500px; width:100%; background:white;">
+	<div class="container" id="main-dashboard" style="width:100%; background:white;">
 		<div id="quizcodebox">
 			<input id="quizcode" class="form-control" placeholder="quiz code">
 			<button id="joinbutton" class="btn btn-primary btn-block" type="submit">join</button>
 		</div>
-		<div>
-			<img id="phoneimage" src="../images/phone.png">
-			<p id="description">Qwizard is a fun way to take class quizzes, without the hassle of distributing quizzes on paper. It's the best way to keep students engaged in your lesson, without interrupting your teaching flow.</p>
-			<p id="description">How it Works:<br>Teachers can create any kind of quiz in seconds, or choose from an open library of quizzes. The quiz is then shown on a screen or projector. Students connect to your quiz by entering a 4-digit quiz code on their device. Then you perform the quiz at your own pace, and see instant answers from your students. It's a lot of fun and very easy. We promise!</p>
+		<div class="row">
+			<div class="col-sm-6">
+				<img class="img-responsive" id="phoneimage" src="../images/phone.png">	
+			</div>
+			<div class="col-sm-5 vcenter">
+				<p id="description">Qwizard is a fun way to take class quizzes, without the hassle of distributing quizzes on paper. It's the best way to keep students engaged in your lesson, without interrupting your teaching flow.</p>
+				<p id="description">How it Works:<br>Teachers can create any kind of quiz in seconds, or choose from an open library of quizzes. The quiz is then shown on a screen or projector. Students connect to your quiz by entering a 4-digit quiz code on their device. Then you perform the quiz at your own pace, and see instant answers from your students. It's a lot of fun and very easy. We promise!</p>
+			</div>
 		</div>
-	
+
+		<div class="row" id="main-mail-wrapper">
+			<div class="col-sm-6" id="main-email" >
+				<h2 class="main-mail-center no-margin" style="color: rgb(90, 0, 90); font-family: helvetica; margin-top: -20px "> 
+					Its exquisite, its Qwizard!</br>
+					Want to try it?</br>
+					<small style="color: purple;"> it's currently in Beta.</small>  
+				</h2>
+			</div>
+				
+			<div class="col-sm-5" id="main-email-input">
+			    <div class="input-group main-mail-center">
+			      <input type="text" class="form-control" placeholder="Enter your Email to access" style="height:60px">
+			      <span class="input-group-btn">
+			      	<button class="btn btn-default" href="#" role="button">Get access</button>
+			      </span>
+			    </div><!-- /input-group -->
+			</div><!-- /.row --> 
+		</div>
+
 	</div>
 
-	<div id="main-email" style="height:200px;background: linear-gradient(to right, rgba(82, 222, 255, 0.6),rgba(226, 142, 255, 0.36))">
-		<h2 style="color: rgb(90, 0, 90); position: relative; top: 50%; transform: translateY(-50%); padding-right:48%; font-family: helvetica "> 
-			Its exquisite, its Qwizard!</br>
-			Want to try it?</br>
-			<small style="color: purple;"> it's currently in Beta.</small>  
-		</h2>
-		
-		<div class="row" id="main-email-input">
-		  <div class="" style="width:400px; margin-left:60%;margin-top: -4%">
-		    <div class="input-group">
-		      <input type="text" class="form-control" placeholder="Enter your Email to access" style="height:60px">
-		      <span class="input-group-btn">
-		      	<button class="btn btn-default" href="#" role="button">Get access</button>
-		      </span>
-		    </div><!-- /input-group -->
-		  </div><!-- /.col-lg-6 -->
-		</div><!-- /.row -->
-	</div>  
 
 	<!--<div id="f" style="background: rgb(155, 182, 255);padding-top: 30px;padding-bottom: 30px; height: 200px;">
 			<div class="row centered" style="text-align: center;">
