@@ -1,0 +1,102 @@
+.answers-containers{
+	width: 80%;
+	height: auto;
+	border-color: black;
+	border-style: double;
+	display: inline-block;
+	
+}
+.answers-panel{
+	float: left; 
+	width:38%;
+	height:200px;
+	border-color: black;
+	border-style: double;
+	border-width: 3px;
+	margin-top:3%;
+	margin-right: 3%;
+	padding: 1%;
+}
+.answers-content{
+	margin: auto;
+}
+.answers-addNew{
+	display: block;
+	border-style:dotted;
+	border-width:3px;
+}
+.answers-delete{
+	margin-left: 86%;
+
+}
+.answers-add{
+	margin: auto;
+}
+
+#save-button {
+	background-color: #008287;
+	color: #fff;
+	width: 330px;
+	text-align: left;
+	padding: 10px 20px;
+	height: auto;
+	color: #000;
+	background-color: #ccc;
+	font-family: 'Segoe UI Semilight', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+	font-weight: 300;
+	font-size: 11pt;
+	letter-spacing: 0.02em;
+	line-height: 20px;
+	font-smooth: always;
+	padding-top: 10px;
+}
+
+#newQ-img{
+	border-color:black;
+	border-width:1px;
+	border-style: dotted;
+	width:80%
+}
+
+#head{
+	display: inline-block;
+}
+#title{
+	border: none;
+	background-color: transparent;
+	font-size: 36px;
+	font-weight: bold;
+	margin-right: 5px;
+	padding: 0;
+	width: auto;
+	display: inline-block;
+}
+.icon:after{
+	content: url(../../images/pencil1.png);
+	clear: left;
+}
+
+.save-button {
+	background-color: #008287;
+	color: #fff;
+	width: 330px;
+	text-align: left;
+	padding: 10px 20px;
+	height: auto;
+	color: #000;
+	background-color: #ccc;
+	font-family: 'Segoe UI Semilight', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+	font-weight: 300;
+	font-size: 11pt;
+	letter-spacing: 0.02em;
+	line-height: 20px;
+	font-smooth: always;
+}
+
+#quiz-button{
+	width: 300px;
+    margin-left: 75%;
+}
+
+.question-nav >li + li:before {
+	content: "->";

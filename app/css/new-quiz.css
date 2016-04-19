@@ -1,0 +1,27 @@
+
+
+#newQ-img{
+	width:80%;
+	height:38%
+	border-color:black;
+	border-width:1px;
+	border-style: dotted;
+	width:80%
+}
+
+#save-button {
+	background-color: #008287;
+	color: #fff;
+	width: 330px;
+	text-align: left;
+	padding: 10px 20px;
+	height: auto;
+	color: #000;
+	background-color: #ccc;
+	font-family: 'Segoe UI Semilight', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+	font-weight: 300;
+	font-size: 11pt;
+	letter-spacing: 0.02em;
+	line-height: 20px;
+	font-smooth: always;
+}
