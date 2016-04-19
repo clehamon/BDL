@@ -19,7 +19,7 @@
 		      <li role="presentation">
 		      	<form name="radios">
 		      		<input type="radio" value="multiple" ng-model="quest.Type">Multiple choice</input>
-		      		<span uib-tooltip="Soon in Beta!"><input type="radio" value="open" ng-model="quest.Type" disabled>Open answer</input></span>
+		      		<span uib-tooltip="Coming soon!"><input type="radio" value="open" ng-model="quest.Type" disabled>Open answer</input></span>
 		      	</form>
 		      </li>
               <li style=" margin-left: 48%"> <form > Time: <input type="number" id="numOfGuests" class="form-control" min="1" style="width:60px" ng-model="quest.Time"></form></li>
@@ -47,7 +47,7 @@
     			<input type="text" class="answers-content" placeholder="Type your answer" ng-model="answer.Name" ng-change="answerArray.$save(answer)"/>
     			<input type="checkbox" ng-model="answer.IsCorrect" ng-true-value="true" ng-false-value="false" ng-change="answerArray.$save(answer)"/>Correct Answer
     		</div>
-    		<div class="answers-panel answers-addNew">
+    		<div class="answers-panel answers-addNew" ng-hide="answerArray.length === 4">
     			<h1 class="answers-content">Add Answer</h1>
     			<button type="button" class="btn btn-default btn-lg answers-add" ng-click="addAnswerToArray({IsCorrect: 'false', Name: ''})"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </button>
     		</div>
