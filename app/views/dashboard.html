@@ -3,21 +3,29 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-xs-10 col-xs-offset-1">
-			<h1>Quizzes <a href="" ng-click="open('lg')"><button class="btn btn-primary">New quiz</button></a></h1>
+			<div class="row">
+				<div class="col-md-8">
+					<h1>Quizzes <a href="" ng-click="open('lg')"><button class="btn btn-primary">New quiz</button></a></h1>
+				</div>
+				<div class="col-md-4">
+
+					<div class="input-group quizSearch"> 
+						<span class="input-group-addon" id="basic-addon3"><span class="glyphicon glyphicon-search"></span></span> 
+						<input type="text" class="form-control" ng-model="quizFilter" id="basic-url" aria-describedby="basic-addon3"> 
+					</div>
+				</div>
+			</div>
 			
 		<!-- START -->
 		
 
 			<div class="row">
-				<div class="col-md-3 col-sm-6 col-xs-12" ng-repeat="quiz in quizArray">
+				<div class="col-md-3 col-sm-6 col-xs-12" ng-repeat="quiz in quizArray | filter:quizFilter">
 					<div class="quizCard">
 						<div class="quizCard-content">
-							<div class="col-xs-2"></div>
-							<div class="col-xs-8 quizCard-title">
-								<h2> {{quiz.Name}} </h2>
-								<p class="quizCard-date">{{quiz.Date}}</p>
-							</div>
-							<div class="col-xs-2 quizCard-trash" ng-click="deleteQuiz(quiz.$id)"><span class="glyphicon glyphicon-trash"></span></div>
+							<h2> {{quiz.Name}} </h2>
+							<p class="quizCard-date">{{quiz.Date}}</p>
+							<div class="quizCard-trash" ng-click="deleteQuiz(quiz.$id)"><span class="glyphicon glyphicon-trash"></span></div>
 
 							<div>
 								<div ng-repeat="tag in quiz.TAG" class="quizCard-tag">{{tag}}</div>
