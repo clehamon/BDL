@@ -17,7 +17,7 @@
 }
 .answers-content{
 	padding-top: 15%;
-	padding-left: 13%
+	padding-left: 13%;
 }
 .answers-addNew{
 	border-style:dotted;
@@ -47,6 +47,7 @@
 	letter-spacing: 0.02em;
 	line-height: 20px;
 	font-smooth: always;
+	padding-top: 10px;
 }
 
 #newQ-img{
@@ -56,6 +57,15 @@
 	width:80%
 }
 
+#title{
+	border: none;
+	background-color: transparent;
+	font-size: 36px;
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
+	width: auto;
+}
 
 .save-button {
 	background-color: #008287;
@@ -73,3 +83,11 @@
 	line-height: 20px;
 	font-smooth: always;
 }
+
+#quiz-button{
+	width: 300px;
+    margin-left: 75%;
+}
+
+.question-nav >li + li:before {
+	content: "->";

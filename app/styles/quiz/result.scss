@@ -1,0 +1,41 @@
+.answer{
+	display: table;
+
+	&:p{
+		text-align:center; 
+		vertical-align: middle;
+		display: table-cell; 
+	}
+}
+.studentResult{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	text-align: center;
+}
+
+.white-bg{
+	background-color: #FFFFFF;
+	color: black;
+}
+.studentResultIcon{
+	font-size: 7rem;
+}
+
+.correctAnswer{
+	border: 12px solid #7ED321;
+}
+
+.incorrectAnswer{
+
+}
+
+.studentCorrect{
+	background-color: #84E3B8;
+	color: white;
+}
+
+.studentIncorrect{
+	background-color: #E85B5B;
+	color: white;
+}

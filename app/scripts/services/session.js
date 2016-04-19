@@ -20,8 +20,14 @@ angular.module('bdl6App')
       var session = Ref.child('Session/'+code);
       var sessionObj = $firebaseObject(session);
 
+
+
       //Once the session is loaded we can bind it to the rootScope
       sessionObj.$loaded().then(function(){
+        // if ($rootScope.session) {
+        //   sessionObj.$destroy(); 
+        // }
+
         sessionObj.$bindTo($rootScope, 'session');
         currentSession = sessionObj;
 
@@ -79,6 +85,7 @@ angular.module('bdl6App')
           CurrentQuestion: {
             active : false
           },
+          Players : [],
           Timestamp : Date.now()
         };
 
@@ -90,8 +97,8 @@ angular.module('bdl6App')
       },
       nextQuestion : function(callback){
 
-          $rootScope.session.QuestionIndex = ($rootScope.session.QuestionIndex++)%$rootScope.quiz.Questions.length;
-
+          $rootScope.session.QuestionIndex++;
+          console.log($rootScope.session.QuestionIndex);
          //As long as we haven't reach the last question
          if ($rootScope.session.QuestionIndex < $rootScope.quiz.Questions.length) {
 
@@ -103,8 +110,10 @@ angular.module('bdl6App')
             console.log(questionObj);
 
             currentSession.CurrentQuestion = questionObj;
+            console.log(currentSession.CurrentQuestion);
 
-            currentSession.$save().then(function(){
+            currentSession.$save().then(function(ref){
+              console.log();
               //If the question is a multiple choice we load the answers
               if (questionObj.Type === 'multiple') {
                 var answerRef = Ref.child('Answer/'+$rootScope.quiz.Questions[$rootScope.session.QuestionIndex]);
@@ -126,6 +135,11 @@ angular.module('bdl6App')
          } else {
             console.log('Bouhouhou end of the quiz');
          }
+      },
+      showResults: function(){
+        console.log('showResults');
+        $rootScope.session.QuestionPhase = false;
+
       }
     };
   });
