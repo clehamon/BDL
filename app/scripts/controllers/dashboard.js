@@ -10,11 +10,16 @@
 angular.module('bdl6App')
   .controller('DashboardCtrl', function ($scope, $uibModal, $location, Ref, $firebaseArray, Auth, Session) {
 
+
     $scope.quizArray = $firebaseArray(Ref.child('Quiz/' + Ref.getAuth().uid));
     // display any errors
     // $scope.quizArray.$loaded().catch(alert);
-   
-   $scope.animationsEnabled = true;
+
+    $scope.animationsEnabled = true;
+
+    $scope.edit = function (id){
+      $location.path('newQuiz/' + id);
+    }
 
     $scope.open = function (size) {
 
@@ -31,6 +36,20 @@ angular.module('bdl6App')
         }
       });
     };
+
+    $scope.deleteQuiz = function (quizid) {
+      var modalInstance = $uibModal.open({
+        animation: $scope.animationsEnabled,
+        templateUrl: '../views/deletequizmodal.html',
+        controller: 'DeletequizmodalCtrl',
+        size: 'sm',
+        resolve: {
+          quizID: function () {
+            return quizid;
+          }
+        }
+      });
+    }; 
 
     $scope.launchSession = function(quizID){
 

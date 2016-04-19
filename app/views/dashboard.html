@@ -17,7 +17,7 @@
 								<h2> {{quiz.Name}} </h2>
 								<p class="quizCard-date">{{quiz.Date}}</p>
 							</div>
-							<div class="col-xs-2 quizCard-trash"><span class="glyphicon glyphicon-trash"></span></div>
+							<div class="col-xs-2 quizCard-trash" ng-click="deleteQuiz(quiz.$id)"><span class="glyphicon glyphicon-trash"></span></div>
 
 							<div>
 								<div ng-repeat="tag in quiz.TAG" class="quizCard-tag">{{tag}}</div>
@@ -40,7 +40,7 @@
 								</a>
 							</div>
 							<div class="col-xs-3 quizCard-btn-side">
-								<a href="">
+								<a href="" ng-click="edit(quiz.$id)">
 									<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
 									<p>Edit</p>
 								</a>

@@ -24,8 +24,6 @@ body {
 
 /* Custom page header */
 .header {
-  border-bottom: 1px solid #e5e5e5;
-  margin-bottom: 10px;
 
   /* Make the masthead heading the same height as the navigation */
   h3 {
@@ -49,6 +47,7 @@ body {
 
 /* Main marketing message and sign up button */
 .jumbotron {
+  padding-top: 0;
   text-align: center;
   border-bottom: 1px solid #e5e5e5;
 
@@ -59,7 +58,19 @@ body {
 }
 
 #splashimage {
-  width:100%;
+  width: 100%;
+}
+
+#phoneimage {
+  width: 50%;
+  float: left;
+}
+
+#description {
+  text-align: left;
+  padding-top: 20px;
+  padding-right: 40px;
+  font-size: 14px;
 }
 
 /* Supporting marketing content */
@@ -88,13 +99,19 @@ body {
     padding-left: 0;
     padding-right: 0;
   }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
+  
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
     border-bottom: 0;
+  }
+
+  .navbar {
+    margin-bottom: 0;
+    height: 80px;
+  }
+
+  .navbar-nav {
+    float: right;
   }
 }
 
