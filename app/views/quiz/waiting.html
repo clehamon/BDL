@@ -1,105 +1,120 @@
+<!-- <<<<<<< HEAD
 <div class="quizPage waitingPage" ng-class="{active : !session.Launched}">
 	<div class="jumbotron waiting-jumbotron">
-	<!-- <div class="quizPage waitingPage" ng-class="{active : !session.Launched}"> -->
+	<div class="quizPage waitingPage" ng-class="{active : !session.Launched}">
 		<div class="container-fluid" ng-init="init()">
+			<div class="row waiting-header">
+======= -->
+<div class="waitingWrapper">
+	<div class="quizPage waitingPage" ng-class="{active : (!session.Launched && session.QuestionIndex<0)}">
+		<div class="jumbotron waiting-jumbotron">
+		<!-- <div class="quizPage waitingPage" ng-class="{active : !session.Launched}"> -->
+			<div class="container-fluid" ng-init="init()">
+				<div class="row">
+					<div class="col-xs-8">
+						<h1 class="waiting-h1">{{quiz.Name}}</h1>
+						<h2>{{quiz.QuestionsArray.length}} questions</h2>
+					</div>
+						
+					<div class="col-xs-4">
+						<h1 class="waiting-h1">Code</h1>
+						<!-- <h2>{{session.$id}}</h2> -->
+						<h2>{{session.$id}}</h2>
+						<a href="" ng-click="launchQuiz()"><span class="btn btn-success">Launch</span></a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container-fluid waiting-infoCenter">
 			<div class="row">
+<!-- >>>>>>> 5181d7a95264bdf8c92a395a687a83bbbbc7471c -->
 				<div class="col-xs-8">
-					<h1 class="waiting-h1">{{quiz.Name}}</h1>
-					<h2>{{quiz.QuestionsArray.length}} questions</h2>
+					<ul>
+						<li ng-repeat="(playerName, playerContent) in session.Players">
+						{{playerName}}&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-remove hidden "></span>
+						</li>
+					</ul>
 				</div>
-					
+
 				<div class="col-xs-4">
-					<h1 class="waiting-h1">Code</h1>
-					<!-- <h2>{{session.$id}}</h2> -->
-					<h2>{{session.$id}}</h2>
-					<a href="" ng-click="launchQuiz()"><span class="btn btn-success">Launch</span></a>
+					<h3>Current session: <span>{{session.QuestionIndex+1}}/{{quiz.QuestionsArray.length}}</span></h3>
+					<!-- <p>Code: {{session.$id}}</p> -->
+					<h3>{{Object.keys(session.Players).length}} players</h3>
 				</div>
 			</div>
 		</div>
 	</div>
-
-	<div class="container-fluid waiting-infoCenter">
-		<div class="row">
-			<div class="col-xs-8">
-				<ul>
-					<li ng-repeat="(playerName, playerContent) in session.Players">
-					{{playerName}}&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-remove hidden "></span>
-					</li>
-				</ul>
+					
+	<div class="quizPage questionPage" ng-class="{active: (session.Launched && (session.QuestionIndex < quiz.QuestionsArray.length)) }">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-4">{{quiz.Name}}</div>
+				<div class="col-xs-4">question {{session.QuestionIndex+1}}/{{quiz.QuestionsArray.length}}</div>
+				<div class="col-xs-4">Code : {{session.$id}}</div>
 			</div>
 
-			<div class="col-xs-4">
-				<h3>Current session: <span>{{session.QuestionIndex+1}}/{{quiz.QuestionsArray.length}}</span></h3>
-				<!-- <p>Code: {{session.$id}}</p> -->
-				<h3>{{Object.keys(session.Players).length}} players</h3>
-			</div>
-		</div>
-	</div>
-</div>
-				
-<div class="quizPage questionPage" ng-class="{active: (session.Launched && (session.QuestionIndex < quiz.QuestionsArray.length)) }">
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-xs-4">{{quiz.Name}}</div>
-			<div class="col-xs-4">question {{session.QuestionIndex+1}}/{{quiz.QuestionsArray.length}}</div>
-			<div class="col-xs-4">Code : {{session.$id}}</div>
-		</div>
+			<h1 ng-click="showAnswers()" class="questionText">
+				{{session.CurrentQuestion.Name}}
+			</h1>
 
-		<h1 ng-click="showAnswers()" class="questionText">
-			{{session.CurrentQuestion.Name}}
-		</h1>
-
-		<div class="questionPhase" ng-show="session.QuestionPhase">
-			<h3 style="text-align: center;">{{countdown}}</h3>
-			<div class="row answers">
-				<div class="col-xs-6" ng-repeat="(key, answer) in session.CurrentQuestion.Answers">
-					<div class="answer {{'block'+key}}">
-						<span class="answerText">
-							<p>{{answer.Name}}</p>	
-						</span>
+			<div class="questionPhase" ng-show="session.QuestionPhase">
+				<h3 style="text-align: center;">{{countdown}}</h3>
+				<div class="row answers">
+					<div class="col-xs-6" ng-repeat="(key, answer) in session.CurrentQuestion.Answers">
+						<div class="answer {{'block'+key}}">
+							<span class="answerText">
+								<p>{{answer.Name}}</p>	
+							</span>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 
-		<div class="resultPhase" ng-show="!session.QuestionPhase">
-			<div class="row answers">
-				<div class="col-xs-12">
-					<div class="row" >
-						<div ng-if="answer.IsCorrect" class="col-md-8 col-md-offset-2 col-xs-12" ng-repeat="(key, answer) in session.CurrentQuestion.Answers">
-							<div class="answer correctAnswer {{'block'+key}}">
-								<p>{{answer.Name}}</p>
+			<div class="resultPhase" ng-show="!session.QuestionPhase">
+				<div class="row answers">
+					<div class="col-xs-12">
+						<div class="row">
+							<div ng-if="answer.IsCorrect" class="col-xs-6" ng-repeat="(key, answer) in session.CurrentQuestion.Answers">
+								<div class="answer correctAnswer {{'block'+key}}">
+									<p>{{answer.Name}}</p>
+								</div>
+							</div>
+
+							<div ng-if="!answer.IsCorrect" class="col-xs-6" ng-repeat="(key, answer) in session.CurrentQuestion.Answers">
+								<div class="answer incorrectAnswer {{'block'+key}}">
+									<p>{{answer.Name}}</p>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				
-				<div class="col-xs-12">
-					<div class="row" >
-						<div ng-if="!answer.IsCorrect" class="col-xs-4" ng-repeat="(key, answer) in session.CurrentQuestion.Answers">
-							<div  class="answer incorrectAnswer {{'block'+key}}">
-								<p>{{answer.Name}}</p>
+
+				<div class="row">
+					<!-- <div class="col-sm-4 col-sm-offset-8" >
+						<a href="" ng-click="nextQuestion()"><button class="btn btn-primary" style="font-size: 3rem">Next</button></a>
+					</div> -->
+					<div class="col-xs-12">	
+						<div class="row">
+							<div class="col-sm-4 col-sm-offset-8" >
+								<a href="" ng-click="nextQuestion()">
+									<button class="btn btn-primary" style="font-size: 3rem">Next</button>
+								</a>
 							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-xs-12">	
-					<div class="row">
-						<div class="col-sm-4 col-sm-offset-8" >
-							<a href="" ng-click="nextQuestion()">
-								<button class="btn btn-primary" style="font-size: 3rem">Next</button>
-							</a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>	
+
+	<div class="quizPage quizPage-complete" ng-class="{active: (session.QuestionIndex >= quiz.QuestionsArray.length)}">
+		<h1>Congratulations !</h1>
+		<h2>{{quiz.Name}} completed</h2>
+		<br>
+
+		<a ng-click="endSession()"><button class="btn btn-success">Back to Dashboard</button></a>
+
 	</div>
-</div>
 
-<div class="quizPage" ng-class="{active: (session.QuestionIndex >= quiz.QuestionsArray.length)}">
-	<h1>Congratulations !</h1>
-	<h2>{{quiz.Name}} completed</h2>
-
-	<a ng-click="endSession()"><button class="btn-btn-success">Back to Dashboard</button></a>
 </div>

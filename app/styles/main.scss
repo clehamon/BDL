@@ -81,8 +81,9 @@ body {
   padding-bottom: 10px;
 }
 
-#quizcode {
-  height: 60px;
+#quizcode, #studentName {
+  margin-bottom: 5px;
+  height: 2em;
   font-size: 20px;
   text-align: center;
 }
