@@ -94,6 +94,10 @@ angular.module('bdl6App')
         templateUrl: 'views/quiz/waiting.html',
         controller: 'QuizWaitingCtrl'
       })
+      .when('/student/end', {
+        templateUrl: 'views/stuend.html',
+        controller: 'StuendCtrl'
+      })
       .otherwise({redirectTo: '/'});
   }])
 

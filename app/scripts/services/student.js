@@ -25,6 +25,10 @@ angular.module('bdl6App')
       $location.path('student/answers');
     };
 
+    var endQuiz = function() {
+      $location.path('student/end');
+    }
+
     // Public API here
     return {
       session: function () {
@@ -62,6 +66,8 @@ angular.module('bdl6App')
               } else {
                 loadResults();
               }
+            } else if(currentSession.QuestionIndex>=0){
+              endQuiz();
             }
           });
 
