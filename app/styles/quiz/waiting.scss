@@ -1,5 +1,9 @@
 .waiting-jumbotron {
 	/*padding-top: 0;*/
+	padding-top: 20px;
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-bottom: 20px;
 	text-align: left;
 
 	h2 {
@@ -37,6 +41,7 @@ h1 {
 	width: 100%;
 	overflow: hidden;
 	position:absolute;
+	/*margin-top: 20px;*/
 }
 
 .quizPage{
@@ -57,12 +62,19 @@ h1 {
 	}
 }
 
+.questionPage-nextBtn {
+	margin-top: 1.6em;
+}
+
 .waitingPage{
 	/*background-color: #E85B5B;*/
 	/*background-color: #eee;*/
 	color: #000;
 	/*// background-color: #E85B5B;
 	// color: #FFFFFF;*/
+	.waiting-infoCenter {
+		margin-top: 40px;
+	}
 }
 .quizWaiting-main{
 	text-align: center;
