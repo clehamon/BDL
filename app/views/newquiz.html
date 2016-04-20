@@ -5,40 +5,40 @@
 
     <div id="head" style="margin-left:13%">
       	<span class="icon" uib-tooltip="tap to edit the title of the quiz" ><input id="title" type="text" ng-model="quiz.Name"/></span>
-      	
+
       	&nbsp;
     </div>
     
 
 	</header>
   
-    	<div id="newQ-container span10" style="margin-left:13%">
-        	<div id="question-option">
-        		<h3 id="Question_type">Question type</h3>
-        		<ul class="nav nav-pills">
-    		      <li role="presentation">
-    		      	<form name="radios">
-    		      		<input type="radio" value="multiple" ng-model="quest.Type">Multiple choice</input>
-    		      		<span uib-tooltip="Coming soon!"><input type="radio" value="open" ng-model="quest.Type" disabled>Open answer</input></span>
-    		      	</form>
-    		      </li>
-                  <li style=" margin-left: 48%"> <form > Time (second): <input type="number" id="numOfGuests" class="form-control" min="1" style="width:60px" ng-model="quest.Time"></form></li>
-    		    </ul>
-        	</div>
-        	<div id="newQ-navigator" style="">
-                <ol class="breadcrumb question-nav" style="background-color:white">
-                	<label>Navigator: Question {{currentQuestion}}</label></br>
-                	<li ng-repeat="question in questionArray"><a href="" ng-click="changedQuestion($index)">Question {{$index + 1}} </a></li>
-                </ol>
+    
 
-  
+	<div id="newQ-container" style="margin-left:13%">
+    	<div id="question-option">
+    		<h3 id="Question_type">Question type</h3>
+    		<ul class="nav nav-pills">
+		      <li role="presentation">
+		      	<form name="radios">
+		      		<input type="radio" value="multiple" ng-model="quest.Type">Multiple choice</input>
+		      		<span uib-tooltip="Coming soon!" ><input type="radio" value="open" ng-model="quest.Type" disabled>Open answer</input></span>
+		      	</form>
+		      </li>
+              <li style=" margin-left: 48%"> <form > Time: <input type="number" id="numOfGuests" class="form-inline" min="1" style="width:60px" ng-model="quest.Time"><span>min</span><input type="number" id="numOfGuests" class="form-inline" min="1" style="width:60px" ng-model="quest.Time"><span>sec</span></form></li>
+		    </ul>
+    	</div>
+    	<div id="newQ-navigator" >
+            <ol class="breadcrumb question-nav" style="background-color:white">
+            	<label>Navigator: Question {{currentQuestion}}</label>
+            	<li ng-repeat="question in questionArray"><a href="" ng-click="changedQuestion($index)">Question {{$index + 1}} </a></li>
+            </ol>
         </div>
     	
         	<div id="newQ-img">
                 <div class="answers-option">
                     <span class="glyphicon glyphicon-picture answers-addImg" aria-hidden="true"></span>
                 </div>
-                <input  id="question-title-input"type="text" placeholder="Type your question here" name="questionTitle" ng-model="quest.Name" style="font-size:15px"/>
+                <input  id="question-title-input"type="text" placeholder="Type your question here" name="questionTitle" ng-model="quest.Name" style="font-size: 25px"/>
         		<!--<img src="../images/question-img.jpg" alt="..." class="img-rounded" style="height: 38%; width: 60%;">-->
         	</div>
         	<div class="answers-containers">
