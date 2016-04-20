@@ -75,7 +75,9 @@ angular.module('bdl6App')
       sendAnswer: function (answerID) {
         $rootScope.currentAnswer = $rootScope.session.CurrentQuestion.Answers[answerID];
         $rootScope.currentAnswer.id = answerID;
-        console.log($rootScope.session.CurrentQuestion.Answers, answerID);
+        console.log($rootScope.session.QuestionIndex, answerID);
+
+        playerRef.child($rootScope.session.QuestionIndex).set(answerID);
         currentSession.Players[currentName][currentSession.CurrentQuestion.Answers] = answerID;
       }
     };

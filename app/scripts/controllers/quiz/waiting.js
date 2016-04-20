@@ -90,5 +90,10 @@ angular.module('bdl6App')
       console.log($rootScope.session.CurrentQuestion);
     }
 
+    $scope.endSession = function(){
+      Session.endSession();
+
+    }
+
 
   });
