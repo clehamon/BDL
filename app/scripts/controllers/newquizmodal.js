@@ -10,13 +10,13 @@
 angular.module('bdl6App')
   .controller('NewquizmodalCtrl', function ($scope, $firebaseObject, Auth, Ref, $location, $uibModalInstance) {
 
+    $scope.tags = [];
     $scope.newQuiz = function(title) {
     	var quizRef = Ref.child('Quiz');
     	var user = Ref.getAuth();
         var tagArray = [];
         var d = new Date();
         var date = d.getFullYear() + '/' + d.getMonth() + '/' + d.getDate();
-        $scope.tags = [];
         for (var i = 0; i <= $scope.tags.length - 1; i++) {
             tagArray.push($scope.tags[i].text);
         };

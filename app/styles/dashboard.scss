@@ -1,6 +1,11 @@
+.quizSearch{
+	margin-top:20px;
+	margin-bottom:10px;
+}
+
 .quizCard{
 	position: relative;
-	min-height:300px;
+	height:300px;
 	width:100%;
 	background-color: #FFF;
 	padding: 5px 10px;
@@ -13,6 +18,7 @@
 
 .quizCard-content{
 	margin-bottom: 110px;
+	word-break:normal;
 }
 
 .quizCard-title{
@@ -24,6 +30,15 @@
 
 .quizCard-trash {
 	padding-top: 0.5em;
+	position:absolute;
+	top:0px;
+	right:10px;
+	cursor:pointer;
+	transition: 0.2s ease-in-out;
+
+	&:hover{
+		color:#E85B5B;
+	}
 }
 
 .quizCard-date{

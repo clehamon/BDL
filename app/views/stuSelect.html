@@ -1,5 +1,5 @@
 <!-- Select the answers by their own preferences. -->
-<section id="one" class="wrapper style1 special">
+<!-- <section id="one" class="wrapper style1 special"> -->
 	<!-- <div class="container" style="width: 70%; max-width: 1200px">
 	
 		<header class="major">
@@ -53,11 +53,10 @@
 
 	</div> -->
 
-	<div class="container-fluid">
-		<div class="row">
-			<div class="answers">
-				<div class="col-xs-6" ng-repeat="(key, answer) in session.CurrentQuestion.Answers">
-					<div class="answer {{'block'+key}}" ng-click="sendAnswer(key, answer)" ng-class="{correctAnswer: (answer===currentAnswer)}" style="height: 50%">
+		<div class="row studentResult">
+			<div class="answers full-height">
+				<div class="col-xs-6 half-height" ng-repeat="(key, answer) in session.CurrentQuestion.Answers">
+					<div class="answer full-height {{'block'+key}}" ng-click="sendAnswer(key, answer)" ng-class="{correctAnswer: (answer===currentAnswer)}">
 						<span class="answerText">
 							<p>{{answer.Name}}</p>	
 						</span>
@@ -65,5 +64,4 @@
 				</div>
 			</div>
 		</div>
-	</div>
-</section>
+<!-- </section> -->

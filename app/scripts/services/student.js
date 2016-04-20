@@ -25,6 +25,10 @@ angular.module('bdl6App')
       $location.path('student/answers');
     };
 
+    var endQuiz = function() {
+      $location.path('student/end');
+    }
+
     // Public API here
     return {
       session: function () {
@@ -62,6 +66,8 @@ angular.module('bdl6App')
               } else {
                 loadResults();
               }
+            } else if(currentSession.QuestionIndex>=0){
+              endQuiz();
             }
           });
 
@@ -75,7 +81,9 @@ angular.module('bdl6App')
       sendAnswer: function (answerID) {
         $rootScope.currentAnswer = $rootScope.session.CurrentQuestion.Answers[answerID];
         $rootScope.currentAnswer.id = answerID;
-        console.log($rootScope.session.CurrentQuestion.Answers, answerID);
+        console.log($rootScope.session.QuestionIndex, answerID);
+
+        playerRef.child($rootScope.session.QuestionIndex).set(answerID);
         currentSession.Players[currentName][currentSession.CurrentQuestion.Answers] = answerID;
       }
     };
