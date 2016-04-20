@@ -163,6 +163,13 @@ body {
   .headerbutton{
     display: inline-block;
   }
+
+  #quizcode, #studentName {
+    margin-bottom: 5px;
+    height: 2em;
+    font-size: 20px;
+    text-align: center;
+  }
 }
 
 
