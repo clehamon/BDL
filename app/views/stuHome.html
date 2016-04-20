@@ -2,6 +2,7 @@
 <section id="banner" class="banner stuHome">
 	<h2>Are you ready for answering kids?</h2>
 	<form method="post" class="stuHome-login-form">
+		<p class="error" ng-hide="correctConnection">Incorrect code</p>
 		<div class="form-group" style="margin: 0 auto; width: 30%;">
 			<label style="color: white; margin: 1em auto 0 auto;" for="inputQuizCode">Quiz Code</label>
 			<input type="number" style="color: black; background-color: white;" class="form-control" id="inputQuizCode" ng-model="quizCode" placeholder="Quiz code here">

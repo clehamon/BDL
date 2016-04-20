@@ -9,14 +9,15 @@
 
 	<div class="container" id="main-dashboard" style="width:100%; background:white;">
 		<div id="quizcodebox" ng-controller="StuHomeCtrl">
-			<input id="quizcode" class="form-control" placeholder="Quiz code">
+			<p class="error" ng-hide="correctConnection">Incorrect code</p>
+			<input type="number" id="quizcode" class="form-control" placeholder="Quiz code">
 			<input id="studentName" class="form-control" placeholder="Your name">
 			<!-- <button id="joinbutton" class="btn btn-primary btn-block" type="submit">join</button> -->
 			<button class="button big" ng-click="connectToQuiz()">Join</button>
 		</div>
 		<div class="row">
 			<div class="col-sm-6">
-				<img class="img-responsive" id="phoneimage" src="../images/phone.png">	
+				<img class="img-responsive" id="phoneimage" src="images/phone.png">	
 			</div>
 			<div class="col-sm-5 vcenter">
 				<p id="description">Qwizard is a fun way to take class quizzes, without the hassle of distributing quizzes on paper. It's the best way to keep students engaged in your lesson, without interrupting your teaching flow.</p>

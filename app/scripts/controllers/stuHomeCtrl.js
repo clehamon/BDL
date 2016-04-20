@@ -2,10 +2,10 @@
 
 angular.module('bdl6App')
 	.controller('StuHomeCtrl', function ($scope, student) {
-		$scope.testMessage = 'This is a test message in students homepage.';
+		$scope.correctConnection = true;
 
 		$scope.connectToQuiz = function(){
-			student.setSession($scope.quizCode, $scope.playerName);
+			$scope.correctConnection = student.setSession($scope.quizCode, $scope.playerName);
 		};
 
 		$scope.sendAnswer = function (key, answer) {

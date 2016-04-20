@@ -1,67 +1,12 @@
-<!-- Select the answers by their own preferences. -->
-<!-- <section id="one" class="wrapper style1 special"> -->
-	<!-- <div class="container" style="width: 70%; max-width: 1200px">
-	
-		<header class="major">
-			<h2>Quiz Name</h2>
-			<p>Please select the answers you think are right.</p>
-		</header>
-		<div class="row 150%">
-			<div class="col-xs-6">
-				<section class="box">
-				<input type="checkbox" id="option1" name="option1">
-				<label for="option1">
-					<i class="icon big rounded color1 fa-cloud"></i>
-					<h3>Cloud</h3>
-					<p>We can neglect this part if it is not necessary</p>
-				</label>
-				</section>
-			</div>
-			<div class="col-xs-6">
-				<section class="box">
-				<input type="checkbox" id="option2" name="option2">
-				<label for="option2">
-					<i class="icon big rounded color1 fa-cloud"></i>
-					<h3>Cloud-2</h3>
-					<p>We can neglect this part if it is not necessary</p>
-				</label>
-				</section>
-			</div>
-			<div class="col-xs-6">
-				<section class="box">
-				<input type="checkbox" id="option3" name="option3">
-				<label for="option3">
-					<i class="icon big rounded color9 fa-desktop"></i>
-					<h3>Desktop</h3>
-					<p>We can neglect this part if it is not necessary</p>
-				</label>
-				</section>
-			</div>
-			<div class="col-xs-6">
-				<section class="box">
-				<input type="checkbox" id="option4" name="option4">
-				<label for="option4">
-					<i class="icon big rounded color6 fa-rocket"></i>
-					<h3>Rocket</h3>
-					<p>We can neglect this part if it is not necessary</p>
-				</label>
-				</section>
+
+<div class="row studentResult">
+	<div class="answers full-height">
+		<div class="col-xs-6 half-height" ng-repeat="(key, answer) in session.CurrentQuestion.Answers">
+			<div class="answer full-height {{'block'+key}}" ng-click="sendAnswer(key, answer)" ng-class="{correctAnswer: (key===currentAnswerID)}">
+				<span class="answerText">
+					<p>{{answer.Name}}</p>	
+				</span>
 			</div>
 		</div>
-		
-
-
-	</div> -->
-
-		<div class="row studentResult">
-			<div class="answers full-height">
-				<div class="col-xs-6 half-height" ng-repeat="(key, answer) in session.CurrentQuestion.Answers">
-					<div class="answer full-height {{'block'+key}}" ng-click="sendAnswer(key, answer)" ng-class="{correctAnswer: (answer===currentAnswer)}">
-						<span class="answerText">
-							<p>{{answer.Name}}</p>	
-						</span>
-					</div>
-				</div>
-			</div>
-		</div>
-<!-- </section> -->
+	</div>
+</div>
