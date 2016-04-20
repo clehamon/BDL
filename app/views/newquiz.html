@@ -4,7 +4,7 @@
     	<!-- This is the header content. It contains Logo and links -->
 
     <div id="head" style="margin-left:13%">
-      	<span class="icon"><input id="title" type="text" ng-model="quiz.Name"/></span>
+      	<span class="icon"><span uib-tooltip="Type to edit quiz name!"><input style="text-align: center" id="title" type="text" ng-model="quiz.Name"/></span></span>
       	&nbsp;
     </div>
     
@@ -19,10 +19,10 @@
 		      <li role="presentation">
 		      	<form name="radios">
 		      		<input type="radio" value="multiple" ng-model="quest.Type">Multiple choice</input>
-		      		<span uib-tooltip="Coming soon!"><input type="radio" value="open" ng-model="quest.Type" disabled>Open answer</input></span>
+		      		<span uib-tooltip="Coming soon!" ><input type="radio" value="open" ng-model="quest.Type" disabled>Open answer</input></span>
 		      	</form>
 		      </li>
-              <li style=" margin-left: 48%"> <form > Time: <input type="number" id="numOfGuests" class="form-control" min="1" style="width:60px" ng-model="quest.Time"></form></li>
+              <li style=" margin-left: 48%"> <form > Time: <input type="number" id="numOfGuests" class="form-inline" min="1" style="width:60px" ng-model="quest.Time"><span>min</span><input type="number" id="numOfGuests" class="form-inline" min="1" style="width:60px" ng-model="quest.Time"><span>sec</span></form></li>
 		    </ul>
     	</div>
     	<div id="newQ-navigator" >
