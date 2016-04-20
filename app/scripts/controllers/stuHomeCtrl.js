@@ -8,9 +8,9 @@ angular.module('bdl6App')
 			student.setSession($scope.quizCode, $scope.playerName);
 		};
 
-		$scope.sendAnswer = function (key, answerID) {
+		$scope.sendAnswer = function (key, answer) {
 			console.log($scope.session.CurrentQuestion.Answers);
-			console.log(key, answerID);
+			console.log(key, answer);
 			student.sendAnswer(key);
 		}
 	});

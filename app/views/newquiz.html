@@ -5,6 +5,7 @@
 
     <div id="head" style="margin-left:13%">
       	<span class="icon" uib-tooltip="tap to edit the title of the quiz" ><input id="title" type="text" ng-model="quiz.Name"/></span>
+      	
       	&nbsp;
     </div>
     
@@ -29,7 +30,10 @@
                 	<label>Navigator: Question {{currentQuestion}}</label></br>
                 	<li ng-repeat="question in questionArray"><a href="" ng-click="changedQuestion($index)">Question {{$index + 1}} </a></li>
                 </ol>
-            </div>
+
+  
+        </div>
+    	
         	<div id="newQ-img">
                 <div class="answers-option">
                     <span class="glyphicon glyphicon-picture answers-addImg" aria-hidden="true"></span>
