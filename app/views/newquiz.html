@@ -4,13 +4,11 @@
     	<!-- This is the header content. It contains Logo and links -->
 
     <div id="head" style="margin-left:13%">
-      	<span class="icon"><input id="title" type="text" ng-model="quiz.Name"/></span>
+      	<span class="icon" uib-tooltip="tap to edit the title of the quiz" ><input id="title" type="text" ng-model="quiz.Name"/></span>
       	&nbsp;
     </div>
     
 	</header>
-
-   
 
 	<div id="newQ-container" style="margin-left:13%">
     	<div id="question-option">
@@ -35,7 +33,7 @@
             <div class="answers-option">
                 <span class="glyphicon glyphicon-picture answers-addImg" aria-hidden="true"></span>
             </div>
-            <input type="text" placeholder="Type your question here" name="questionTitle" ng-model="quest.Name"/>
+            <input  id="question-title-input"type="text" placeholder="Type your question here" name="questionTitle" ng-model="quest.Name"/>
     		<!--<img src="../images/question-img.jpg" alt="..." class="img-rounded" style="height: 38%; width: 60%;">-->
     	</div>
     	<div class="answers-containers">
