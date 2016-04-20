@@ -1,14 +1,6 @@
-<!-- <<<<<<< HEAD
-<div class="quizPage waitingPage" ng-class="{active : !session.Launched}">
-	<div class="jumbotron waiting-jumbotron">
-	<div class="quizPage waitingPage" ng-class="{active : !session.Launched}">
-		<div class="container-fluid" ng-init="init()">
-			<div class="row waiting-header">
-======= -->
 <div class="waitingWrapper">
 	<div class="quizPage waitingPage" ng-class="{active : (!session.Launched && session.QuestionIndex<0)}">
 		<div class="jumbotron waiting-jumbotron">
-		<!-- <div class="quizPage waitingPage" ng-class="{active : !session.Launched}"> -->
 			<div class="container-fluid" ng-init="init()">
 				<div class="row">
 					<div class="col-xs-8">
@@ -28,7 +20,6 @@
 
 		<div class="container-fluid waiting-infoCenter">
 			<div class="row">
-<!-- >>>>>>> 5181d7a95264bdf8c92a395a687a83bbbbc7471c -->
 				<div class="col-xs-8">
 					<ul>
 						<li ng-repeat="(playerName, playerContent) in session.Players">
