@@ -37,13 +37,12 @@ angular.module('bdl6App')
         return currentSession;
       },
       setSession: function(sessionCode, name){
+        currentSession = null;
       	var sessionRef = Ref.child('Session/'+sessionCode);
     		currentSession = $firebaseObject(sessionRef);
 
-        
-
     		currentSession.$loaded().then( function(){
-          if (currentSession.Quiz === undefined) {
+          if (currentSession.$id === 'undefined') {
             return false;
           }
 
