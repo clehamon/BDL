@@ -48,7 +48,6 @@ angular.module('bdl6App')
             return Auth.$authWithPassword({email: email, password: pass}, {rememberMe: true});
           })
           .then(updateTeacher)
-          .then(createProfile)
           .then(redirect, showError);
       }
 
@@ -60,20 +59,6 @@ angular.module('bdl6App')
         ref.child(user.uid).set(teacher);
       }
 
-      function createProfile(user) {
-        var ref = Ref.child('users', user.uid), def = $q.defer();
-        ref.set({email: email, name: firstPartOfEmail(email)}, function(err) {
-          $timeout(function() {
-            if( err ) {
-              def.reject(err);
-            }
-            else {
-              def.resolve(ref);
-            }
-          });
-        });
-        return def.promise;
-      }
     };
 
     function firstPartOfEmail(email) {
