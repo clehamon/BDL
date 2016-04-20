@@ -11,7 +11,7 @@
 				</button>
 
 				<a class="navbar-brand" href="#/">
-					<img class="hidden-xs" src="../images/qwizard_logotype.png" width="237" height="56">
+					<img class="hidden-xs" src="../images/qwizard_logotype.png" width="190" height="45">
 					<img class="visible-xs" src="../images/qwizard_logotype.png" width="118" height="28">
 				</a>
 			</div>
@@ -26,9 +26,15 @@
 					<!-- <a class="btn btn-lg btn-success" ng-href="#/dashboard">My Quizzes</a> -->
 
 					<li>
-						<a id ="headerbutton" ng-hide-auth="" href="#/login">log in</a>
-						<a id ="headerbutton" ng-show-auth="" href="#/account">My Account</a>
-						<a id ="headerbutton" href="#/dashboard">My Quizzes</a>
+						<a class="headerbutton" style="display: inline-block;" ng-hide-auth="" href="#/login">
+							<button class="headerBtn">Log in</button>
+						</a>
+						<a class="headerbutton" style="display: inline-block;" ng-show-auth="" href="#/dashboard">
+							<button class="headerBtn">My Quizzes</button>
+						</a>
+						<a class="headerbutton" style="display: inline-block;" ng-show-auth="" href="#/account">
+							<button class="headerBtn">My Account</button>
+						</a>
 					</li>
 
 					

@@ -104,7 +104,7 @@ body {
 
 #main-mail-wrapper{
   padding: 30px 0;
-  background: linear-gradient(to right, rgba(82, 222, 255, 0.6),rgba(226, 142, 255, 0.36))
+  background: linear-gradient(to right, rgba(82, 222, 255, 0.6),rgba(226, 142, 255, 0.36));
 }
 
 .main-mail-center{
@@ -159,7 +159,7 @@ body {
     float: right;
   }
 
-  #headerbutton{
+  .headerbutton{
     display: inline-block;
   }
 }
