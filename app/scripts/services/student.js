@@ -14,11 +14,13 @@ angular.module('bdl6App')
     var answersArray;
     var currentName;
     var playerRef;
+    var hasAnswer = false;
 
 
     var loadQuestion = function () {
       $location.path('student/selecting');
       $rootScope.currentAnswer = null;
+      $rootScope.currentAnswerID = -1;
     };
 
     var loadResults = function () {
@@ -38,7 +40,13 @@ angular.module('bdl6App')
       	var sessionRef = Ref.child('Session/'+sessionCode);
     		currentSession = $firebaseObject(sessionRef);
 
+        
+
     		currentSession.$loaded().then( function(){
+          if (currentSession.Quiz === undefined) {
+            return false;
+          }
+
     			var player = {
     				Active : true
     			};
@@ -47,7 +55,26 @@ angular.module('bdl6App')
     			playerRef.set(player, function(){
             currentName = name;
             answersArray = $firebaseObject(playerRef);
+            hasAnswer = false;
+
+            currentSession.$watch(function(newValue){
+              console.log('phase',currentSession.QuestionPhase);
+              if (currentSession.Launched) {
+                    if (currentSession.QuestionPhase) {
+                      if (!hasAnswer) {
+                        loadQuestion();
+                      }
+                    } else {
+                      hasAnswer = false;
+                      loadResults();
+                    }
+              } else if(currentSession.QuestionIndex>=0){
+                endQuiz();
+              }
+            });
+
           });
+            
 
           var quizRef = Ref.child('Quiz/'+currentSession.Teacher+'/'+currentSession.Quiz);
           var quizObj = $firebaseObject(quizRef);
@@ -58,20 +85,8 @@ angular.module('bdl6App')
 
           $cookies.put('currentSessionID', currentSession.$id );
 
-          currentSession.$watch(function(newValue){
-            console.log('phase',currentSession.QuestionPhase);
-            if (currentSession.Launched) {
-              if (currentSession.QuestionPhase) {
-                loadQuestion();
-              } else {
-                loadResults();
-              }
-            } else if(currentSession.QuestionIndex>=0){
-              endQuiz();
-            }
-          });
-
-    			$location.path('student/waiting');
+          $location.path('student/waiting');
+          return true;
   		  });
       },
       removeSession: function (){
@@ -79,12 +94,13 @@ angular.module('bdl6App')
         $cookies.remove('currentSessionID');
       },
       sendAnswer: function (answerID) {
+        hasAnswer = true;
         $rootScope.currentAnswer = $rootScope.session.CurrentQuestion.Answers[answerID];
-        $rootScope.currentAnswer.id = answerID;
+        $rootScope.currentAnswerID = answerID;
         console.log($rootScope.session.QuestionIndex, answerID);
 
         playerRef.child($rootScope.session.QuestionIndex).set(answerID);
-        currentSession.Players[currentName][currentSession.CurrentQuestion.Answers] = answerID;
+        // currentSession.Players[currentName][currentSession.CurrentQuestion.Answers] = answerID;
       }
     };
   });
