@@ -42,9 +42,9 @@ angular.module('bdl6App')
     		currentSession = $firebaseObject(sessionRef);
 
     		currentSession.$loaded().then( function(){
-          if (currentSession.$id === 'undefined') {
-            return false;
-          }
+          // if (currentSession.$id === 'undefined') {
+          //   return false;
+          // }
 
     			var player = {
     				Active : true
