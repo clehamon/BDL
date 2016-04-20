@@ -37,15 +37,15 @@ angular.module('bdl6App')
         return currentSession;
       },
       setSession: function(sessionCode, name){
-        currentSession = null;
+        // currentSession = null;
       	var sessionRef = Ref.child('Session/'+sessionCode);
     		currentSession = $firebaseObject(sessionRef);
 
     		currentSession.$loaded().then( function(){
-          // if (currentSession.$id === 'undefined') {
-          //   return false;
-          // }
-
+          if (currentSession.$id === 'undefined') {
+            return false;
+          }
+          console.log(currentSession, sessionCode);
     			var player = {
     				Active : true
     			};
