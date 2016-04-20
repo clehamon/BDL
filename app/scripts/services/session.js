@@ -153,6 +153,7 @@ angular.module('bdl6App')
           
          } else {
             console.log('Bouhouhou end of the quiz');
+            $rootScope.session.Launched = false;
          }
       },
       showResults: function(){
