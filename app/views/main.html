@@ -11,7 +11,7 @@
 
 
 		<div id="quizcodebox" ng-controller="StuHomeCtrl">
-			<p class="error" ng-hide="correctConnection">Incorrect code</p>
+			<p class="error" ng-hide="noError">{{errorMessage}}</p>
 			<input ng-model="quizCode" type="number" id="quizcode" class="form-control" placeholder="Quiz code">
 			<input ng-model="playerName" id="studentName" class="form-control" placeholder="Your name">
 			<!-- <button id="joinbutton" class="btn btn-primary btn-block" type="submit">join</button> -->
@@ -19,7 +19,7 @@
 		</div>
 		<div class="row">
 			<div class="span6 col-sm-6">
-				<img class="img-responsive" id="phoneimage" src="../images/main-ipad.jpg">	
+				<img class="img-responsive" id="phoneimage" src="images/main-ipad.jpg">	
 
 			</div>
 			<div class="span6 col-sm-6 vcenter">

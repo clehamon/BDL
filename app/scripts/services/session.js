@@ -24,9 +24,6 @@ angular.module('bdl6App')
 
       //Once the session is loaded we can bind it to the rootScope
       sessionObj.$loaded().then(function(){
-        // if ($rootScope.session) {
-        //   sessionObj.$destroy(); 
-        // }
 
         sessionObj.$bindTo($rootScope, 'session');
         currentSession = sessionObj;
@@ -109,31 +106,18 @@ angular.module('bdl6App')
       nextQuestion : function(callback){
 
           $rootScope.session.QuestionIndex++;
-          // console.log($rootScope.session.QuestionIndex, $rootScope.quiz.QuestionsArray.length);
          //As long as we haven't reach the last question
          if ($rootScope.session.QuestionIndex < $rootScope.quiz.QuestionsArray.length) {
 
-          // var questionRef = Ref.child('Question/'+$rootScope.quiz.Questions[$rootScope.session.QuestionIndex]);
-          // var questionObj = $firebaseObject(questionRef);
-
-          // var questionRef = Ref.child('Question/'+$rootScope.session.quiz);
-          // var questionObj = $firebaseArray(questionRef);
-
-
-          // questionObj.$loaded().then(function(){
             var questionKey = $rootScope.quiz.QuestionsArray.$keyAt($rootScope.session.QuestionIndex);
             var question = $rootScope.quiz.QuestionsArray.$getRecord(questionKey);
 
-            // console.log(question);
-
-            // currentSession.CurrentQuestion = question;
+            
             $rootScope.session.CurrentQuestion = question;
             console.log($rootScope.session);
             console.log($rootScope.quiz);
             console.log('Answer/'+$rootScope.quiz.Questions+'/'+questionKey)
 
-            // currentSession.$save().then(function(ref){
-              // console.log(currentSession);
               //If the question is a multiple choice we load the answers
               if (question.Type === 'multiple') {
                 var answerRef = Ref.child('Answer/'+$rootScope.quiz.Questions+'/'+questionKey);
@@ -167,16 +151,22 @@ angular.module('bdl6App')
         var resultsList = $firebaseArray(results);
 
         resultsList.$loaded().then(function() {
-          var newResult = {
-            Date : Date.now(),
-            Players : $rootScope.session.Players
+
+          if ($rootScope.session.Players) {
+            var newResult = {
+              Date : Date.now(),
+              Players : $rootScope.session.Players
+            }
+
+            resultsList.$add(newResult).then(function () {
+              currentSession.$destroy();
+
+              $location.path('dashboard');
+            });
+            
+          } else {
+              $location.path('dashboard');
           }
-
-          resultsList.$add(newResult).then(function () {
-            currentSession.$destroy();
-
-            $location.path('dashboard');
-          });
         });
       }
     };

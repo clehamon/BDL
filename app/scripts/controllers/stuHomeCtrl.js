@@ -3,9 +3,19 @@
 angular.module('bdl6App')
 	.controller('StuHomeCtrl', function ($scope, student) {
 		$scope.correctConnection = true;
+		$scope.playerName = '';
 
 		$scope.connectToQuiz = function(){
-			$scope.correctConnection = student.setSession($scope.quizCode, $scope.playerName);
+			console.log($scope.playerName);
+			if ($scope.playerName === '') {
+				$scope.noError = false;
+				$scope.errorMessage = "Enter a name";
+			} else {
+				$scope.noError = student.setSession($scope.quizCode, $scope.playerName);
+				if (!$scope.noError) {
+					$scope.errorMessage = "No quiz correspond to this code";
+				}
+			}
 		};
 
 		$scope.sendAnswer = function (key, answer) {
