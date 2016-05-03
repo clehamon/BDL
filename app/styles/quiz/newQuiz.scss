@@ -7,27 +7,43 @@
 	
 }
 .answers-panel{
-	float: left; 
-	width:38%;
 	height:200px;
-	border-color: black;
+	/*border-color: black;
 	border-style: double;
-	border-width: 3px;
+	border-width: 3px;*/
+	border-radius: 20px;
+	background-color: #f6f6f6;
 	margin-top:3%;
 	margin-right: 3%;
 	padding: 1%;
+	box-shadow: 23px 20px 65px -23px rgba(82,82,82,1);
+}
+.answers-card{
+	position: relative;
+	height: 300px;
+	width: 100%;
 }
 .answers-content{
-	margin: auto;
+	margin: 0;
+	width: 100%;
+	border-radius: 10px;
+	background-color: #dedede;
+	text-align: center;
+	font-size: 20px;
 }
+
 .answers-addNew{
 	display: block;
-	border-style:dotted;
-	border-width:3px;
+	text-align: center;
+	height: auto;
 }
 .answers-delete{
 	margin-left: 86%;
 
+}
+.answers-addImg{
+	font-size: 80px;
+	margin: 5%;
 }
 .answers-add{
 	margin: auto;
@@ -58,28 +74,27 @@
 	width:80%
 }
 
-#head{
-	display: inline-block;
-}
-#title{
-	border: none;
-	background-color: transparent;
-	font-size: 36px;
-	font-weight: bold;
-	margin-right: 5px;
-	padding: 0;
-	width: auto;
-	display: inline-block;
-}
-.icon:after{
-	content: url(../../images/pencil1.png);
-	clear: left;
-}
-
 .save-button {
 	background-color: #008287;
 	color: #fff;
-	width: 330px;
+	width: 30%;
+	text-align: left;
+	padding: 10px 20px;
+	height: auto;
+	color: #000;
+	background-color: #ccc;
+	font-family: 'Segoe UI Semilight', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+	font-weight: 300;
+	font-size: 11pt;
+	letter-spacing: 0.02em;
+	line-height: 20px;
+	font-smooth: always;
+}
+
+.quiz-button {
+	background-color: #008287;
+	color: #fff;
+	width: 75%;
 	text-align: left;
 	padding: 10px 20px;
 	height: auto;
@@ -98,15 +113,365 @@
     margin-left: 75%;
 }
 
-.question-nav >li + li:before {
-	content: "->";
+
+/*New CSS*/
+
+#content {
+	width: 100%;
+	position: absolute;
+	display: inline-block;
+	padding-top: 29px;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+/* Sidebar */
+#content .sidebar {
+	font-family: 'Helvetica', sans-serif;
+	font-weight: bold;
+	float: left;
+	min-width: 200px;
+	width: 18%;
+	padding-left: 3%;
+	padding-right: 3%;
+	text-align: center;
+	background-color: rgba(246,246,246,1.00);
+	padding-top: 20px;
+	height: 784px;
 }
 
-#optionsRadios1{
+#mainRow{
+	margin-top: 20px;
+}
+.sidebar-wrapper{
+	font-family: 'Helvetica', sans-serif;
+	font-weight: bold;
+	background-color: rgba(246,246,246,1.00);
+	text-align: center;
+	padding: 5%;
+}
+
+#questions{
+	font-family: 'Phosphate','Helvetica', sans-serif;
+	font-weight: bold;
+	font-size: 26px;
+}
+
+#content .newQ-container{
+	font-family: 'Phosphate', sans-serif;
+	float: left;
+	width: 75%;
+	margin-left: 3%; 
+	/*border: 1px solid black;*/
+	padding: 0;
+}
+
+.edit-content{
+	font-family: 'Phosphate', sans-serif;
+	padding-right: 2%; 
+}
+
+.divider{
+	margin-bottom: 0;
+}
+
+#title{
+	height: auto;
+	border: none;
+	background-color: transparent;
+	font-size: 46px;
+	color: #000000;
+	line-height: 0;
+	padding: 0;
+	box-shadow: none;
+	/*display: inline-block;*/
+}
+
+#radioMultiple{
+
+}
+
+.icon:after{
+	content: url(../../images/pencil1.png);
+	clear: left;
+}
+
+/*BEGGINING OF TIMELINE
+.timeline {
+  list-style: none;
+  padding: 20px 0 20px;
+  position: relative;
+  margin-bottom: 15%;
+  border: 1px solid black;
+}
+ 
+.timeline:before {
+	top: 0;
+  	bottom: 0;
+  	position: absolute;
+  	content: " ";
+  	width: 3px;
+  	background-color: #DEDEDE;
+	margin-left: -20%;
+}
+ 
+.timeline li {
+	text-align: left;
+	margin-left: -2%;
+ 	margin-bottom: 20%;
+  	position: relative;
+}
+
+.itemWraper{
+	display: inline-block;
+}
+ 
+ul.timeline:before {
+	left: 40px;
+}
+
+ul.timeline li .square {
+	float: left;
+	width: 20px;
+  	height: 20px;
+  	margin-right: 1%;
+    background-color: #DEDEDE;
+}
+
+ul.timeline li .questionName {
+	float: left;
+	top: -5%;
+}
+*/
+/*END OF TIMELINE*/
+
+ul.timeline li {
+	/*list-style: square url(../../images/square.png);*/
+	list-style: none;
+	background: url(../../images/square.png) no-repeat left 28%;
+  /* Adjust the padding for your custom bullet image */
+  	padding: 10px 0px 0px 30px;
+	color: #dedede;
+	background-size: 20px;
+    position:relative; /* so that pseudoelements are positioned relatively to their "li"s*/
+    /* use padding-bottom instead of margin-bottom.*/ 
+    margin-bottom: 0; /* This overrides previously specified margin-bottom */
+    margin-left: -30%;
+    padding-bottom: 1.5em;
+    text-align: left;
+}
+
+ul.timeline li.add-btn{
+	list-style: none;
+	background: url(../../images/plus.png) no-repeat left 10px;
+	position: relative;
+}
+
+ul.timeline li:after {
+    /* bullets */
+    content: "";
+    position: absolute;
+    /*left: -20px; adjust manually*/
+    left: -10%;
+    top: 0%;
+}
+
+ul.timeline li:before {
+    /* lines */
+    content:"";
+    position: absolute;
+    left: 5%; /* adjust manually */
+    background-color: #DEDEDE;
+    height: 100%;
+    width: 3px;
+}
+
+ul.timeline li:last-child:before{
+	background: transparent; 
+}
+
+.questionName{
+	font-size: 14px;
+	display: inline-block;
+	width: 85%;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.addQ {
+	width: auto;
+	height: 33px;
+    background-color: #DEDEDE;
+    border: none;
+    text-align: center;
+    font-size: 1.2em;
+    color: #49BCE3;
+	-webkit-box-shadow: 3px 3px 5px 0px rgba(102,102,102,1);
+	-moz-box-shadow: 3px 3px 5px 0px rgba(102,102,102,1);
+	box-shadow: 3px 3px 5px 0px rgba(102,102,102,1);
+}
+
+.plus-sign {
+	vertical-align: middle;
+}
+
+#optionsRadios1 {
 	width:300px;
 }
 
-#question-title-input{    
-	height: 50px;
-    width: 100%;
+#questionInput {
+	margin-top: 1%;
+	width: 100%;
+	display: inline-block;
+	vertical-align: baseline;
+	padding: 0;
 }
+
+.answers-option {
+	height: 40px;
+	margin: 0 10px 0 0;
+	float: left;
+	font-size: 3em;
+	padding: 0;
+}
+
+.form-control-feedback{
+	margin-right: 2%;
+}
+
+#btn-div{
+	float: right;
+}
+
+.pagination{
+	visibility: hidden;
+}
+
+/* collapsed sidebar styles */
+@media screen and (max-width: 997px) {
+	.sidebar-col{
+		display: none;
+	}
+	.pagination{
+		visibility: visible;
+	}
+	.edit-content{
+		text-align: center;
+		margin-right: 10px;
+		margin-left: 10px;
+	}
+	.btn-add-finish{
+		margin-top: 10px;
+	}
+	#col{
+		margin-top: 10px;
+	}
+	#title{
+		font-size: 40px;
+		height: auto;
+		text-align: center;
+	}
+	#mainRow{
+		text-align: center;
+		margin-top: 0px;
+		margin-right: 10px;
+	}
+	html,body{
+	    width: 100%;
+	    height: 100%;
+	    margin: 0px;
+	    padding: 0px;
+	    overflow-x: hidden; 
+	}
+}
+
+.custom-checkbox > [type="checkbox"],
+	.custom-checkbox > label{
+		margin-bottom:0px !important;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+	.custom-checkbox > [type="checkbox"]:not(:checked),
+	.custom-checkbox > [type="checkbox"]:checked {
+		display: none;
+	}
+	.custom-checkbox > [type="checkbox"]:not(:checked) + label,
+	.custom-checkbox > [type="checkbox"]:checked + label {
+		position: relative;
+		padding-left: 22px;
+		cursor: pointer;
+	}
+	.custom-checkbox > [type="checkbox"]:not(:checked) + label:before,
+	.custom-checkbox > [type="checkbox"]:checked + label:before {
+		content: '';
+		position: absolute;
+		left:0; 
+		top: 50%;
+		margin-top:-9px;
+		width: 17px; 
+		height: 17px;
+		border: 1px solid #ddd;
+		background: #ffffff;
+		border-radius: 2px;
+	}
+	.custom-checkbox > [type="checkbox"]:not(:checked) + label:after,
+	.custom-checkbox > [type="checkbox"]:checked + label:after {
+		font: normal normal normal 12px/1 'Glyphicons Halflings';
+		content: '\e013';
+		position: absolute;
+		top: 50%;
+		margin-top:-7px;
+		left: 2px;
+		color: #94C947;
+		xtransition: all .2s;
+	}
+	
+	.custom-checkbox > [type="checkbox"]:not(:checked) + label:after {
+		opacity: 0;
+		transform: scale(0);
+	}
+	.custom-checkbox > [type="checkbox"]:checked + label:after {
+		opacity: 1;
+		transform: scale(1);
+	}
+	
+	.custom-checkbox > [type="checkbox"][data-indeterminate] + label:after,
+	.custom-checkbox > [type="checkbox"][data-indeterminate] + label:after {
+		content: '\2212';
+		left: 2px;
+		opacity: 1;
+		transform: scale(1);
+	}
+	
+	.custom-checkbox > [type="checkbox"]:disabled:not(:checked) + label:before,
+	.custom-checkbox > [type="checkbox"]:disabled:checked + label:before {
+	  	box-shadow: none;
+	  	background-color: #eeeeee;
+		border-color: #eeeeee;
+		cursor: not-allowed;
+		opacity: 1;
+		color: #dadada;
+	}
+	.custom-checkbox > [type="checkbox"]:disabled:checked + label:after {
+	  color: #dadada; cursor: not-allowed;
+	}
+	.custom-checkbox > [type="checkbox"]:disabled + label {
+	  color: #aaa; cursor: not-allowed;
+	}
+	.custom-checkbox > [type="checkbox"]:checked:focus + label:before,
+	.custom-checkbox > [type="checkbox"]:not(:checked):focus + label:before {
+		border: 1px solid #66afe9;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+	}
+	.custom-checkbox > label:hover:before {
+  		border: 1px solid #88D2FF !important;
+	}
+	.custom-checkbox > [type="checkbox"]:disabled:not(:checked) + label:hover:before,
+	.custom-checkbox > [type="checkbox"]:disabled:checked + label:hover:before{
+		border: 1px solid #E4E4E4 !important;
+	}
+	
