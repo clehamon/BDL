@@ -99,7 +99,12 @@ angular.module('bdl6App')
 		obj.$destroy();
 		newQuestion();
 
-		$scope.questionArray.push(aID);
+		var ref = Ref.child('Question/' + questionArrayKey);
+		var temp = $firebaseArray(ref);
+		temp.$loaded().then(function(){
+			$scope.questionArray.push(temp[temp.length - 1]);
+		});
+		//$scope.questionArray.push(aID);
 		//MUDEI LINHA DE BAIXO
 		//$scope.questionArray.push(aID.key());
 		$scope.currentQuestion = $scope.questionArray.length;
