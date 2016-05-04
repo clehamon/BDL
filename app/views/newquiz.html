@@ -32,7 +32,7 @@
 				<h3 id="questionType">Select type of Question</h3>
 			</div>
 			<div class="row">
-				<div class="col-md-7" style="padding: 0">
+				<div class="col-md-7 " style="padding: 0">
 					<form name="radios">
 						<input type="radio" value="multiple" ng-model="quest.Type">Multiple choice</input>
 						<span uib-tooltip="Coming soon!" style="margin-left: 5px">
@@ -40,7 +40,7 @@
 						</span>
 					</form>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-3 ">
 					<form>
 						Time:<input type="number" class="form-inline" min="1" style="width:60px" ng-model="quest.Time">
 						<span>sec</span>
@@ -48,23 +48,23 @@
 				</div>
 			</div>
 			<div class="row" style="margin-top: 10px">
-				<div class="col-md-7 has-feedback" id="col" style="margin: 0; padding: 0">
+				<div class="col-md-7 col-xs-11 has-feedback" id="col" style="margin: 0; padding: 0">
 					<input  class="form-control" type="text" placeholder="Type your question here" name="questionTitle" ng-model="quest.Name"/>
 					<i class="glyphicon glyphicon-picture form-control-feedback" style="pointer-events: all" aria-hidden="true" ng-click="print()"></i>
 				</div>
-				<div class="col-md-3 btn-add-finish">
+				<div class="col-md-3 col-xs-6 btn-add-finish">
 					<button class="btn btn-primary btn-xs addQ" ng-click="addQuestion()">
 						<span class="glyphicon glyphicon-plus plus-sign"></span>
 					</button>
 					<button class="btn btn-primary btn-xs addQ" ng-click="done()">Finish Quiz</button>
 				</div>
-				<div class="col-md-2">
-					<div style="display: inline; cursor: pointer"><span class="glyphicon glyphicon-trash" style="padding-top: 5px; font-size: 25px"></span></div>
+				<div class="col-md-2 col-xs-6">
+					<div style="display: inline; cursor: pointer"><span class="glyphicon glyphicon-trash" style="padding: 15px; font-size: 25px"></span></div>
 				</div>
 			</div>
 			<hr class="divider"></hr>
 			<div class="row">
-				<div class="col-md-5 col-sm-5 col-xs-9 answers-panel" ng-repeat="answer in answerArray">
+				<div class="col-md-5 col-sm-5 col-xs-11 answers-panel" ng-repeat="answer in answerArray">
 					<div class="answer-card">
 						<div class="row">
 							<div class="answer-text col-md-10 col-sm-10 col-xs-9">
@@ -74,16 +74,16 @@
 								<span class="glyphicon glyphicon-minus answers-delete" style="cursor: pointer" aria-hidden="true" ng-click="removeAns(answer.$id)"></span>
 							</div>
 						</div>
-						<div class="row" style="text-align: center">
+						<div class="row col-xs-6" style="text-align: center">
 							<span class="glyphicon glyphicon-picture answers-addImg" aria-hidden="true"></span>
 						</div>
-						<div class="row custom-checkbox" style="text-align: right; padding: 0; margin: 0">
+						<div class="row custom-checkbox col-xs-6" style="text-align: right; padding: 0; margin: 0  ;position: absolute; right: 6px; bottom: 6px;">
 							<input type="checkbox" id="{{$index}}" ng-model="answer.IsCorrect" ng-true-value="true" ng-false-value="false" ng-change="answerArray.$save(answer)" style="margin: -5%"/>
 							<label for="{{$index}}">Correct Answer</label>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-1 col-sm-1 col-xs-3 answers-panel answers-addNew" ng-hide="answerArray.length === 4">
+				<div class="col-md-1 col-sm-1 col-xs-4 col-xs-offset-4 answers-panel answers-addNew" ng-hide="answerArray.length === 4">
 					<h1 class="answers-content" style="background: transparent; font-size: 100%">Add Answer</h1>
 					<button type="button" class="btn btn-default btn-lg answers-add" ng-click="addAnswerToArray({IsCorrect: false, Name: ''})"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </button>
 				</div>
