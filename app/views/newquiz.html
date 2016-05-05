@@ -92,9 +92,9 @@
 	</div>
 	<div class="row" style="text-align: center">
 		<ul class="pagination">
-			<li><a href="" ng-click="changedQuestion(currentQuestion - 2)" ng-disabled="currentQuestion === 1">Prev</a></li>
+			<li><a href="" ng-click="changedQuestion(currentQuestion - 2)" ng-if="currentQuestion > 1">Prev</a></li>
 			<li><a href="">Q{{currentQuestion}}</a></li>
-			<li><a href="" ng-click="changedQuestion(currentQuestion)" ng-disabled="currentQuestion === questionArray.length">Next</a></li>
+			<li><a href="" ng-click="changedQuestion(currentQuestion)" ng-if="currentQuestion < questionArray.length">Next</a></li>
 		</ul>
 		<!--<uib-pagination total-items="questionArray.length" ng-model="currentQuestion" ng-change="pageChanged()"></uib-pagination>-->
 	</div>

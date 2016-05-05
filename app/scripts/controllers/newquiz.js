@@ -73,12 +73,14 @@ angular.module('bdl6App')
 	}
 
 	$scope.changedQuestion = function(num){
-		obj.$destroy();
-
-		populate($scope.questionArray[num].$id);
-		//MUDEI LINHA DE BAIXO
-		//populate($scope.questionArray[num]);
-		$scope.currentQuestion = num + 1;
+		if(num > -1 && num < $scope.questionArray.length + 1){
+			obj.$destroy();
+			populate($scope.questionArray[num].$id);
+			//MUDEI LINHA DE BAIXO
+			//populate($scope.questionArray[num]);
+			$scope.currentQuestion = num + 1;
+		}
+		
 	}
 
 	function loadAnswers() {
