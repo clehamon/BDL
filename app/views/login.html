@@ -24,15 +24,15 @@
       <!--<p ng-show="err" class="banner-form-message bg-danger">{{err}}</p>-->
       <!-- <div class="row"> -->
       <p style="text-align: center"> 
-        <div class="row text-center">
-        <button class="banner-form-btn btn btn-primary col-xs-6 col-md-6" ng-click="passwordLogin(email, pass)" ng-hide="createMode" style="margin-top: 30px">Log In</button>
-        <button class="banner-form-btn btn btn-default col-xs-6 col-md-6" ng-click="createMode = true" ng-hide="createMode" style="margin-top:30px">Register</button>
+        <div class="row text-center" style="padding-left: 10px;">
+        <button class="banner-form-btn btn btn-primary col-xs-6 col-md-4" ng-click="passwordLogin(email, pass)" ng-hide="createMode" style="margin-top: 30px">Log In</button>
+        <button class="banner-form-btn btn btn-default col-xs-6 col-md-4" ng-click="createMode = true" ng-hide="createMode" style="margin-top:30px">Register</button>
         <button class="banner-form-btn btn btn-primary " ng-cloak ng-show="createMode"
                 ng-click="createAccount(email, pass, confirm)">Create</button>
         <button class="banner-form-btn btn btn-default" ng-cloak ng-show="createMode" ng-click="createMode = false">Cancel</button>
         <br>
         
-        <span class="col-xs-12 col-md-12 text-center">
+        <span class="col-xs-12 col-md-4 text-center">
           <img ng-src="images/sign-in-with-google.png" ng-click="oauthLogin('google')" class="google-form-btn btn"/>
         </span>
       </div>
