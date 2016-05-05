@@ -103,12 +103,29 @@ angular.module('bdl6App')
 		var temp = $firebaseArray(ref);
 		temp.$loaded().then(function(){
 			$scope.questionArray.push(temp[temp.length - 1]);
+			$scope.currentQuestion = $scope.questionArray.length;
 		});
 		//$scope.questionArray.push(aID);
 		//MUDEI LINHA DE BAIXO
 		//$scope.questionArray.push(aID.key());
-		$scope.currentQuestion = $scope.questionArray.length;
+		
 		//changedQuestion($scope.questionArray.length - 1);
+	}
+
+	$scope.removeQuestion = function (index){
+		console.log(index);
+		var questionID = $scope.questionArray[index].$id;
+		var ref = Ref.child('Question/' + questionArrayKey + '/' + questionID);
+		var deleteQuestion = $firebaseObject(ref);
+		deleteQuestion.$remove().then(function (ref){
+			$scope.questionArray.splice(index, 1);
+			if (index > 1)
+				$scope.changedQuestion(index - 1);
+			else
+				$scope.changedQuestion(1);
+		}, function(error){
+			console.log("Error:", error);
+		});
 	}
 
 	$scope.removeAns = function (id){

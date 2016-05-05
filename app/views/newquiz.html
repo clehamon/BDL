@@ -1,5 +1,5 @@
 <ng-include src="'views/header.html'"></ng-include>
-<div class="container-fluid">
+<div class="container-fluid back">
 	<div class="row" id="mainRow">
 		<div class="col-md-2 sidebar-col">
 			<div class="sidebar-wrapper">
@@ -19,11 +19,11 @@
 			</div>
 		</div>
 		<div class="col-md-10 col-xs-12 edit-content">
-			<div class="row has-feedback">
-				<div class="col-md-3 col-xs-12" style="padding: 0">
+			<div class="row">
+				<div class="col-md-10 col-xs-12" style="padding: 0">
 					<span uib-tooltip="tap to edit the title of the quiz" >
-						<input class="form-control" id="title" type="text" ng-model="quiz.Name"/>
-						<i class="glyphicon glyphicon-pencil form-control-feedback"></i>
+						<i class="glyphicon glyphicon-pencil"></i>
+						<input id="title" type="text" ng-model="quiz.Name"/>
 					</span>
 				</div>
 			</div>
@@ -59,7 +59,7 @@
 					<button class="btn btn-primary btn-xs addQ" ng-click="done()">Finish Quiz</button>
 				</div>
 				<div class="col-md-2 col-xs-6">
-					<div style="display: inline; cursor: pointer"><span class="glyphicon glyphicon-trash" style="padding: 15px; font-size: 25px"></span></div>
+					<div style="display: inline; cursor: pointer" ng-click="removeQuestion(currentQuestion - 1)"><span class="glyphicon glyphicon-trash" style="padding: 5px; font-size: 25px"></span></div>
 				</div>
 			</div>
 			<hr class="divider"></hr>
@@ -91,11 +91,11 @@
 		</div>
 	</div>
 	<div class="row" style="text-align: center">
-		<!--<ul class="pagination">
-			<li><a href="">&lt;&lt;Prev</a></li>
-			<li ng-repeat="question in questionArray"><a href="">Q {{$index + 1}}</a></li>
-			<li><a href="">Next&gt;&gt;</a></li>
-		</ul>-->
-		<uib-pagination total-items="questionArray.length" ng-model="currentQuestion" ng-change="pageChanged()"></uib-pagination>
+		<ul class="pagination">
+			<li><a href="" ng-click="changedQuestion(currentQuestion - 2)" ng-disabled="currentQuestion === 1">Prev</a></li>
+			<li><a href="">Q{{currentQuestion}}</a></li>
+			<li><a href="" ng-click="changedQuestion(currentQuestion)" ng-disabled="currentQuestion === questionArray.length">Next</a></li>
+		</ul>
+		<!--<uib-pagination total-items="questionArray.length" ng-model="currentQuestion" ng-change="pageChanged()"></uib-pagination>-->
 	</div>
 </div>
