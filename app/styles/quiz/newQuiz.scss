@@ -16,7 +16,7 @@
 	margin-top:3%;
 	margin-right: 3%;
 	padding: 1%;
-	box-shadow: 23px 20px 65px -23px rgba(82,82,82,1);
+	
 }
 .answers-card{
 	position: relative;
@@ -27,7 +27,7 @@
 	margin: 0;
 	width: 100%;
 	border-radius: 10px;
-	background-color: #dedede;
+	background-color: #ffffff;
 	text-align: center;
 	font-size: 20px;
 }
@@ -136,7 +136,6 @@
 	text-align: center;
 	background-color: rgba(246,246,246,1.00);
 	padding-top: 20px;
-	height: 784px;
 }
 
 #mainRow{
@@ -148,16 +147,17 @@
 	background-color: rgba(246,246,246,1.00);
 	text-align: center;
 	padding: 5%;
+	min-height: 800px;
 }
 
 #questions{
-	font-family: 'Phosphate','Helvetica', sans-serif;
+	font-family: 'Abadi MT Condensed Extra Bold','Helvetica', sans-serif;
 	font-weight: bold;
 	font-size: 26px;
 }
 
 #content .newQ-container{
-	font-family: 'Phosphate', sans-serif;
+	font-family: 'Abadi MT Condensed Extra Bold', sans-serif;
 	float: left;
 	width: 75%;
 	margin-left: 3%; 
@@ -166,7 +166,7 @@
 }
 
 .edit-content{
-	font-family: 'Phosphate', sans-serif;
+	font-family: 'Abadi MT Condensed Extra Bold', sans-serif;
 	padding-right: 2%; 
 }
 
@@ -335,9 +335,6 @@ ul.timeline li:last-child:before{
 	padding: 0;
 }
 
-.form-control-feedback{
-	margin-right: 2%;
-}
 
 #btn-div{
 	float: right;
@@ -354,6 +351,8 @@ ul.timeline li:last-child:before{
 	}
 	.pagination{
 		visibility: visible;
+		overflow: hidden;
+		max-width: 990px;
 	}
 	.edit-content{
 		text-align: center;
