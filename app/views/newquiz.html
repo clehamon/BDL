@@ -1,91 +1,101 @@
 <ng-include src="'views/header.html'"></ng-include>
-<div class="mainContent" id= "mainWrapper">
-	<header>
-    	<!-- This is the header content. It contains Logo and links -->
-
-    <div id="head" style="margin-left:13%">
-      	<span class="icon" uib-tooltip="tap to edit the title of the quiz" ><input id="title" type="text" ng-model="quiz.Name"/></span>
-
-      	&nbsp;
-    </div>
-    
-
-	</header>
-  
-    
-
-	<div id="newQ-container" style="margin-left:13%">
-    	<div id="question-option">
-    		<h3 id="Question_type">Question type</h3>
-    		<ul class="nav nav-pills">
-		      <li role="presentation">
-		      	<form name="radios">
-		      		<input type="radio" value="multiple" ng-model="quest.Type">Multiple choice</input>
-		      		<span uib-tooltip="Coming soon!" ><input type="radio" value="open" ng-model="quest.Type" disabled>Open answer</input></span>
-		      	</form>
-		      </li>
-              <li style=" margin-left: 48%"> <form > Time: <input type="number" id="numOfGuests" class="form-inline" min="1" style="width:60px" ng-model="quest.Time"><span>sec</span></form></li>
-		    </ul>
-    	</div>
-    	<div id="newQ-navigator" >
-            <ol class="breadcrumb question-nav" style="background-color:white">
-            	<label>Navigator: Question {{currentQuestion}}</label>
-            	<li ng-repeat="question in questionArray"><a href="" ng-click="changedQuestion($index)">Question {{$index + 1}} </a></li>
-            </ol>
-        </div>
-    	
-        	<div id="newQ-img">
-                <div class="answers-option">
-                    <span class="glyphicon glyphicon-picture answers-addImg" aria-hidden="true"></span>
-                </div>
-                <input  id="question-title-input"type="text" placeholder="Type your question here" name="questionTitle" ng-model="quest.Name" style="font-size: 25px"/>
-        		<!--<img src="../images/question-img.jpg" alt="..." class="img-rounded" style="height: 38%; width: 60%;">-->
-        	</div>
-        	<div class="answers-containers">
-        		<div class="answers-panel" ng-repeat="answer in answerArray">
-        			<div class="answers-option">
-        				<span class="glyphicon glyphicon-picture answers-addImg" aria-hidden="true"></span>
-        				<span class="glyphicon glyphicon-minus answers-delete" aria-hidden="true" ng-click="removeAns(answer.$id)"></span>
-        			</div>
-        			<input type="text" class="answers-content" placeholder="Type your answer" ng-model="answer.Name" ng-change="answerArray.$save(answer)"/>
-        			<input type="checkbox" ng-model="answer.IsCorrect" ng-true-value="true" ng-false-value="false" ng-change="answerArray.$save(answer)"/>Correct Answer
-        		</div>
-        		<div class="answers-panel answers-addNew" ng-hide="answerArray.length === 4">
-        			<h1 class="answers-content">Add Answer</h1>
-        			<button type="button" class="btn btn-default btn-lg answers-add" ng-click="addAnswerToArray({IsCorrect: false, Name: ''})"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </button>
-        		</div>
-                <button class="big save-button" style="margin-left: 60%; margin-top:20px" ng-click="done()"><strong>Done</strong></button>
-
-        	</div>
-    </div>
-
-    <div id="quiz-button" style="margin-top:30px;margin-left: 35%;">
-            <button class="big save-button" ng-click="addQuestion()" ><strong>New Question</strong></button>
-            
-    </div>
+<div class="container-fluid">
+	<div class="row" id="mainRow">
+		<div class="col-md-2 sidebar-col">
+			<div class="sidebar-wrapper">
+				<h3 id="questions">Your Questions</h3>
+				<label>Current: {{questionArray[currentQuestion - 1].Name}}</label>
+				<div id="newQ-navigator" >
+					<ul class="timeline">
+						<li ng-repeat="question in questionArray">
+							<!--<div class="itemWrapper">-->
+							<div class="square"></div>
+							<a class="questionName" href="" ng-click="changedQuestion($index)">{{question.Name}}</a>
+							<!--</div>-->
+						</li>
+						<li class="add-btn" ng-click="addQuestion()"></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-10 col-xs-12 edit-content">
+			<div class="row has-feedback">
+				<div class="col-md-3 col-xs-12" style="padding: 0">
+					<span uib-tooltip="tap to edit the title of the quiz" >
+						<input class="form-control" id="title" type="text" ng-model="quiz.Name"/>
+						<i class="glyphicon glyphicon-pencil form-control-feedback"></i>
+					</span>
+				</div>
+			</div>
+			<hr class="divider"></hr>
+			<div class="row">
+				<h3 id="questionType">Select type of Question</h3>
+			</div>
+			<div class="row">
+				<div class="col-md-7 " style="padding: 0">
+					<form name="radios">
+						<input type="radio" value="multiple" ng-model="quest.Type">Multiple choice</input>
+						<span uib-tooltip="Coming soon!" style="margin-left: 5px">
+							<input type="radio" value="open" ng-model="quest.Type" disabled>Open answer</input>
+						</span>
+					</form>
+				</div>
+				<div class="col-md-3 ">
+					<form>
+						Time:<input type="number" class="form-inline" min="1" style="width:60px" ng-model="quest.Time">
+						<span>sec</span>
+					</form>
+				</div>
+			</div>
+			<div class="row" style="margin-top: 10px">
+				<div class="col-md-7 col-xs-11 has-feedback" id="col" style="margin: 0; padding: 0">
+					<input  class="form-control" type="text" placeholder="Type your question here" name="questionTitle" ng-model="quest.Name"/>
+					<i class="glyphicon glyphicon-picture form-control-feedback" style="pointer-events: all" aria-hidden="true" ng-click="print()"></i>
+				</div>
+				<div class="col-md-3 col-xs-6 btn-add-finish">
+					<button class="btn btn-primary btn-xs addQ" ng-click="addQuestion()">
+						<span class="glyphicon glyphicon-plus plus-sign"></span>
+					</button>
+					<button class="btn btn-primary btn-xs addQ" ng-click="done()">Finish Quiz</button>
+				</div>
+				<div class="col-md-2 col-xs-6">
+					<div style="display: inline; cursor: pointer"><span class="glyphicon glyphicon-trash" style="padding: 15px; font-size: 25px"></span></div>
+				</div>
+			</div>
+			<hr class="divider"></hr>
+			<div class="row">
+				<div class="col-md-5 col-sm-5 col-xs-11 answers-panel" ng-repeat="answer in answerArray">
+					<div class="answer-card">
+						<div class="row">
+							<div class="answer-text col-md-10 col-sm-10 col-xs-9">
+								<input type="text" class="answers-content" placeholder="Type your answer" ng-model="answer.Name" ng-change="answerArray.$save(answer)"/>
+							</div>
+							<div class="col-md-1  col-sm-1 col-xs-2 close-btn">
+								<span class="glyphicon glyphicon-minus answers-delete" style="cursor: pointer" aria-hidden="true" ng-click="removeAns(answer.$id)"></span>
+							</div>
+						</div>
+						<div class="row col-xs-6" style="text-align: center">
+							<span class="glyphicon glyphicon-picture answers-addImg" aria-hidden="true"></span>
+						</div>
+						<div class="row custom-checkbox col-xs-6" style="text-align: right; padding: 0; margin: 0  ;position: absolute; right: 6px; bottom: 6px;">
+							<input type="checkbox" id="{{$index}}" ng-model="answer.IsCorrect" ng-true-value="true" ng-false-value="false" ng-change="answerArray.$save(answer)" style="margin: -5%"/>
+							<label for="{{$index}}">Correct Answer</label>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-1 col-md-offset-0 col-sm-1 col-xs-4 col-xs-offset-4 answers-panel answers-addNew" ng-hide="answerArray.length === 4">
+					<h1 class="answers-content" style="background: transparent; font-size: 100%">Add Answer</h1>
+					<button type="button" class="btn btn-default btn-lg answers-add" ng-click="addAnswerToArray({IsCorrect: false, Name: ''})"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row" style="text-align: center">
+		<!--<ul class="pagination">
+			<li><a href="">&lt;&lt;Prev</a></li>
+			<li ng-repeat="question in questionArray"><a href="">Q {{$index + 1}}</a></li>
+			<li><a href="">Next&gt;&gt;</a></li>
+		</ul>-->
+		<uib-pagination total-items="questionArray.length" ng-model="currentQuestion" ng-change="pageChanged()"></uib-pagination>
+	</div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

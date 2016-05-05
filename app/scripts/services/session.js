@@ -159,12 +159,13 @@ angular.module('bdl6App')
             }
 
             resultsList.$add(newResult).then(function () {
-              currentSession.$destroy();
+              currentSession.$remove();
 
               $location.path('dashboard');
             });
             
           } else {
+              currentSession.$remove();
               $location.path('dashboard');
           }
         });

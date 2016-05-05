@@ -31,7 +31,7 @@ angular.module('bdl6App')
 
 	function newQuestion() {
 		var ref = Ref.child('Question/' + questionArrayKey);
-		aID = ref.push({Image: 'temp', Name: '', Time: 20, Type: 'multiple'});
+		aID = ref.push({Image: 'temp', Name: 'New Question', Time: 20, Type: 'multiple'});
 		//var objRef = Ref.child('Question/' + questionArrayKey + '/' + aID.key());
 		//obj = $firebaseObject(objRef);
 		//obj.$bindTo($scope, 'quest');
@@ -53,13 +53,19 @@ angular.module('bdl6App')
 		temp.$loaded().then(function (){
 			if (temp.length === 0){
 				newQuestion();
-				$scope.questionArray.push(aID.key());
+
+				$scope.questionArray.push(aID);
+				//MUDEI LINHA DE BAIXO
+				//$scope.questionArray.push(aID.key());
 				$scope.currentQuestion = $scope.questionArray.length;
 				location.reload();
 			}
 			else{
 				for (var i = 0; i < temp.length ; i++)
-					$scope.questionArray.push(temp[i].$id);
+
+					$scope.questionArray.push(temp[i]);
+					//MUDEI LINHA DE BAIXO
+					//$scope.questionArray.push(temp[i].$id);
 				populate(temp[0].$id);
 				$scope.currentQuestion = 1;
 			}
@@ -68,7 +74,10 @@ angular.module('bdl6App')
 
 	$scope.changedQuestion = function(num){
 		obj.$destroy();
-		populate($scope.questionArray[num]);
+
+		populate($scope.questionArray[num].$id);
+		//MUDEI LINHA DE BAIXO
+		//populate($scope.questionArray[num]);
 		$scope.currentQuestion = num + 1;
 	}
 
@@ -89,8 +98,17 @@ angular.module('bdl6App')
 	$scope.addQuestion = function(){
 		obj.$destroy();
 		newQuestion();
-		$scope.questionArray.push(aID.key());
+
+		var ref = Ref.child('Question/' + questionArrayKey);
+		var temp = $firebaseArray(ref);
+		temp.$loaded().then(function(){
+			$scope.questionArray.push(temp[temp.length - 1]);
+		});
+		//$scope.questionArray.push(aID);
+		//MUDEI LINHA DE BAIXO
+		//$scope.questionArray.push(aID.key());
 		$scope.currentQuestion = $scope.questionArray.length;
+		//changedQuestion($scope.questionArray.length - 1);
 	}
 
 	$scope.removeAns = function (id){
@@ -106,6 +124,10 @@ angular.module('bdl6App')
 
 	$scope.done = function(){
 		$location.path('dashboard');
+	}
+
+	$scope.print = function(){
+		console.log('worked');
 	}
 
   });
