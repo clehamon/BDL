@@ -120,12 +120,23 @@ angular.module('bdl6App')
 		var ref = Ref.child('Question/' + questionArrayKey + '/' + questionID);
 		var deleteQuestion = $firebaseObject(ref);
 		deleteQuestion.$remove().then(function (ref){
+			removeAnswers(questionID);
 			$scope.questionArray.splice(index, 1);
-			if (index > 1)
+			if (index > 0)
 				$scope.changedQuestion(index - 1);
 			else
-				$scope.changedQuestion(1);
+				$scope.changedQuestion(0);
 		}, function(error){
+			console.log("Error:", error);
+		});
+	}
+
+	function removeAnswers (id){
+		var ref = Ref.child('Answer/' + questionArrayKey + '/' + id);
+		var deleteAns = $firebaseObject(ref);
+		deleteAns.$remove().then(function (ref) {
+			//data has been deleted locally and in the database
+		}, function(error) {
 			console.log("Error:", error);
 		});
 	}

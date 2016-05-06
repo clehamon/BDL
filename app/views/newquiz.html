@@ -34,9 +34,11 @@
 			<div class="row">
 				<div class="col-md-7 " style="padding: 0">
 					<form name="radios">
-						<input type="radio" value="multiple" ng-model="quest.Type">Multiple choice</input>
-						<span uib-tooltip="Coming soon!" style="margin-left: 5px">
-							<input type="radio" value="open" ng-model="quest.Type" disabled>Open answer</input>
+						<span uib-tooltip="Students choose the answers!" style="margin-left: 5px">
+							<input type="radio" value="multiple" ng-model="quest.Type">Multiple choice</input>
+						</span>
+						<span uib-tooltip="Students write their own answers!" style="margin-left: 5px">
+							<input type="radio" value="open" ng-model="quest.Type">Open answer</input>
 						</span>
 					</form>
 				</div>
@@ -63,7 +65,7 @@
 				</div>
 			</div>
 			<hr class="divider"></hr>
-			<div class="row">
+			<div class="row" ng-if="quest.Type === 'multiple'">
 				<div class="col-md-5 col-sm-5 col-xs-11 answers-panel" ng-repeat="answer in answerArray">
 					<div class="answer-card">
 						<div class="row">
