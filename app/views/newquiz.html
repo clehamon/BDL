@@ -52,6 +52,7 @@
 					<input  class="form-control" type="text" placeholder="Type your question here" name="questionTitle" ng-model="quest.Name"/>
 					<i class="glyphicon glyphicon-picture form-control-feedback" style="pointer-events: all" aria-hidden="true" ng-click="print()"></i>
 				</div>
+				<div class="col-xs-12">
 				<div class="col-md-3 col-xs-6 btn-add-finish">
 					<button class="btn btn-primary btn-xs addQ" ng-click="addQuestion()">
 						<span class="glyphicon glyphicon-plus plus-sign"></span>
@@ -59,12 +60,13 @@
 					<button class="btn btn-primary btn-xs addQ" ng-click="done()">Finish Quiz</button>
 				</div>
 				<div class="col-md-2 col-xs-6">
-					<div style="display: inline; cursor: pointer"><span class="glyphicon glyphicon-trash" style="padding: 15px; font-size: 25px"></span></div>
+					<div class="rmIcon-xs"style="display: inline; cursor: pointer"><span class="glyphicon glyphicon-trash" style="padding-top: 15px; font-size: 25px"></span></div>
 				</div>
+			</div>
 			</div>
 			<hr class="divider"></hr>
 			<div class="row">
-				<div class="col-md-5 col-sm-5 col-xs-11 answers-panel" ng-repeat="answer in answerArray">
+				<div class="col-md-5 col-sm-5 col-xs-12 answers-panel" ng-repeat="answer in answerArray">
 					<div class="answer-card">
 						<div class="row">
 							<div class="answer-text col-md-10 col-sm-10 col-xs-9">

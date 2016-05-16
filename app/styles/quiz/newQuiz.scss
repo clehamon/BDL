@@ -364,6 +364,7 @@ ul.timeline li:last-child:before{
 	}
 	.btn-add-finish{
 		margin-top: 10px;
+		padding-left:0px
 	}
 	#col{
 		margin-top: 10px;
@@ -385,6 +386,14 @@ ul.timeline li:last-child:before{
 	    padding: 0px;
 	    overflow-x: hidden; 
 	}
+	.btn-xs{
+		padding-left:0px;
+		//margin-left:20px;
+	}
+	.rmIcon-xs{
+		margin-right:0px;
+	}
+
 }
 
 .custom-checkbox > [type="checkbox"],
