@@ -57,6 +57,11 @@
 						<button class="btn btn-primary" style="font-size: 3rem">Next</button>
 					</a>
 				</div>
+				<div ng-show="session.QuestionPhase" class="questionPage-nextBtn col-xs-5 col-xs-offset-1">
+					<a href="" ng-click="skipQuestion()">
+						<button class="btn btn-primary" style="font-size: 3rem">Skip</button>
+					</a>
+				</div>
 				<!-- <div class="col-xs-6">Code : {{session.$id}}</div> -->
 			</div>
 
@@ -95,6 +100,12 @@
 						</div>
 					</div>
 				</div>
+
+				<!-- <div class="row">
+					<div class="col-xs-10 col-xs-offset-1">
+						<canvas id="myChart" width="400" height="400"></canvas>
+					</div>
+				</div> -->
 			</div>
 			
 		</div>

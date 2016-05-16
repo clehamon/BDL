@@ -35,7 +35,7 @@ angular.module('bdl6App')
         quizObj.$loaded().then(function(){
           $rootScope.quiz = quizObj;
 
-          console.log($rootScope.quiz.Questions)
+          console.log($rootScope.quiz.Questions);
           var questionRef = Ref.child('Question/'+$rootScope.quiz.Questions);
           var questionObj = $firebaseArray(questionRef);
 
@@ -51,6 +51,15 @@ angular.module('bdl6App')
           $location.path('quiz/' +code+ '/waiting');
         }
       });
+    };
+
+    var saveResults = function(){
+      if ($rootScope.session.Players) {
+        var results = Ref.child('Result/'+$rootScope.session.Teacher+'/'+$rootScope.session.Quiz+'/'+$rootScope.session.Timestamp);
+
+        results.set($rootScope.session.Players);
+      
+      }
     };
 
     //look into the cookie for a current session code, if so we set it
@@ -105,43 +114,58 @@ angular.module('bdl6App')
       },
       nextQuestion : function(callback){
 
-          $rootScope.session.QuestionIndex++;
-         //As long as we haven't reach the last question
-         if ($rootScope.session.QuestionIndex < $rootScope.quiz.QuestionsArray.length) {
+        saveResults();
 
-            var questionKey = $rootScope.quiz.QuestionsArray.$keyAt($rootScope.session.QuestionIndex);
-            var question = $rootScope.quiz.QuestionsArray.$getRecord(questionKey);
+        $rootScope.session.QuestionIndex++;
+        //As long as we haven't reach the last question
+        if ($rootScope.session.QuestionIndex < $rootScope.quiz.QuestionsArray.length) {
 
-            
-            $rootScope.session.CurrentQuestion = question;
-            console.log($rootScope.session);
-            console.log($rootScope.quiz);
-            console.log('Answer/'+$rootScope.quiz.Questions+'/'+questionKey)
+          var questionKey = $rootScope.quiz.QuestionsArray.$keyAt($rootScope.session.QuestionIndex);
+          var question = $rootScope.quiz.QuestionsArray.$getRecord(questionKey);
 
-              //If the question is a multiple choice we load the answers
-              if (question.Type === 'multiple') {
-                var answerRef = Ref.child('Answer/'+$rootScope.quiz.Questions+'/'+questionKey);
-                var answerArray = $firebaseArray(answerRef);
+          
+          $rootScope.session.CurrentQuestion = question;
+          console.log($rootScope.session);
+          console.log($rootScope.quiz);
+          console.log('Answer/'+$rootScope.quiz.Questions+'/'+questionKey);
 
-                answerArray.$loaded().then(function(){
-                  $rootScope.session.CurrentQuestion.Answers = answerArray;
-                  $rootScope.session.QuestionPhase = true;
-                  console.log($rootScope.session.CurrentQuestion);
-                  callback();
-                });
+            //If the question is a multiple choice we load the answers
+            if (question.Type === 'multiple') {
+              var answerRef = Ref.child('Answer/'+$rootScope.quiz.Questions+'/'+questionKey);
+              var answerArray = $firebaseArray(answerRef);
 
-              }
+              answerArray.$loaded().then(function(){
+                $rootScope.session.CurrentQuestion.Answers = answerArray;
+                $rootScope.session.QuestionPhase = true;
+                console.log($rootScope.session.CurrentQuestion);
+                callback();
+              });
+
+            }
             // });
             
             // });
           
-         } else {
+          } else {
             console.log('Bouhouhou end of the quiz');
             $rootScope.session.Launched = false;
-         }
+          }
       },
-      showResults: function(){
+      showResults: function(callback){
         console.log('showResults');
+        if ($rootScope.session.CurrentQuestion.Type === 'multiple') {
+          $rootScope.answersResults = [];
+          for (var i = 0; i < $rootScope.session.CurrentQuestion.Answers.length; i++) {
+            $rootScope.answersResults[i] = 0;
+          }
+
+          angular.forEach($rootScope.session.Players, function(player, key){
+            $rootScope.answersResults[player[$rootScope.session.QuestionIndex]]++;
+          });
+
+          console.log($rootScope.answersResults);
+          callback($rootScope.answersResults);
+        }
         $rootScope.session.QuestionPhase = false;
 
       },
@@ -152,22 +176,22 @@ angular.module('bdl6App')
 
         resultsList.$loaded().then(function() {
 
-          if ($rootScope.session.Players) {
-            var newResult = {
-              Date : Date.now(),
-              Players : $rootScope.session.Players
-            }
+          // if ($rootScope.session.Players) {
+          //   var newResult = {
+          //     Date : Date.now(),
+          //     Players : $rootScope.session.Players
+          //   };
 
-            resultsList.$add(newResult).then(function () {
-              currentSession.$remove();
+          //   resultsList.$add(newResult).then(function () {
+          //     currentSession.$remove();
 
-              $location.path('dashboard');
-            });
+          //     $location.path('dashboard');
+          //   });
             
-          } else {
+          // } else {
               currentSession.$remove();
               $location.path('dashboard');
-          }
+          // }
         });
       }
     };
