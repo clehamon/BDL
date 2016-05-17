@@ -23,7 +23,7 @@
 				<div class="col-md-3 col-sm-6 col-xs-12" ng-repeat="quiz in quizArray | filter:quizFilter">
 					<div class="quizCard">
 						<div class="quizCard-content">
-							<h2> {{quiz.Name}} </h2>
+							<h2> {{quiz.Name | limitTo : 45}} </h2>
 							<p class="quizCard-date">{{quiz.Date}}</p>
 							<div class="quizCard-trash" ng-click="deleteQuiz(quiz.$id)"><span class="glyphicon glyphicon-trash"></span></div>
 
