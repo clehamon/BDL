@@ -21,7 +21,6 @@ angular.module('bdl6App')
       var sessionObj = $firebaseObject(session);
 
 
-
       //Once the session is loaded we can bind it to the rootScope
       sessionObj.$loaded().then(function(){
 

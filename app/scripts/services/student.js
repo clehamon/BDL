@@ -8,7 +8,7 @@
  * Factory in the bdl6App.
  */
 angular.module('bdl6App')
-  .factory('student', function (Ref, $firebaseObject, $location, $cookies, $rootScope) {
+  .factory('student', function (Ref, $firebaseObject, $firebaseArray, $location, $cookies, $rootScope) {
 
     var currentSession = {};
     var answersArray;
@@ -37,6 +37,16 @@ angular.module('bdl6App')
         return currentSession;
       },
       setSession: function(sessionCode, name){
+
+
+        var sessions = Ref.child('Session');
+
+        var sessionsList = $firebaseArray(sessions);
+        // Check that a session does not exist with the same id, if it does we generate a new code
+        if(sessionsList.$indexFor(sessionCode) <= 0){
+          return false;
+        }
+
         // currentSession = null;
       	var sessionRef = Ref.child('Session/'+sessionCode);
     		currentSession = $firebaseObject(sessionRef);

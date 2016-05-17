@@ -11,6 +11,7 @@ angular.module('bdl6App')
 				$scope.noError = false;
 				$scope.errorMessage = "Enter a name";
 			} else {
+				// $scope.noError = true;
 				$scope.noError = student.setSession($scope.quizCode, $scope.playerName);
 				if (!$scope.noError) {
 					$scope.errorMessage = "No quiz correspond to this code";
