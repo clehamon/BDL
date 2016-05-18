@@ -80,11 +80,11 @@
 							<!--<span class="glyphicon glyphicon-picture answers-addImg" aria-hidden="true" ng-click="saveImage(answer.$id)"></span>-->
 
 							<div class="image-upload" style="margin: 1%">
-								<label for="file-input"  style="width: 50%; cursor: pointer">
-									<img ng-if="answer.Picture" src="{{answer.Picture}}" style="max-width: 100%"/>
+								<label for="file-input {{$index}}"  style="width: 50%; cursor: pointer">
+									<img ng-if="answer.Picture" src="{{answer.Picture}}" style="max-width: 100%; max-height: 145px; position: relative"/>
 									<span class="glyphicon glyphicon-picture answers-addImg" aria-hidden="true" ng-if="!answer.Picture"></span>
 								</label>
-								<input id="file-input" type="file" ng-hide="true" onchange="angular.element(this).scope().saveImage(this.files[0], angular.element(this).scope().answer.$id)"/>
+								<input id="file-input {{$index}}" type="file" ng-hide="true" onchange="angular.element(this).scope().saveImage(this.files[0], angular.element(this).scope().answer.$id)"/>
 							</div>
 
 						</div>
