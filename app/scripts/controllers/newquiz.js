@@ -14,6 +14,7 @@ angular.module('bdl6App')
   	var aID;
   	var questionArrayKey;
   	var obj;
+  	var ansImg;
   	$scope.answerArray = [];
   	$scope.currentQuestion;
   	$scope.questionArray = [];
@@ -151,6 +152,46 @@ angular.module('bdl6App')
 			console.log("Error:", error);
 		});
 	}
+
+	$scope.saveImage = function(e1, id) {
+		var ref = Ref.child('Answer/' + questionArrayKey + '/' + aID.key() + '/' + id);
+		ansImg = $firebaseObject(ref);
+		ansImg.$loaded().then(function(){
+			getFile(e1);
+		});
+	}
+
+	function getFile (e1) {
+		var fr = new FileReader();
+		fr.onload = function(event) {
+			ansImg.Picture = fr.result;
+			ansImg.$save().then(function (val) {
+				//
+			}, function (e) {
+				console.log(e);
+			})
+		};
+		fr.readAsDataURL(e1);
+	}
+
+	/*$scope.addImg = function(e1){
+		var file = e1;
+		var fr = new FileReader();
+		fr.onload = function(event) {
+			console.log(fr.result);
+			var ref = Ref.child('Answer/' + questionArrayKey + '/' + aID.key() + '/-KHyJ_w6HZbN5r1vVtCT');
+			ansImg = $firebaseObject(ref);
+			ansImg.$loaded().then(function(){
+				console.log(ansImg);
+				ansImg.Picture = fr.result;
+				ansImg.$save().then(function (val) {
+					//
+				}, function (e) {
+					console.log(e);
+				});
+			});
+		};
+	}*/
 
 	$scope.done = function(){
 		$location.path('dashboard');

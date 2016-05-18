@@ -76,8 +76,17 @@
 								<span class="glyphicon glyphicon-minus answers-delete" style="cursor: pointer" aria-hidden="true" ng-click="removeAns(answer.$id)"></span>
 							</div>
 						</div>
-						<div class="row col-xs-6" style="text-align: center">
-							<span class="glyphicon glyphicon-picture answers-addImg" aria-hidden="true"></span>
+						<div class="row " style="text-align: center">
+							<!--<span class="glyphicon glyphicon-picture answers-addImg" aria-hidden="true" ng-click="saveImage(answer.$id)"></span>-->
+
+							<div class="image-upload" style="margin: 1%">
+								<label for="file-input"  style="width: 50%; cursor: pointer">
+									<img ng-if="answer.Picture" src="{{answer.Picture}}" style="max-width: 100%"/>
+									<span class="glyphicon glyphicon-picture answers-addImg" aria-hidden="true" ng-if="!answer.Picture"></span>
+								</label>
+								<input id="file-input" type="file" ng-hide="true" onchange="angular.element(this).scope().saveImage(this.files[0], angular.element(this).scope().answer.$id)"/>
+							</div>
+
 						</div>
 						<div class="row custom-checkbox col-xs-6" style="text-align: right; padding: 0; margin: 0  ;position: absolute; right: 6px; bottom: 6px;">
 							<input type="checkbox" id="{{$index}}" ng-model="answer.IsCorrect" ng-true-value="true" ng-false-value="false" ng-change="answerArray.$save(answer)" style="margin: -5%"/>
@@ -87,7 +96,7 @@
 				</div>
 				<div class="col-md-1 col-md-offset-0 col-sm-1 col-xs-4 col-xs-offset-4 answers-panel answers-addNew" ng-hide="answerArray.length === 4">
 					<h1 class="answers-content" style="background: transparent; font-size: 100%">Add Answer</h1>
-					<button type="button" class="btn btn-default btn-lg answers-add" ng-click="addAnswerToArray({IsCorrect: false, Name: ''})"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </button>
+					<button type="button" class="btn btn-default btn-lg answers-add" ng-click="addAnswerToArray({IsCorrect: false, Name: '', Picture: ''})"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </button>
 				</div>
 			</div>
 		</div>
