@@ -98,6 +98,14 @@ angular.module('bdl6App')
         templateUrl: 'views/stuend.html',
         controller: 'StuendCtrl'
       })
+      .when('/results/:quizID', {
+        templateUrl: 'views/results.html',
+        controller: 'ResultsCtrl'
+      })
+      .when('/results/:quizID/:timestamp', {
+        templateUrl: 'views/resultsdetails.html',
+        controller: 'ResultsdetailsCtrl'
+      })
       .otherwise({redirectTo: '/'});
   }])
 

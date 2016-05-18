@@ -1,0 +1,37 @@
+<ng-include src="'views/header.html'"></ng-include>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-10 col-xs-offset-1">		
+
+			<div class="row">
+				<div class="col-md-3 col-sm-6 col-xs-12" ng-repeat="result in resultsList">
+					<div class="quizCard">
+						<div class="quizCard-content">
+							<h2 > {{result.$id | date:'dd/MM/yyyy'}} </h2>
+							<h3 > {{result.$id | date:'HH:mma'}} </h3>
+							<p class="quizCard-date">{{result.nbPlayers}} players</p>
+							
+						</div>
+							
+						<div class="quizCard-btn">
+							<div class="col-xs-6 col-xs-offset-3 quizCard-btn-main">
+								<a href="#/results/{{quizID+'/'+result.$id}}" ng-click="">
+									<span class="glyphicon glyphicon-list-alt quizCard-play" aria-hidden="true"></span>
+									<p class="no-margin">Details</p>
+								</a>
+							</div>
+							
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</div>
+
+<ng-include src="'views/footer.html'"></ng-include>
+
+
