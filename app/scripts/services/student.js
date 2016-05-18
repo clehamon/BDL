@@ -43,60 +43,62 @@ angular.module('bdl6App')
 
         var sessionsList = $firebaseArray(sessions);
         // Check that a session does not exist with the same id, if it does we generate a new code
-        if(sessionsList.$indexFor(sessionCode) <= 0){
-          return false;
-        }
-
-        // currentSession = null;
-      	var sessionRef = Ref.child('Session/'+sessionCode);
-    		currentSession = $firebaseObject(sessionRef);
-
-    		currentSession.$loaded().then( function(){
-          if (currentSession.$id === 'undefined') {
+        sessionsList.$loaded().then(function(){
+          if(sessionsList.$indexFor(sessionCode) <= 0){
             return false;
           }
-          console.log(currentSession, sessionCode);
-    			var player = {
-    				Active : true
-    			};
-      		playerRef = Ref.child('Session/'+sessionCode+'/Players/'+name);
-          $rootScope.session = currentSession;
-    			playerRef.set(player, function(){
-            currentName = name;
-            answersArray = $firebaseObject(playerRef);
-            hasAnswer = false;
+          // currentSession = null;
+          var sessionRef = Ref.child('Session/'+sessionCode);
+          currentSession = $firebaseObject(sessionRef);
 
-            currentSession.$watch(function(newValue){
-              console.log('phase',currentSession.QuestionPhase);
-              if (currentSession.Launched) {
-                    if (currentSession.QuestionPhase) {
-                      if (!hasAnswer) {
-                        loadQuestion();
+          currentSession.$loaded().then( function(){
+            if (currentSession.$id === 'undefined') {
+              return false;
+            }
+            console.log(currentSession, sessionCode);
+            var player = {
+              Active : true
+            };
+            playerRef = Ref.child('Session/'+sessionCode+'/Players/'+name);
+            $rootScope.session = currentSession;
+            playerRef.set(player, function(){
+              currentName = name;
+              answersArray = $firebaseObject(playerRef);
+              hasAnswer = false;
+
+              currentSession.$watch(function(newValue){
+                console.log('phase',currentSession.QuestionPhase);
+                if (currentSession.Launched) {
+                      if (currentSession.QuestionPhase) {
+                        if (!hasAnswer) {
+                          loadQuestion();
+                        }
+                      } else {
+                        hasAnswer = false;
+                        loadResults();
                       }
-                    } else {
-                      hasAnswer = false;
-                      loadResults();
-                    }
-              } else if(currentSession.QuestionIndex>=0){
-                endQuiz();
-              }
+                } else if(currentSession.QuestionIndex>=0){
+                  endQuiz();
+                }
+              });
+
+            });
+              
+
+            var quizRef = Ref.child('Quiz/'+currentSession.Teacher+'/'+currentSession.Quiz);
+            var quizObj = $firebaseObject(quizRef);
+
+            quizObj.$loaded().then(function(){
+              $rootScope.quiz = quizObj;
             });
 
+            $cookies.put('currentSessionID', currentSession.$id );
+
+            $location.path('student/waiting');
+            return true;
           });
-            
+        });
 
-          var quizRef = Ref.child('Quiz/'+currentSession.Teacher+'/'+currentSession.Quiz);
-          var quizObj = $firebaseObject(quizRef);
-
-          quizObj.$loaded().then(function(){
-            $rootScope.quiz = quizObj;
-          });
-
-          $cookies.put('currentSessionID', currentSession.$id );
-
-          $location.path('student/waiting');
-          return true;
-  		  });
       },
       removeSession: function (){
         currentSession = {};

@@ -5,6 +5,9 @@
 			<div class="answer full-height {{'block'+key}}" ng-click="sendAnswer(key, answer)" ng-class="{correctAnswer: (key===currentAnswerID)}">
 				<span class="answerText">
 					<p>{{answer.Name}}</p>	
+					<!-- I changed from here until... -->
+					<img src="{{answer.Picture}}" style="max-height: 50px"/>
+					<!-- here -->
 				</span>
 			</div>
 		</div>
