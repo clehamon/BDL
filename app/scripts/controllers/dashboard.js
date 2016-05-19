@@ -38,8 +38,6 @@ angular.module('bdl6App')
     };
 
     $scope.deleteQuiz = function (quizid, quizname) {
-      console.log(quizid);
-      debugger;
       var modalInstance = $uibModal.open({
         animation: $scope.animationsEnabled,
         templateUrl: '../views/deletequizmodal.html',

@@ -25,7 +25,7 @@
 						<div class="quizCard-content">
 							<h2 title="{{quiz.Name}}"> {{quiz.Name | limitTo : 45}} </h2>
 							<p class="quizCard-date">{{quiz.Date}}</p>
-							<div class="quizCard-trash" ng-click="deleteQuiz(quiz.$id)"><span class="glyphicon glyphicon-trash"></span></div>
+							<div class="quizCard-trash" ng-click="deleteQuiz(quiz.$id, quiz.Name)"><span class="glyphicon glyphicon-trash"></span></div>
 
 							<div>
 								<div ng-repeat="tag in quiz.TAG" class="quizCard-tag">{{tag}}</div>
