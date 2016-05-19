@@ -136,6 +136,13 @@ angular.module('bdl6App')
               answerArray.$loaded().then(function(){
                 $rootScope.session.CurrentQuestion.Answers = answerArray;
                 $rootScope.session.QuestionPhase = true;
+
+                for (var i = answerArray.length - 1; i >= 0; i--) {
+                  if (answerArray[i].Picture) {
+                   answerArray[i].bg = "background: url("+answerArray[i].Picture+") no-repeat center center; background-size: contain;"
+                    
+                  }
+                }
                 console.log($rootScope.session.CurrentQuestion);
                 callback();
               });

@@ -97,14 +97,19 @@ angular.module('bdl6App')
     }
 
     var updateChart = function(answers) {
-        console.log(answers)
+        // console.log(answers)
+        // var labels = [];
+        // for (var i = answers.length - 1; i >= 0; i--) {
+        //     labels[i] = answers[i].Name;
+        // }
+        // console.log(labels);
         // if (answers !== undefined) {
         //      var ctx = document.getElementById("myChart");
         //     console.log(answers)
         //     var myChart = new Chart(ctx, {
         //         type: 'bar',
         //         data: {
-        //             labels: ["Red", "Yellow", "Blue", "Purple"],
+        //             labels: labels,
         //             datasets: [{
         //                 backgroundColor:['rgba(227,67,87,1)','rgba(248,231,28,1)','rgba(74,144,226,1)','rgba(177,106,239,1)'],
         //                 data: answers,

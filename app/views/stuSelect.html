@@ -2,11 +2,11 @@
 <div class="row studentResult">
 	<div class="answers full-height">
 		<div class="col-xs-6 half-height" ng-repeat="(key, answer) in session.CurrentQuestion.Answers">
-			<div class="answer full-height {{'block'+key}}" ng-click="sendAnswer(key, answer)" ng-class="{correctAnswer: (key===currentAnswerID)}">
-				<span class="answerText">
+			<div class="answer full-height {{'block'+key}}" ng-click="sendAnswer(key, answer)" ng-class="{correctAnswer: (key===currentAnswerID)}" style="{{answer.bg}}">
+				<span class="answerText" ng-class="{darkBg:answer.bg!==null}">
 					<p>{{answer.Name}}</p>	
 					<!-- I changed from here until... -->
-					<img src="{{answer.Picture}}" style="max-height: 100px; vertical-align: middle"/>
+					<!-- <img src="{{answer.Picture}}" style="max-height: 100px; vertical-align: middle"/> -->
 					<!-- here -->
 				</span>
 			</div>

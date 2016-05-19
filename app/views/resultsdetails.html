@@ -2,13 +2,19 @@
 
 <div class="container-fluid">
 	<div class="row">
+		<a href="#/dashboard">
+			<h2><span class="glyphicon glyphicon-chevron-left"></span> Back</h2>
+		</a>
+	</div>
+	<div class="row">
 
 		<table class="table">
 			<thead>
 				<tr>
 					<th>#</th>
 					<th ng-repeat="(key,question) in questions" title="{{question.Name}}">
-						{{key+1}}
+						
+						{{question.Name}}
 					</th>
 				</tr>
 				
@@ -19,10 +25,9 @@
 					
 
 					<td ng-repeat="(key,question) in questions" ng-hide="key=='Active'" class="resultCell" ng-class="{correctCell:questions[key].answers[results[key]].IsCorrect, incorrectCell:questions[key].answers[results[key]].IsCorrect==false}" title="{{questions[key].answers[results[key]].Name}}">
-						<span ng-if="questions[key].answers[results[key]].IsCorrect" class="glyphicon glyphicon-ok"></span>
-						<span ng-if="questions[key].answers[results[key]].IsCorrect == false" class="glyphicon glyphicon-remove"></span>
-						<!-- <span ng-if="questions[key].answers[results[key]].IsCorrect == false" class="glyphicon glyphicon-remove"></span> -->
-						
+						<!-- <span ng-if="questions[key].answers[results[key]].IsCorrect" class="glyphicon glyphicon-ok"></span>
+						<span ng-if="questions[key].answers[results[key]].IsCorrect == false" class="glyphicon glyphicon-remove"></span> -->
+						{{questions[key].answers[results[key]].Name}}
 					</td>
 				</tr>
 			</tbody>
