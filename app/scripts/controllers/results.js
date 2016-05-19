@@ -16,7 +16,6 @@ angular.module('bdl6App')
 
     // For each result had the number of players as an attribute
     $scope.resultsList.$loaded().then(function(){
-    	console.log($scope.resultsList, 'Result/' + Ref.getAuth().uid + '/' +$routeParams.quizID);
     	for (var i = $scope.resultsList.length - 1; i >= 0; i--) {
 
     		//minus 2 for the $$hashkey and $id attributes always present

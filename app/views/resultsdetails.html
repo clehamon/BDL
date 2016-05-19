@@ -1,1 +1,32 @@
-<p>This is the resultsDetails view.</p>
+<ng-include src="'views/header.html'"></ng-include>
+
+<div class="container-fluid">
+	<div class="row">
+
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th ng-repeat="(key,question) in questions" uib-tooltip="{{question.Name}}">
+						{{key+1}}
+					</th>
+				</tr>
+				
+			</thead>
+			<tbody>
+				<tr ng-repeat="results in resultArray">
+					<th>{{results.$id}}</th>
+					<td ng-repeat="(key,answer) in results" ng-hide="key=='Active'" class="resultCell" ng-class="{correctCell:questions[key].answers[answer].IsCorrect, incorrectCell:!questions[key].answers[answer].IsCorrect}">
+						<span ng-if="questions[key].answers[answer].IsCorrect" class="glyphicon glyphicon-ok"></span>
+						<span ng-if="!questions[key].answers[answer].IsCorrect" class="glyphicon glyphicon-remove"></span>
+						
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+	
+</div>
+
+<ng-include src="'views/footer.html'"></ng-include>

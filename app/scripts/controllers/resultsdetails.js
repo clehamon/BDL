@@ -19,9 +19,10 @@ angular.module('bdl6App')
 	    	for (var i = $scope.questions.length - 1; i >= 0; i--) {
 	    		$scope.questions[i].answers = $firebaseArray(Ref.child('Answer/'+quiz.Questions+'/'+$scope.questions[i].$id));
 	    	}
+
 	    	console.log($scope.questions);
 	    	console.log($scope.resultArray);
-	    })
+	    });
     });
 
     
