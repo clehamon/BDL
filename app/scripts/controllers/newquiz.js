@@ -32,7 +32,7 @@ angular.module('bdl6App')
 
 	function newQuestion() {
 		var ref = Ref.child('Question/' + questionArrayKey);
-		aID = ref.push({Image: 'temp', Name: 'New Question', Time: 20, Type: 'multiple'});
+		aID = ref.push({Image: 'temp', Name: '', Time: 20, Type: 'multiple'});
 		//var objRef = Ref.child('Question/' + questionArrayKey + '/' + aID.key());
 		//obj = $firebaseObject(objRef);
 		//obj.$bindTo($scope, 'quest');
@@ -108,6 +108,7 @@ angular.module('bdl6App')
 			$scope.questionArray.push(temp[temp.length - 1]);
 			$scope.currentQuestion = $scope.questionArray.length;
 		});
+		$scope.selection.selectedNode = $scope.currentQuestion;
 		//$scope.questionArray.push(aID);
 		//MUDEI LINHA DE BAIXO
 		//$scope.questionArray.push(aID.key());
@@ -130,6 +131,8 @@ angular.module('bdl6App')
 		}, function(error){
 			console.log("Error:", error);
 		});
+		if (index > 0)
+			$scope.selection.selectedNode = $scope.currentQuestion - 2;
 	}
 
 	function removeAnswers (id){

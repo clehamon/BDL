@@ -1,22 +1,19 @@
 <ng-include src="'views/header.html'"></ng-include>
-<div class="container-fluid back">
+<div class="container-fluid back" ng-init="selection = { selectedNode: 0 }">
 	<div class="row" id="mainRow">
 		<div class="col-md-2 sidebar-col">
 			<div class="sidebar-wrapper">
 				<h3 id="questions">Your Questions</h3>
 				<label>Current: {{questionArray[currentQuestion - 1].Name}}</label>
 				<div id="newQ-navigator" >
-					<ul class="timeline">
-						<div ng-init="selection = { selectedNode: 0 }">
-							<li ng-repeat="question in questionArray" ng-click="selection.selectedNode = $index" ng-class="{selected: selection.selectedNode == $index}">
-								<!--<div class="itemWrapper">
-								<div class="square"></div>-->
-								<a class="questionName" href="" ng-click="changedQuestion($index)">{{question.Name}}</a>
-								<!--</div>-->
-							</li>
-
-							<li class="add-btn" ng-click="addQuestion()"></li>
-						</div>
+					<ul class="timeline">					
+						<li ng-repeat="question in questionArray" ng-click="changedQuestion($index); selection.selectedNode = $index" ng-class="{selected: selection.selectedNode == $index}">
+							<!--<div class="itemWrapper">
+							<div class="square"></div>-->
+							<a class="questionName" href="">{{question.Name}}</a>
+							<!--</div>-->
+						</li>
+						<li class="add-btn" ng-click="addQuestion()"></li>
 					</ul>
 				</div>
 			</div>
@@ -64,7 +61,7 @@
 					<button class="btn btn-primary btn-xs addQ" ng-click="done()">Finish Quiz</button>
 				</div>
 				<div class="col-md-2 col-xs-6">
-					<div style="display: inline; cursor: pointer" ng-click="removeQuestion(currentQuestion - 1)"><span class="glyphicon glyphicon-trash" style="padding: 5px; font-size: 25px"></span></div>
+					<fieldset style="display: inline; cursor: pointer" ng-click="removeQuestion(currentQuestion - 1)" ng-disabled="currentQuestion === 1"><span class="glyphicon glyphicon-trash" style="padding: 5px; font-size: 25px"></span></fieldset>
 				</div>
 			</div>
 			<hr class="divider"></hr>
