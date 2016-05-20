@@ -7,13 +7,16 @@
 				<label>Current: {{questionArray[currentQuestion - 1].Name}}</label>
 				<div id="newQ-navigator" >
 					<ul class="timeline">
-						<li ng-repeat="question in questionArray">
-							<!--<div class="itemWrapper">-->
-							<div class="square"></div>
-							<a class="questionName" href="" ng-click="changedQuestion($index)">{{question.Name}}</a>
-							<!--</div>-->
-						</li>
-						<li class="add-btn" ng-click="addQuestion()"></li>
+						<div ng-init="selection = { selectedNode: 0 }">
+							<li ng-repeat="question in questionArray" ng-click="selection.selectedNode = $index" ng-class="{selected: selection.selectedNode == $index}">
+								<!--<div class="itemWrapper">
+								<div class="square"></div>-->
+								<a class="questionName" href="" ng-click="changedQuestion($index)">{{question.Name}}</a>
+								<!--</div>-->
+							</li>
+
+							<li class="add-btn" ng-click="addQuestion()"></li>
+						</div>
 					</ul>
 				</div>
 			</div>

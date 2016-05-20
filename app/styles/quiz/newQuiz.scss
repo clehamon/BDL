@@ -283,7 +283,8 @@ ul.timeline li:before {
     position: absolute;
     left: 5%; /* adjust manually */
     background-color: #DEDEDE;
-    height: 100%;
+    top: 55%;
+    height: 65%;
     width: 3px;
 }
 
@@ -298,6 +299,22 @@ ul.timeline li:last-child:before{
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
+}
+
+ul.timeline li.selected{
+	/*list-style: square url(../../images/square.png);*/
+	list-style: none;
+	background: url(../../images/dot.png) no-repeat left 28%;
+  /* Adjust the padding for your custom bullet image */
+  	padding: 10px 0px 0px 30px;
+	color: #dedede;
+	background-size: 20px;
+    position:relative; /* so that pseudoelements are positioned relatively to their "li"s*/
+    /* use padding-bottom instead of margin-bottom.*/ 
+    margin-bottom: 0; /* This overrides previously specified margin-bottom */
+    margin-left: -30%;
+    padding-bottom: 1.5em;
+    text-align: left;
 }
 
 .addQ {

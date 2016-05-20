@@ -58,7 +58,7 @@ angular.module('bdl6App')
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main2.html',
+        templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
 
