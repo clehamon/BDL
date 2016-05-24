@@ -51,7 +51,9 @@ body {
   padding-bottom: 0;
   margin-bottom: 0;
   text-align: center;
-  border-bottom: 1px solid #e5e5e5;
+  /*border-bottom: 1px solid #e5e5e5;*/
+  border-bottom: 0;
+  background-color: #fff;
 
   .btn {
     font-size: 21px;
@@ -59,12 +61,12 @@ body {
   }
 }
 
-h2 { 
+/*h2 { 
    position: absolute; 
    top: 100px; 
    right: 10px; 
    width: 350px; 
-}
+}*/
 
 h2 span { 
    color: white;
@@ -88,19 +90,33 @@ h2 span {
   font-size: 18px;
 }
 
+#poster-helper {
+  position: relative;
+  font: bold 20px/24px Helvetica, Sans-Serif;
+  color: #000;
+  letter-spacing: 0;
+  top: inherit;
+}
+
 #student-login{
-  margin-top: -226px;
+  margin-top: 2vh;
+  background-color: #fff;
 }
 
 #quizcodebox {
+  background-color: #fff;
+  border: solid 3px #eee;
+  border-radius: 8px;
   position: relative;
-  margin: auto;
   max-width: 250px;
-  padding-top: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-bottom: 30px;
-  background-color: rgba(82,82,82,0.5);
+  margin: auto;
+  margin-top: 5px;
+  padding: 5px;
+}
+
+#quizcodebox-title {
+  margin-top: 10px;
+  color: #111 ;
 }
 
 #quizcode, #studentName {
@@ -149,8 +165,11 @@ h2 span {
   margin: 0;
 }
 
+
+
+
 /* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px){
   .container {
     max-width: 730px;
   }
@@ -171,11 +190,13 @@ h2 span {
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
     border-bottom: 0;
+    background-color: #fff;
   }
 
   .navbar {
     margin-bottom: 0;
-    height: 80px;
+    /*height: 80px;*/
+    height: auto;
   }
 
   .navbar-nav {
@@ -192,6 +213,125 @@ h2 span {
     font-size: 20px;
     text-align: center;
   }
+
+  .poster {
+    text-align: center;
+    /*position: relative!important;*/
+  }
+
+  #splashimage {
+    margin: 0!important;
+  }
+
+  /*#poster-helper {
+    width: auto;
+    font: bold 30px/36px Helvetica, Sans-Serif;
+    color: #fff;
+    letter-spacing: -1px;
+    position: absolute;
+    top: 100px;
+    left: 10vw;
+  }
+*/
+
+/*  #poster-helper {
+    position: relative;
+    font: bold 24px/30px Helvetica, Sans-Serif;
+    color: #000;
+    margin-top: 2vh;
+    letter-spacing: 0;
+    top: inherit;
+  }*/
+
+  #student-login{
+    margin-top: 2vh;
+    background-color: #fff;
+  }
+
+/*  #quizcodebox {
+    background-color: #fff;
+    border: solid 3px #eee;
+    border-radius: 8px;
+  }
+
+  #quizcodebox-title {
+    color: #111!important;
+  }
+*/
+
 }
 
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  #poster-helper {
+    position: relative;
+    font: bold 24px/30px Helvetica, Sans-Serif;
+    color: #000;
+    letter-spacing: 0;
+    top: inherit;
+  }
 
+  #student-login{
+    margin-top: 2vh;
+    background-color: #fff;
+  }
+
+  #quizcodebox {
+    background-color: #fff;
+    border: solid 3px #eee;
+    border-radius: 8px;
+    position: relative;
+    margin: auto;
+    max-width: 250px;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+  }
+
+  #quizcodebox-title {
+    color: #111!important;
+  }
+
+}
+
+/*set responsive styles for pc*/
+@media screen and (min-width: 1200px) {
+  #poster-helper {
+    font: bold 36px/40px Helvetica, Sans-Serif!important;
+  }
+}
+
+/*set responsive styles for tablets rotated and pc*/
+@media screen and (min-width: 992px) {
+  #poster-helper {
+    width: auto;
+    font: bold 30px/36px Helvetica, Sans-Serif;
+    color: #fff;
+    letter-spacing: -1px;
+    position: absolute;
+    top: 80px;
+    left: 8vw;
+  } 
+
+  #student-login {
+    margin-top: -380px;
+    margin-bottom: 140px;
+  }
+
+  #quizcodebox {
+    position: relative;
+    border: 0;
+    margin: auto;
+    max-width: 250px;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    background-color: rgba(82,82,82,0.5);
+  }
+
+  #quizbox-title {
+    color: #fff;
+  }
+
+}

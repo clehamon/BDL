@@ -3,22 +3,23 @@
 
 <div class="jumbotron">
 
-	<div >
-		<img id="splashimage" src="images/temp.png" style="margin-top: -8%">
-		<h2><span>Qwizard, a tool for creating awesome and fun quizzes. Try it now!</span></h2>
-	</div>
-
-	<div class="container" id="main-dashboard" style="width:100%; background:white;">
+	<div class="poster">
+		<img id="splashimage" src="images/temp.png">
+		<h2 id="poster-helper">Qwizard, a tool for creating awesome and fun quizzes. Try it now!</h2>
 		<div class="row" id="student-login">
 			<div id="quizcodebox" ng-controller="StuHomeCtrl">
 				<p class="error" ng-hide="{{errorMessage==''}}" style="opacity: 1">{{errorMessage}}</p>
-				<h3 style="color: white">Join a quiz !</h3>
+				<h3 id="quizcodebox-title">Join a quiz !</h3>
 				<input ng-model="quizCode" type="number" id="quizcode" class="form-control" placeholder="Quiz code">
 				<input ng-model="playerName" id="studentName" class="form-control" placeholder="Your name">
-				<!-- <button id="joinbutton" class="btn btn-primary btn-block" type="submit">join</button> -->
 				<button class="button big" ng-click="connectToQuiz()">Join</button>
 			</div>
 		</div>
+	</div>
+
+	<div class="container" id="main-dashboard" style="width:100%; background:white;">
+		
+
 		<div class="row">
 			<div class="span6 col-sm-6">
 				<img class="img-responsive" id="phoneimage" src="images/main-ipad.jpg" style="padding-top:40px">	
