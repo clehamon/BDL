@@ -104,6 +104,7 @@ h2 span {
   color: #000;
   letter-spacing: 0;
   top: inherit;
+  text-align: center;
 }
 
 #student-login{
@@ -334,7 +335,8 @@ h2 span {
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 20px;
-    background-color: rgba(230,230,230,0.5);
+    // background-color: rgba(230,230,230,0.5);
+    background-color: transparent;
 
     position: absolute;
     margin-left: 50%;
