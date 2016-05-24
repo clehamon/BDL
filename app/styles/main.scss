@@ -75,6 +75,14 @@ h2 span {
    
 }
 
+.mainNavbar{
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+}
+
 #splashimage {
   width: 100%;
 }
@@ -112,6 +120,7 @@ h2 span {
   margin: auto;
   margin-top: 5px;
   padding: 5px;
+
 }
 
 #quizcodebox-title {
@@ -216,7 +225,7 @@ h2 span {
 
   .poster {
     text-align: center;
-    /*position: relative!important;*/
+    position: relative!important;
   }
 
   #splashimage {
@@ -319,18 +328,22 @@ h2 span {
   }
 
   #quizcodebox {
-    position: relative;
     border: 0;
-    margin: auto;
     max-width: 250px;
     padding-top: 10px;
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 20px;
-    background-color: rgba(82,82,82,0.5);
+    background-color: rgba(230,230,230,0.5);
+
+    position: absolute;
+    margin-left: 50%;
+    left: -125px;
+    bottom: 10px;
   }
 
-  #quizbox-title {
+
+  #quizcodebox-title {
     color: #fff;
   }
 

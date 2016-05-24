@@ -24,9 +24,10 @@
 					<th>{{results.$id}}</th>
 					
 
-					<td ng-repeat="(key,question) in questions" ng-hide="key=='Active'" class="resultCell" ng-class="{correctCell:questions[key].answers[results[key]].IsCorrect, incorrectCell:questions[key].answers[results[key]].IsCorrect==false}" title="{{questions[key].answers[results[key]].Name}}">
+					<td ng-repeat="(key,question) in results" ng-hide="key=='Active'" class="resultCell" ng-class="{correctCell:questions[key].answers[results[key]].IsCorrect, incorrectCell:questions[key].answers[results[key]].IsCorrect==false}" title="{{questions[key].answers[results[key]].Name}}">
 						<!-- <span ng-if="questions[key].answers[results[key]].IsCorrect" class="glyphicon glyphicon-ok"></span>
 						<span ng-if="questions[key].answers[results[key]].IsCorrect == false" class="glyphicon glyphicon-remove"></span> -->
+						<!-- {{key}} / {{question}} -->
 						{{questions[key].answers[results[key]].Name}}
 					</td>
 				</tr>
