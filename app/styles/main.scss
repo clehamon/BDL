@@ -314,13 +314,18 @@ h2 span {
 /*set responsive styles for tablets rotated and pc*/
 @media screen and (min-width: 992px) {
   #poster-helper {
-    width: auto;
+    width: 100%;
     font: bold 30px/36px Helvetica, Sans-Serif;
     color: #fff;
     letter-spacing: -1px;
     position: absolute;
-    top: 80px;
-    left: 8vw;
+    top: 130px;
+    text-align: center;
+
+    h2{
+      font-size: 1.2em;
+      font-style: bold;
+    }
   } 
 
   #student-login {
