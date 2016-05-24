@@ -5,8 +5,18 @@
 
 	<div class="poster">
 		<img id="splashimage" src="images/temp.png">
-		<h2 id="poster-helper">Qwizard, a tool for creating awesome and fun quizzes. Try it now!</h2>
-		<div class="row" id="student-login">
+		<div id="poster-helper">
+			<h2>Qwizard, a tool for creating awesome and fun quizzes.</h2>
+			<h2>Try it now!</h2>
+		</div>
+		<div id="quizcodebox" ng-controller="StuHomeCtrl">
+				<p class="error" ng-hide="{{errorMessage==''}}" style="opacity: 1">{{errorMessage}}</p>
+				<h3 id="quizcodebox-title">Join a quiz !</h3>
+				<input ng-model="quizCode" type="number" id="quizcode" class="form-control" placeholder="Quiz code">
+				<input ng-model="playerName" id="studentName" class="form-control" placeholder="Your name">
+				<button class="button big" ng-click="connectToQuiz()">Join</button>
+			</div>
+		<!-- <div class="row" id="student-login">
 			<div id="quizcodebox" ng-controller="StuHomeCtrl">
 				<p class="error" ng-hide="{{errorMessage==''}}" style="opacity: 1">{{errorMessage}}</p>
 				<h3 id="quizcodebox-title">Join a quiz !</h3>
@@ -14,7 +24,7 @@
 				<input ng-model="playerName" id="studentName" class="form-control" placeholder="Your name">
 				<button class="button big" ng-click="connectToQuiz()">Join</button>
 			</div>
-		</div>
+		</div> -->
 	</div>
 
 	<div class="container" id="main-dashboard" style="width:100%; background:white;">

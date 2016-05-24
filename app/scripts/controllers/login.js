@@ -8,6 +8,7 @@
  */
 angular.module('bdl6App')
   .controller('LoginCtrl', function ($scope, Auth, $location, $q, Ref, $timeout, $firebaseObject) {
+    $scope.isMain = true;
     $scope.oauthLogin = function(provider) {
       $scope.err = null;
       Auth.$authWithOAuthPopup(provider, {rememberMe: true}).then(redirect, showError);
