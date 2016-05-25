@@ -79,7 +79,7 @@ h2 span {
   position: absolute;
   z-index: 10;
   width: 100%;
-  background-color: rgba(231,231,231,0.2);
+  background-color: transparent;
   border: none;
 }
 
@@ -319,11 +319,7 @@ h2 span {
 }
 
 @media screen and (max-width: 768px){
-  .mainNavbar{
-    background-color: transparent;
-  }
   .navbar-header{
-    background-color: rgba(231,231,231,0.2);
     margin-right: 30px;
   }
 }
