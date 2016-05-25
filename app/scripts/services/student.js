@@ -44,8 +44,12 @@ angular.module('bdl6App')
         var sessionsList = $firebaseArray(sessions);
         // Check that a session does not exist with the same id, if it does we generate a new code
         sessionsList.$loaded().then(function(){
-          if(sessionsList.$indexFor(sessionCode) <= 0){
-            return false;
+          
+          if(sessionsList.$indexFor(sessionCode) < 0){
+            $rootScope.noSession = true;
+            return -1;
+          } else {
+            $rootScope.noSession = false;
           }
           // currentSession = null;
           var sessionRef = Ref.child('Session/'+sessionCode);
@@ -53,7 +57,7 @@ angular.module('bdl6App')
 
           currentSession.$loaded().then( function(){
             if (currentSession.$id === 'undefined') {
-              return false;
+              return -1;
             }
             console.log(currentSession, sessionCode);
             var player = {

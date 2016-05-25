@@ -25,7 +25,7 @@ angular.module('bdl6App')
 
       var modalInstance = $uibModal.open({
         animation: $scope.animationsEnabled,
-        templateUrl: '../views/newquizmodal.html',
+        templateUrl: 'views/newquizmodal.html',
         // windowClass: '../styles/newquizmodal.css',
         controller: 'NewquizmodalCtrl',
         size: size,
@@ -40,7 +40,7 @@ angular.module('bdl6App')
     $scope.deleteQuiz = function (quizid, quizname) {
       var modalInstance = $uibModal.open({
         animation: $scope.animationsEnabled,
-        templateUrl: '../views/deletequizmodal.html',
+        templateUrl: 'views/deletequizmodal.html',
         controller: 'DeletequizmodalCtrl',
         size: 'sm',
         resolve: {

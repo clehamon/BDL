@@ -1,9 +1,15 @@
 'use strict';
 
 angular.module('bdl6App')
-	.controller('StuHomeCtrl', function ($scope, student) {
+	.controller('StuHomeCtrl', function ($scope, student, $rootScope) {
 		$scope.correctConnection = true;
 		$scope.playerName = '';
+
+		$rootScope.$watch('noSession', function() {
+		  if ($rootScope.noSession === true) {
+		  	$scope.errorMessage = "No quiz correspond to this code";
+		  }
+		});
 
 		$scope.connectToQuiz = function(){
 			console.log($scope.playerName);
@@ -14,7 +20,7 @@ angular.module('bdl6App')
 				// $scope.noError = true;
 				$scope.noError = student.setSession($scope.quizCode, $scope.playerName);
 				if (!$scope.noError) {
-					$scope.errorMessage = "No quiz correspond to this code";
+					
 				}
 			}
 		};
