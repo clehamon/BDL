@@ -155,6 +155,21 @@ h2 span {
   background:white;
 }
 
+#main-dashboard-video-row {
+  margin-top: 2vh;
+  text-align: center;
+}
+
+#main-dashboard-video-helper {
+  font-family: initial;
+}
+
+#main-dashboard-video {
+  width: 270px;
+  height: 180px;
+  border-radius: 8px;
+}
+  
 #main-email, #main-email-input{
   position: relative;
 }
@@ -310,6 +325,11 @@ h2 span {
     color: #111!important;
   }
 
+  #main-dashboard-video {
+    width: 640px;
+    height: 360px;
+  }
+
 }
 
 @media screen and (max-width: 921px) {
@@ -329,6 +349,11 @@ h2 span {
   #poster-helper {
     font: bold 36px/40px Helvetica, Sans-Serif!important;
     text-shadow: 2px 2px black;
+  }
+
+  #main-dashboard-video {
+    width: 853px;
+    height: 480px;
   }
 }
 
