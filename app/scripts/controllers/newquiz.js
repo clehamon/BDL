@@ -74,7 +74,9 @@ angular.module('bdl6App')
 	}
 
 	$scope.changedQuestion = function(num){
-		if(num > -1 && num < $scope.questionArray.length + 1){
+		if(parseInt($scope.questionArray.length) === 0)
+			refresh();
+		else if(num > -1 && num < $scope.questionArray.length + 1){
 			obj.$destroy();
 			populate($scope.questionArray[num].$id);
 			//MUDEI LINHA DE BAIXO
@@ -129,7 +131,7 @@ angular.module('bdl6App')
 			else
 				$scope.changedQuestion(0);
 		}, function(error){
-			console.log("Error:", error);
+			console.log("Error here:", error);
 		});
 		if (index > 0)
 			$scope.selection.selectedNode = $scope.currentQuestion - 2;
@@ -141,7 +143,7 @@ angular.module('bdl6App')
 		deleteAns.$remove().then(function (ref) {
 			//data has been deleted locally and in the database
 		}, function(error) {
-			console.log("Error:", error);
+			console.log("Error there:", error);
 		});
 	}
 
@@ -152,7 +154,7 @@ angular.module('bdl6App')
 			//data has been deleted locally and in the database
 			loadAnswers();
 		}, function(error) {
-			console.log("Error:", error);
+			console.log("Error everywhere:", error);
 		});
 	}
 
@@ -176,25 +178,6 @@ angular.module('bdl6App')
 		};
 		fr.readAsDataURL(e1);
 	}
-
-	/*$scope.addImg = function(e1){
-		var file = e1;
-		var fr = new FileReader();
-		fr.onload = function(event) {
-			console.log(fr.result);
-			var ref = Ref.child('Answer/' + questionArrayKey + '/' + aID.key() + '/-KHyJ_w6HZbN5r1vVtCT');
-			ansImg = $firebaseObject(ref);
-			ansImg.$loaded().then(function(){
-				console.log(ansImg);
-				ansImg.Picture = fr.result;
-				ansImg.$save().then(function (val) {
-					//
-				}, function (e) {
-					console.log(e);
-				});
-			});
-		};
-	}*/
 
 	$scope.done = function(){
 		$location.path('dashboard');

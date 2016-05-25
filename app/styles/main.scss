@@ -83,6 +83,14 @@ h2 span {
   border: none;
 }
 
+.mainNavbar #info{
+  display: inline-block;
+  margin-left: 10px;
+  color: white;
+  font-weight: bold;
+  vertical-align: bottom;
+}
+
 #splashimage {
   width: 100%;
 }
@@ -304,10 +312,23 @@ h2 span {
 
 }
 
+@media screen and (max-width: 921px) {
+  .mainNavbar #info {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px){
+  .navbar-header{
+    margin-right: 30px;
+  }
+}
+
 /*set responsive styles for pc*/
 @media screen and (min-width: 1200px) {
   #poster-helper {
     font: bold 36px/40px Helvetica, Sans-Serif!important;
+    text-shadow: 2px 2px black;
   }
 }
 
@@ -321,6 +342,7 @@ h2 span {
     position: absolute;
     top: 130px;
     text-align: center;
+    text-shadow: 2px 2px black;
 
     h2{
       font-size: 1.2em;

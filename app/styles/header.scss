@@ -1,3 +1,11 @@
+#info{
+	display: inline-block;
+	margin-left: 10px;
+	color: black;
+	font-weight: bold;
+	vertical-align: bottom;
+}
+
 .headerbutton{
 	display:inline-block;
 }
@@ -8,7 +16,7 @@
 	border-style: solid;
 	border-color:rgba(82, 222, 255, 1);
 	// border-image: linear-gradient(to bottom, rgba(82, 222, 255, 0.6),rgba(226, 142, 255, 0.36));
-	text-align:center;
+	
 	color:rgba(82, 222, 255, 1);
 	background-color: transparent;
 	display: inline-block;
@@ -19,5 +27,11 @@
 		background-color: rgba(82, 222, 255, 1);
 		color: white;
 	}
+}
+
+@media screen and (max-width: 921px) {
+  #info {
+    display: none;
+  }
 }
 
